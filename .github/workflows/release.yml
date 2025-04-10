@@ -1,0 +1,28 @@
+name: Build and Deploy OPNsense Theme Repo
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install dependencies
+        run: sudo apt update && sudo apt install -y pkgconf pkg
+
+      - name: Install Task
+        uses: arduino/setup-task@v1
+
+      - name: Run Task
+        run: task all
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          publish_dir: docs
+          github_token: ${{ secrets.GITHUB_TOKEN }}
