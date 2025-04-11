@@ -30,7 +30,8 @@ jobs:
       - name: Copy built package to docs
         run: |
           mkdir -p docs/FreeBSD:14:amd64
-          cp repo/FreeBSD:14:amd64/*.txz docs/FreeBSD:14:amd64/
+          cp -v repo/FreeBSD:14:amd64/*.txz docs/FreeBSD:14:amd64/
+          ls -l repo/FreeBSD:14:amd64/
 
       - name: Build FreeBSD repo metadata
         uses: vmactions/freebsd-vm@v1
