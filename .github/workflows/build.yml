@@ -1,0 +1,43 @@
+name: Build and Push Unsense Theme
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  build-and-update-repo:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo with submodules
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+
+      - name: Setup environment
+        run: sudo apt-get update && sudo apt-get install -y xz-utils
+
+      - name: Build theme package
+        working-directory: src/opnsense-theme
+        run: |
+          yarn install
+          yarn build
+          sh scripts/package.sh
+
+      - name: Copy package into repo
+        run: |
+          mkdir -p repo/FreeBSD:14:amd64
+          cp src/opnsense-theme/work/opnsense-theme-unsense-*.txz repo/FreeBSD:14:amd64/
+
+      - name: Generate repo.txz
+        run: |
+          cd repo/FreeBSD:14:amd64
+          tar -Jcf repo.txz +MANIFEST $(ls opnsense-theme-unsense-*.txz | xargs -n1 tar -tf | grep -v '^+MANIFEST$' | sort -u)
+
+      - name: Commit & push
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+          git add repo/FreeBSD:14:amd64
+          git commit -m "Update theme package and repo index" || echo "Nothing to commit"
+          git push
