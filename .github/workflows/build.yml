@@ -21,7 +21,7 @@ jobs:
         run: sudo apt-get update && sudo apt-get install -y xz-utils
 
       - name: Build theme package
-        working-directory: src/opnsense-theme
+        working-directory: src/unsense-theme
         run: |
           yarn install
           yarn build
@@ -30,7 +30,7 @@ jobs:
       - name: Copy package into repo
         run: |
           mkdir -p repo/FreeBSD:14:amd64
-          cp src/opnsense-theme/work/opnsense-theme-unsense-*.txz repo/FreeBSD:14:amd64/
+          cp src/unsense-theme/work/opnsense-theme-unsense-*.txz repo/FreeBSD:14:amd64/
 
       - name: Generate repo.txz
         run: |
