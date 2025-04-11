@@ -4,8 +4,6 @@ on:
   release:
     types: [published]
   workflow_dispatch:
-  # push:
-    # branches: [main]
 
 jobs:
   build-and-deploy:
@@ -31,22 +29,25 @@ jobs:
         run: |
           mkdir -p docs/FreeBSD:14:amd64
           cp -v repo/FreeBSD:14:amd64/*.txz docs/FreeBSD:14:amd64/
-          ls -l repo/FreeBSD:14:amd64/
+          ls -l docs/FreeBSD:14:amd64/
 
       - name: Build FreeBSD repo metadata
         uses: vmactions/freebsd-vm@v1
         with:
           usesh: true
+          copyback: false
           prepare: |
             pkg install -y pkg
 
           run: |
             set -e
-            REPO_DIR=/github/workspace/docs/FreeBSD:14:amd64
-            mkdir -p "$REPO_DIR/unpacked"
+            REPO_DIR=$HOME/work/${GITHUB_REPOSITORY}/${GITHUB_REPOSITORY}/docs/FreeBSD:14:amd64            mkdir -p "$REPO_DIR/unpacked"
 
             for p in "$REPO_DIR"/*.txz; do
-              tar -xf "$p" -C "$REPO_DIR/unpacked"
+              case "$p" in
+                *repo.txz) continue ;;
+                *) tar -xf "$p" -C "$REPO_DIR/unpacked" ;;
+              esac
             done
 
             pkg create -m "$REPO_DIR/unpacked/+MANIFEST" \
