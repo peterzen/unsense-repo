@@ -18,7 +18,7 @@ jobs:
           submodules: recursive
 
       - name: Setup environment
-        run: sudo apt-get update && sudo apt-get install -y xz-utils
+        run: sudo apt-get update && sudo apt-get install -y xz-utils pandoc
 
       - name: Build theme package
         working-directory: src/unsense-theme
@@ -27,19 +27,74 @@ jobs:
           yarn build
           sh scripts/package.sh
 
-      # - name: Copy package into repo
-      #   run: |
-      #     mkdir -p repo/FreeBSD:14:amd64
-      #     cp src/unsense-theme/work/opnsense-theme-unsense-*.txz repo/FreeBSD:14:amd64/
-
-      # - name: Generate repo.txz
-      #   run: |
-      #     cd repo/FreeBSD:14:amd64
-      #     tar -Jcf repo.txz +MANIFEST $(ls opnsense-theme-unsense-*.txz | xargs -n1 tar -tf | grep -v '^+MANIFEST$' | sort -u)
       - name: Copy built repo to docs for GitHub Pages
         run: |
           mkdir -p docs/FreeBSD:14:amd64
           cp repo/FreeBSD:14:amd64/*.txz docs/FreeBSD:14:amd64/
+
+      - name: Generate index.html from index.md
+        run: |
+          cp -rv src/www/assets/* docs/
+          pandoc --standalone \
+            --css=simple.css \
+            src/www/index.md \
+            -o docs/index.html
+
+      - name: Rename docs dir for artifact upload
+        run: |
+          mv docs/FreeBSD:14:amd64 docs/FreeBSD-14-amd64
+
+      - name: Upload pages content for repo index step
+        uses: actions/upload-artifact@v4
+        with:
+          name: github-pages
+          path: docs
+
+  build-index:
+    runs-on: ubuntu-latest
+    needs: build-and-update-repo
+
+    steps:
+      - name: Download built packages from previous job
+        uses: actions/download-artifact@v4
+        with:
+          name: github-pages
+          path: docs
+          
+      - name: Restore original colon path for Pages
+        run: |
+          mv docs/FreeBSD-14-amd64 docs/FreeBSD:14:amd64
+          
+      - uses: crosswalk-action/freebsd@v1
+        with:
+          release: 14.0
+          arch: amd64
+          run: |
+            mkdir -p /repo/FreeBSD:14:amd64
+            cp docs/FreeBSD:14:amd64/*.txz /repo/FreeBSD:14:amd64/
+            pkg repo /repo/FreeBSD:14:amd64
+
+      - name: Copy repo index files to docs
+        run: |
+          cp /repo/FreeBSD:14:amd64/meta.txz docs/FreeBSD:14:amd64/
+          cp /repo/FreeBSD:14:amd64/packagesite.pkg docs/FreeBSD:14:amd64/
+
+      - name: Upload final pages content
+        uses: actions/upload-artifact@v4
+        with:
+          name: final-pages
+          path: docs
+
+  deploy:
+    needs: [build-index]
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Download final site files
+        uses: actions/download-artifact@v4
+        with:
+          name: final-pages
+          path: docs
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
