@@ -36,11 +36,13 @@ jobs:
       #   run: |
       #     cd repo/FreeBSD:14:amd64
       #     tar -Jcf repo.txz +MANIFEST $(ls opnsense-theme-unsense-*.txz | xargs -n1 tar -tf | grep -v '^+MANIFEST$' | sort -u)
-
-      - name: Commit & push
+      - name: Copy built repo to docs for GitHub Pages
         run: |
-          git config user.name "github-actions"
-          git config user.email "github-actions@github.com"
-          git add repo/FreeBSD:14:amd64
-          git commit -m "Update theme package and repo index" || echo "Nothing to commit"
-          git push
+          mkdir -p docs/FreeBSD:14:amd64
+          cp repo/FreeBSD:14:amd64/*.txz docs/FreeBSD:14:amd64/
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: docs
