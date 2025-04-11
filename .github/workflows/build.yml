@@ -27,15 +27,15 @@ jobs:
           yarn build
           sh scripts/package.sh
 
-      - name: Copy package into repo
-        run: |
-          mkdir -p repo/FreeBSD:14:amd64
-          cp src/unsense-theme/work/opnsense-theme-unsense-*.txz repo/FreeBSD:14:amd64/
+      # - name: Copy package into repo
+      #   run: |
+      #     mkdir -p repo/FreeBSD:14:amd64
+      #     cp src/unsense-theme/work/opnsense-theme-unsense-*.txz repo/FreeBSD:14:amd64/
 
-      - name: Generate repo.txz
-        run: |
-          cd repo/FreeBSD:14:amd64
-          tar -Jcf repo.txz +MANIFEST $(ls opnsense-theme-unsense-*.txz | xargs -n1 tar -tf | grep -v '^+MANIFEST$' | sort -u)
+      # - name: Generate repo.txz
+      #   run: |
+      #     cd repo/FreeBSD:14:amd64
+      #     tar -Jcf repo.txz +MANIFEST $(ls opnsense-theme-unsense-*.txz | xargs -n1 tar -tf | grep -v '^+MANIFEST$' | sort -u)
 
       - name: Commit & push
         run: |
