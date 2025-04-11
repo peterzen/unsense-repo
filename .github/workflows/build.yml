@@ -15,48 +15,63 @@ jobs:
         with:
           submodules: recursive
 
-      - name: Setup environment
-        run: sudo apt-get update && sudo apt-get install -y xz-utils pandoc
+      - name: Setup yarn
+        run: |
+          corepack enable
+          corepack prepare yarn@1.22.22 --activate
 
-      - name: Build theme package
+      - name: Build theme
         working-directory: src/unsense-theme
         run: |
-          yarn install
+          yarn install  --mode=update-lockfile
           yarn build
-          sh scripts/package.sh
+          rm -rf node_modules
 
-      - name: Copy built package to docs
+      - name: Package plugin in FreeBSD
+        uses: vmactions/freebsd-vm@v1
+        with:
+          upload: ./
+          mountdir: repo
+          usesh: true
+          copyback: true
+          prepare: |
+            pkg install -y bash gtar
+          run: |
+            set -e
+            env
+            find ${GITHUB_WORKSPACE}
+            cd ${GITHUB_WORKSPACE}/src/unsense-theme
+            sh scripts/package.sh
+
+      - name: Copy package to docs
         run: |
           mkdir -p docs/FreeBSD:14:amd64
+          echo "___REPO_______"
+          find repo
           cp -v repo/FreeBSD:14:amd64/*.txz docs/FreeBSD:14:amd64/
-          ls -l docs/FreeBSD:14:amd64/
 
       - name: Build FreeBSD repo metadata
         uses: vmactions/freebsd-vm@v1
         with:
+          upload: docs/FreeBSD:14:amd64
+          mountdir: repo
           usesh: true
-          copyback: false
+          copyback: true
           prepare: |
             pkg install -y pkg
-
           run: |
             set -e
-            REPO_DIR=$HOME/work/${GITHUB_REPOSITORY}/${GITHUB_REPOSITORY}/docs/FreeBSD:14:amd64            mkdir -p "$REPO_DIR/unpacked"
-
-            for p in "$REPO_DIR"/*.txz; do
+            REPO=${GITHUB_WORKSPACE}/repo
+            echo '======================================'
+            find $REPO
+            mkdir -p "$REPO/unpacked"
+            for p in "$REPO"/*.txz; do
               case "$p" in
                 *repo.txz) continue ;;
-                *) tar -xf "$p" -C "$REPO_DIR/unpacked" ;;
+                *) tar -xf "$p" -C "$REPO/unpacked" ;;
               esac
             done
-
-            pkg create -m "$REPO_DIR/unpacked/+MANIFEST" \
-              -r "$REPO_DIR/unpacked/usr" \
-              -p /dev/null \
-              -o "$REPO_DIR"
-
-            pkg repo "$REPO_DIR"
-
+            pkg repo "$REPO"
 
       - name: Generate index.html from index.md
         run: |
