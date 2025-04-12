@@ -29,37 +29,39 @@ jobs:
           yarn build
           rm -rf node_modules
           
-      # - name: Package and index in FreeBSD
-      #   uses: vmactions/freebsd-vm@v1
-      #   with:
-      #     upload: ./
-      #     mountdir: work/unsense-repo/unsense-repo
-      #     usesh: true
-      #     copyback: true
-      #     prepare: |
-      #       pkg install -y bash gtar pkg
-      #     run: |
-      #       set -ex
-      #       THEME_DIR=${GITHUB_WORKSPACE}/misc/unsense-theme
-      #       cd ${THEME_DIR}
-      #       make build_collect
-      #       make package
+      - name: Package and index in FreeBSD
+        uses: vmactions/freebsd-vm@v1
+        with:
+          upload: ./
+          mountdir: work/unsense-repo/unsense-repo
+          usesh: true
+          copyback: true
+          prepare: |
+            pkg install -y bash gtar pkg
+          run: |
+            set -ex
+            THEME_DIR=${GITHUB_WORKSPACE}/misc/unsense-theme
+            cd ${THEME_DIR}
+            make build_collect
+            make package
 
       - name: Copy package and index to docs
         run: |
           sudo apt-get install -y pandoc
           mkdir -p docs/FreeBSD:14:amd64
-          # mkdir -p ${GITHUB_WORKSPACE}/misc/unsense-theme/work/pkg
-          # REPO_DIR=${GITHUB_WORKSPACE}/misc/unsense-theme/work/pkg
-          # cp -v $REPO_DIR/* docs/FreeBSD:14:amd64/
+          mkdir -p ${GITHUB_WORKSPACE}/misc/unsense-theme/work/pkg
+          REPO_DIR=${GITHUB_WORKSPACE}/misc/unsense-theme/work/pkg
+          cp -v $REPO_DIR/* docs/FreeBSD:14:amd64/
           cp -rv src/www/assets/* docs/
           pandoc --standalone \
             --css=simple.css \
             src/www/index.md \
             -o docs/index.html
+          echo
           echo 'docs *********'
           find docs/
           echo '*********'
+          echo
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
