@@ -1,0 +1,189 @@
+$zindex: (
+  header: 2,
+  footer: 2,
+  main: 1,
+  sidebar: 3,
+);
+
+$left-nav-width: 200px;
+
+body {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.page-head {
+  flex: 0 0 60px;
+}
+
+// BS3 grid and flexbox don't play well together
+main.page-content {
+  flex: 1 1 auto;
+  display: flex !important;
+  overflow: hidden;
+  width: 100% !important;
+  margin: 0 !important;
+  float: none !important;
+  left: auto !important;
+  right: auto !important;
+  padding: 0 !important;
+
+  >.row {
+    flex: 1 1 auto;
+    overflow: auto;
+    height: 100%;
+    margin-left: 0;
+    // margin: 0;
+  }
+}
+
+.col-sidebar-left + .row {
+  margin-left: 70px !important;
+}
+
+.page-content {
+  @media (min-width: $screen-sm-min) {
+
+    &.col-lg-10,
+    &.col-sm-9 {
+      // width: calc(100% - $left-nav-width);
+    }
+
+    &.col-lg-push-2,
+    &.col-sm-push-3 {
+      // left: $left-nav-width;
+    }
+  }
+}
+
+.page-content-main {
+  min-height: calc(100% - 64px);
+  padding: 15px 0 (15px + 58px);
+  width: 100%;
+}
+
+
+
+// unset BS grid float behavior for flex to work
+.page-content [class*="col-"] {
+  // float: none !important;
+  // width: auto !important;
+}
+
+
+aside.page-side {
+  flex: 0 0 auto;
+  overflow-y: auto;
+  margin: 0;
+  @extend .hidden-xs;
+}
+
+// #navigation.col-sidebar-left {
+
+//   @extend .col-xs-12 ;
+//   @extend .col-sm-3;
+//   @extend .col-lg-2;
+// }
+
+.page-side-nav {
+  max-height: 100%;
+  height: 100%;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+
+.page-head {
+  .navbar-default {
+    min-height: 60px;
+  }
+
+  .navbar-right {
+    margin-top: 6px;
+  }
+
+  .navbar-brand {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+
+  .navbar-toggle {
+    top: 5px;
+  }
+}
+
+
+
+
+
+.page-content-head {
+  padding-top: 1.5em;
+  padding-bottom: 1.5em;
+
+  .navbar-nav {
+    width: 100%;
+  }
+
+  h1,
+  h2,
+  h3 {
+    margin: 0;
+  }
+}
+
+
+
+// html .bootgrid-table {
+//   table-layout: auto !important;
+//   td {
+//     overflow: hidden;
+//     text-overflow: ellipsis;
+//     white-space: nowrap;
+//     max-width: 0;
+//   }
+// }
+
+// html .table-responsive {
+//   table-layout: fixed;
+//   td {
+//     overflow: hidden;
+//     text-overflow: ellipsis;
+//     white-space: nowrap;
+//     max-width: 0;
+//   }
+// }
+
+// @media (max-width: 768px) {
+//   .table.bootgrid-table {
+//     display: block;
+//     width: 100%;
+
+//     thead {
+//       display: none;
+//     }
+
+//     tr {
+//       display: flex;
+//       flex-wrap: wrap;
+//       border-bottom: 1px solid $gray-dark;
+//       margin-bottom: 0.5em;
+
+//       &:nth-child(odd) td {
+//         background-color: lighten($body-bg, 1%) !important;
+//       }
+//     }
+
+//     td {
+//       flex: 1 0 50%;
+//       display: inline-block;
+//       box-sizing: border-box;
+//       white-space: normal;
+//       padding: 4px 8px;
+//       border: none !important;
+//     }
+//   }
+// }

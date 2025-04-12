@@ -1,0 +1,21 @@
+{
+  "name": "unsense-theme",
+  "version": "1.0.0",
+  "packageManager": "yarn@1.22.22",
+  "scripts": {
+    "copy:fonts": "cpx 'src/fonts/**/*' build/fonts",
+    "copy:images": "cpx 'src/images/**/*' build/images",
+    "copy:assets": "yarn copy:fonts && yarn copy:images",
+    "build:css": "SASS_WARN_DEPRECATED=false  sass src/stylesheets/main.scss build/css/main.css --no-source-map",
+    "build": "yarn copy:assets && yarn build:css",
+    "clean": "rm -rf build/{css,fonts,images}",
+    "watch": "SASS_WARN_DEPRECATED=false sass --watch src/stylesheets/main.scss:build/css/main.css",
+    "dev": "browser-sync start --proxy 'https://10.100.0.1' --files 'build/css/main.css'"
+  },
+  "devDependencies": {
+    "browser-sync": "^3.0.4",
+    "cpx": "^1.5.0",
+    "sass": "^1.75.0",
+    "sass-formatter": "^0.7.9"
+  }
+}

@@ -1,0 +1,74 @@
+name: Build and Push Unsense Theme
+
+on:
+  release:
+    types: [published]
+  workflow_dispatch:
+
+env:
+  ACTIONS_STEP_DEBUG: true
+  ACTIONS_RUNNER_DEBUG: true
+  
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo with submodules
+        uses: actions/checkout@v4
+
+      - name: Setup yarn
+        run: |
+          corepack enable
+          corepack prepare yarn@1.22.22 --activate
+
+      - name: Build theme
+        working-directory: src/unsense-theme
+        run: |
+          yarn install --mode=update-lockfile
+          yarn build
+          cp -rv build/* ../../misc/unsense-theme
+          rm -rf node_modules
+          
+      - name: Package and index in FreeBSD
+        uses: vmactions/freebsd-vm@v1
+        with:
+          upload: ./
+          mountdir: work/unsense-repo/unsense-repo
+          usesh: true
+          copyback: true
+          prepare: |
+            pkg install -y bash gtar pkg
+          run: |
+            set -ex
+            THEME_DIR=${GITHUB_WORKSPACE}/misc/unsense-theme
+            cd ${THEME_DIR}
+            make package
+            pkg repo work/pkg
+            echo 'work/pkg *********'
+            find work/pkg
+            echo '*********'
+
+      - name: Copy package and index to docs
+        run: |
+          sudo apt-get install -y pandoc
+          mkdir -p docs/FreeBSD:14:amd64
+          mkdir -p ${GITHUB_WORKSPACE}/misc/unsense-theme/work/pkg
+          REPO_DIR=${GITHUB_WORKSPACE}/misc/unsense-theme/work/pkg
+          cp -v $REPO_DIR/* docs/FreeBSD:14:amd64/
+          cp -rv src/www/assets/* docs/
+          pandoc --standalone \
+            --css=simple.css \
+            src/www/index.md \
+            -o docs/index.html
+          echo
+          echo 'docs *********'
+          find ${GITHUB_WORKSPACE}/docs/
+          echo '*********'
+          echo
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./docs/

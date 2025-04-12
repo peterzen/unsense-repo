@@ -1,0 +1,5 @@
+node_modules/
+work/
+build/
+yarn.lock
+**/*.swp

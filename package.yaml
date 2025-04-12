@@ -1,0 +1,9 @@
+name: unsense-theme
+version: 1.0
+comment: "Unsense OPNsense Theme"
+maintainer: "unsense@froggle.org"
+category: themes
+license: BSD2CLAUSE
+arch: any
+origin: unsense-theme
+changelog: changelog

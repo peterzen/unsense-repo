@@ -1,0 +1,61 @@
+
+// in multi-select dropdown menus move the selected items
+// to the top of the list
+.bootstrap-select select[multiple="multiple"]~.dropdown-menu,
+.bootstrap-select .bs-searchbox~[aria-multiselectable="true"] {
+  .dropdown-menu.inner {
+    display: flex;
+    flex-direction: column;
+
+    >li {
+      order: 1;
+    }
+
+    >li:has(a.selected) {
+      order: -1;
+      font-weight: bold;
+
+      a.selected {
+        margin-left: -1rem;
+      }
+    }
+  }
+}
+
+
+
+
+// pin the change message boxes next to the apply button
+// to stop the button from moving around as the user is trying to click it
+div:has(.alert[id*=ChangeMessage]),
+// #shaperChangeMessage,
+// #routeChangeMessage,
+div:has(#change_message_base_form ){
+  .alert {
+  display: inline-block;
+  position: absolute;
+  top: 1em;
+  margin: 0;
+  border: 0;
+  padding: 0;
+  background: none;
+  color: $brand-primary;
+
+  &+button {
+    // margin: auto;
+  }
+}
+}
+
+#shaperChangeMessage {
+  position: absolute;
+  width: 50%;
+  padding-top: 1.25rem;
+}
+
+#routeChangeMessage {
+  position: absolute;
+  width: 50%;
+  margin-top: 5em;
+}
+
