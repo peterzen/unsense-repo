@@ -47,13 +47,13 @@ jobs:
             sh scripts/package.sh
 
             REPO=${THEME_DIR}/repo/FreeBSD_14_amd64
-            # mkdir -p "$REPO/unpacked"
-            # for p in "$REPO"/*.txz; do
-            #   case "$p" in
-            #     *repo.txz) continue ;;
-            #     *) tar -xvf "$p" -C "$REPO/unpacked" ;;
-            #   esac
-            # done
+            mkdir -p "$REPO/unpacked"
+            for p in "$REPO"/*.txz; do
+              case "$p" in
+                *repo.txz) continue ;;
+                *) tar -xvf "$p" -C "$REPO/unpacked" ;;
+              esac
+            done
             find $REPO/
             pkg repo "$REPO"
             false
