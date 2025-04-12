@@ -5,6 +5,10 @@ on:
     types: [published]
   workflow_dispatch:
 
+env:
+  ACTIONS_STEP_DEBUG: true
+  ACTIONS_RUNNER_DEBUG: true
+  
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
@@ -37,7 +41,7 @@ jobs:
           prepare: |
             pkg install -y bash gtar pkg
           run: |
-            set -e
+            set -ex
             cd ${GITHUB_WORKSPACE}/src/unsense-theme
             sh scripts/package.sh
 
