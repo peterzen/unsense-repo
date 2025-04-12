@@ -4,4 +4,11 @@ PLUGIN_REVISION=    1
 PLUGIN_COMMENT=		Unsense Dark theme
 PLUGIN_MAINTAINER=	peter@froggle.org
 
+
+build_collect:
+    @rm -rf work
+    @mkdir -p work/pkg work/src work/src/usr/local/opnsense/www/themes/unsense
+    @cp -rv  build/* work/src/usr/local/opnsense/www/themes/unsense
+
+
 .include "../../Mk/plugins.mk"
