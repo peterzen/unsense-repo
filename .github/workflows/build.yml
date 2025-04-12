@@ -26,22 +26,22 @@ jobs:
           yarn install --mode=update-lockfile
           yarn build
           rm -rf node_modules
-
+          
       - name: Package and index in FreeBSD
         uses: vmactions/freebsd-vm@v1
         with:
-          upload: ./src/unsense-theme
-          mountdir: unsense-theme
+          upload: ./
+          mountdir: work/unsense-repo/unsense-repo
           usesh: true
           copyback: true
           prepare: |
             pkg install -y bash gtar pkg
           run: |
             set -e
-            cd ${GITHUB_WORKSPACE}/unsense-theme
+            cd ${GITHUB_WORKSPACE}/src/unsense-theme
             sh scripts/package.sh
 
-            REPO=repo/FreeBSD:14:amd64
+            REPO=${GITHUB_WORKSPACE}/src/unsense-theme/repo/FreeBSD:14:amd64
             mkdir -p "$REPO/unpacked"
             for p in "$REPO"/*.txz; do
               case "$p" in
