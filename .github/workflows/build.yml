@@ -16,8 +16,6 @@ jobs:
     steps:
       - name: Checkout repo with submodules
         uses: actions/checkout@v4
-        with:
-          submodules: recursive
 
       - name: Setup yarn
         run: |
@@ -25,7 +23,7 @@ jobs:
           corepack prepare yarn@1.22.22 --activate
 
       - name: Build theme
-        working-directory: src/unsense-theme
+        working-directory: misc/unsense-theme
         run: |
           yarn install --mode=update-lockfile
           yarn build
