@@ -54,6 +54,7 @@ jobs:
 
       - name: Generate index.html from index.md
         run: |
+          sudo apt-get install -y pandoc
           cp -rv src/www/assets/* docs/
           pandoc --standalone \
             --css=simple.css \
