@@ -48,6 +48,7 @@ jobs:
       - name: Copy package and index to docs
         run: |
           mkdir -p docs/FreeBSD:14:amd64
+          mkdir -p ${GITHUB_WORKSPACE}/misc/unsense-theme/work/pkg
           echo '*********'
           find ${GITHUB_WORKSPACE}
           echo '*********'
