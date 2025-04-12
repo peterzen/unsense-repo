@@ -50,6 +50,7 @@ jobs:
               esac
             done
             pkg repo "$REPO"
+            true
 
       - name: Copy package and index to docs
         run: |
