@@ -1,14 +1,17 @@
-PLUGIN_NAME=		theme-unsense-dark
+PLUGIN_NAME=		theme-unsense
 PLUGIN_VERSION=		0.1
-PLUGIN_REVISION=    1
-PLUGIN_COMMENT=		Unsense Dark theme
+PLUGIN_REVISION=    2
+PLUGIN_COMMENT=		Unsense theme
 PLUGIN_MAINTAINER=	peter@froggle.org
 
 
-build_collect: 
-	@rm -rf work
-	@mkdir -p work/pkg work/src work/src/usr/local/opnsense/www/themes/unsense
-	@cp -rv  build/* work/src/usr/local/opnsense/www/themes/unsense
+# collect build artefacts from the source tree
+install: 
+	# @rm -rf work
+	@mkdir -p work/pkg work/src ${DESTDIR}/usr/local/opnsense/www/themes/theme-unsense
+	@cp -rv  build/* ${DESTDIR}/usr/local/opnsense/www/themes/theme-unsense
+	@mkdir -p ${DESTDIR}${LOCALBASE}/opnsense/version
+	@cat ${TEMPLATESDIR}/version | sed ${SED_REPLACE} > "${DESTDIR}${LOCALBASE}/opnsense/version/${PLUGIN_NAME}"
 
 
 .include "../../Mk/plugins.mk"
