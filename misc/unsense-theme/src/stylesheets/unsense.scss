@@ -1,0 +1,232 @@
+// Bootstrap 3.4.1 – Dark Theme Based on Unifi UI Colors
+// DRY SCSS structure with maps and derived variables
+
+
+
+
+// ===== Color Maps =====
+$gray-scale: (
+  base:    #000000,
+  darker:  #1e1f23,
+  dark:    #2a2b30,
+  mid:     #3a3b41,
+  light:   #5c6370,
+  lighter: #888888
+);
+
+$brand-colors: (
+  primary: #3794ff,
+  success: #00d084,
+  info:    #5bc0de,
+  warning: #f0ad4e,
+  danger:  #ff4d4f
+);
+
+// ===== Aliases =====
+$gray-base:    map-get($gray-scale, base);
+$gray-darker:  map-get($gray-scale, darker);
+$gray-dark:    map-get($gray-scale, dark);
+$gray:         map-get($gray-scale, mid);
+$gray-light:   map-get($gray-scale, light);
+$gray-lighter: map-get($gray-scale, lighter);
+
+$brand-primary: map-get($brand-colors, primary);
+$brand-success: map-get($brand-colors, success);
+$brand-info:    map-get($brand-colors, info);
+$brand-warning: map-get($brand-colors, warning);
+$brand-danger:  map-get($brand-colors, danger);
+
+// ===== Base =====
+$body-bg:        rgb(19, 20, 22);
+$text-color:     #d4d4d4;
+$text-color-accent: #ffffff;
+$text-color-muted: $gray-lighter;
+$link-color:     $brand-primary;
+$link-hover-color: #61aaff;
+
+$background-primary: darken($body-bg, 2%);
+$background-secondary:darken($body-bg, 5%);
+$background-tertiary: lighten($body-bg, 2%);
+
+
+// ===== Typography =====
+$headings-color: $text-color;
+$text-muted:     $gray-light;
+
+// ===== Inputs =====
+$input-bg:                  darken($gray-darker, 0%);
+$input-color:               $text-color;
+$input-border:              darken($gray-darker, 0%);
+$input-border-focus:        $brand-primary;
+$input-color-placeholder:   $gray-lighter;
+
+// ===== Buttons =====
+$btn-default-color:         $text-color;
+$btn-default-bg:            $gray-dark;
+$btn-default-border:        $gray;
+$btn-primary-color:         #ffffff;
+$btn-primary-bg:            $brand-primary;
+$btn-primary-border:        darken($brand-primary, 8%);
+
+// ===== Tables =====
+$table-bg:                  transparent;
+$table-bg-accent:           $background-tertiary;
+$table-bg-hover:            #42464d;
+$table-border-color:        darken($gray-dark, 5%);
+$table-color:               $text-color;
+
+// ===== Navbars =====
+$navbar-default-bg:               $body-bg;
+$navbar-default-border:           $gray;
+$navbar-default-link-color:       $text-color;
+$navbar-default-link-hover-color: $brand-primary;
+$navbar-default-link-hover-bg:    transparent;
+$navbar-default-brand-color:      $text-color;
+$navbar-default-toggle-icon-bar-bg: $gray-light;
+
+//== Tabs
+$nav-tabs-border-color:          $gray-light;
+$nav-tabs-link-hover-border-color: transparent;
+$nav-tabs-active-link-hover-bg:  $gray-dark;
+$nav-tabs-active-link-hover-color: $brand-primary;
+$nav-tabs-active-link-hover-border-color: transparent;
+$nav-tabs-justified-link-border-color: transparent;
+$nav-tabs-justified-active-link-border-color: transparent;
+
+$nav-link-padding:                          10px 15px;
+$nav-link-hover-bg:                         $gray-light;
+
+$nav-disabled-link-color:                   $gray-light !default;
+$nav-disabled-link-hover-color:             $gray-light !default;
+
+// $nav-open-link-hover-color:                 #fff !default;
+
+
+
+
+// ===== Panels =====
+$panel-bg:                       $background-primary;
+$panel-default-border:           $gray;
+$panel-default-text:             $text-color;
+$panel-default-heading-bg:       lighten($panel-bg, 5%);
+
+// ===== Alerts =====
+$alert-success-bg:               rgba($brand-success, 0.1);
+$alert-success-text:             $brand-success;
+$alert-success-border:           rgba($brand-success, 0.25);
+
+$alert-info-bg:                  rgba($brand-info, 0.1);
+$alert-info-text:                $brand-info;
+$alert-info-border:              rgba($brand-info, 0.25);
+
+$alert-warning-bg:               rgba($brand-warning, 0.1);
+$alert-warning-text:             $brand-warning;
+$alert-warning-border:           rgba($brand-warning, 0.25);
+
+$alert-danger-bg:                rgba($brand-danger, 0.1);
+$alert-danger-text:              $brand-danger;
+$alert-danger-border:            rgba($brand-danger, 0.25);
+
+// ===== Forms =====
+$legend-color:                   $text-color;
+$input-group-addon-bg:          $gray;
+$input-group-addon-border-color:$gray;
+
+// ===== Dropdowns =====
+$dropdown-bg:                    $gray-dark;
+$dropdown-border:                $gray;
+$dropdown-link-color:           $text-color;
+$dropdown-link-hover-bg:        $gray;
+$dropdown-link-hover-color:     $brand-primary;
+
+// ===== Pagination =====
+$pagination-color:              $text-color;
+$pagination-bg:                 $gray-dark;
+$pagination-border:             $gray;
+$pagination-hover-bg:           $gray;
+$pagination-hover-color:        $text-color;
+$pagination-active-bg:          $brand-primary;
+$pagination-active-color:       #fff;
+$pagination-active-border:      darken($brand-primary, 8%);
+$pagination-disabled-bg:        $gray-dark;
+$pagination-disabled-color:     $gray-light;
+$pagination-disabled-border:    $gray;
+
+
+// modals
+$modal-content-bg:         darken($gray-dark, 3%);
+$modal-content-border:     $gray;
+$modal-header-border-color: $gray;
+$modal-footer-border-color: $gray;
+
+$modal-title-color:        $text-color;
+$modal-body-color:         $text-color;
+
+$modal-backdrop-bg:        $gray-darker;
+$modal-backdrop-opacity:   0.75;
+
+$modal-header-color:       $text-color;
+$modal-footer-color:       $text-color;
+
+
+// alerts
+// === Alert component theme variables ===
+
+// $alert-bg-base:        $gray-dark;
+// $alert-border-base:    $gray;
+// $alert-text-base:      $text-color;
+
+// $alert-success-bg:     rgba($brand-success, 0.1);
+// $alert-success-border: rgba($brand-success, 0.25);
+// $alert-success-text:   $brand-success;
+
+// $alert-info-bg:        rgba($brand-info, 0.1);
+// $alert-info-border:    rgba($brand-info, 0.25);
+// $alert-info-text:      $brand-info;
+
+// $alert-warning-bg:     rgba($brand-warning, 0.1);
+// $alert-warning-border: rgba($brand-warning, 0.25);
+// $alert-warning-text:   $brand-warning;
+
+// $alert-danger-bg:      rgba($brand-danger, 0.1);
+// $alert-danger-border:  rgba($brand-danger, 0.25);
+// $alert-danger-text:    $brand-danger;
+
+
+$colors: (
+  default: $gray-light,            // #5c6370
+  primary: $brand-primary,         // #3794ff
+  success: $brand-success,         // #00d084
+  info:    $brand-info,            // #5bc0de
+  warning: $brand-warning,         // #f0ad4e
+  danger:  $brand-danger,          // #ff4d4f
+  light:   $gray-dark,             // #2a2b30
+  dark:    $gray-darker   ,         // #1e1f23
+);
+
+
+$font-family-sans-serif: "Open Sans", Helvetica, Arial, sans-serif;
+$font-family-base:       $font-family-sans-serif;
+$headings-font-family: "Open Sans Light", Helvetica, Arial, sans-serif;
+$table-font-family: $font-family-base !default;
+
+$font-size-base:         14px;
+$font-size-large:        ceil($font-size-base * 1.25); // 17.5px
+$font-size-small:        ceil($font-size-base * 0.85); // ~12px
+
+$line-height-base:       1.428571429; // 20/14
+$line-height-computed:   floor($font-size-base * $line-height-base);
+
+// $input-border: #e4eaec;
+$list-group-bg:                 transparent;
+$list-group-border:             $gray-dark;
+$list-group-hover-bg:           $gray-light;
+$list-group-active-color:       $text-color-accent;
+$list-group-active-border:    #3498db;
+$list-group-active-bg:          $background-tertiary;
+$list-group-active-text-color:  lighten($list-group-active-bg, 40%);
+
+$theme-path: "/ui/themes/advanced";
+
+
+$font-size-base: 15px;
