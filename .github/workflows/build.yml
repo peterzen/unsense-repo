@@ -47,22 +47,19 @@ jobs:
 
       - name: Copy package and index to docs
         run: |
+          sudo apt-get install -y pandoc
           mkdir -p docs/FreeBSD:14:amd64
           # mkdir -p ${GITHUB_WORKSPACE}/misc/unsense-theme/work/pkg
           # REPO_DIR=${GITHUB_WORKSPACE}/misc/unsense-theme/work/pkg
           # cp -v $REPO_DIR/* docs/FreeBSD:14:amd64/
-
-      - name: Generate index.html from index.md
-        run: |
-          sudo apt-get install -y pandoc
           cp -rv src/www/assets/* docs/
-          echo 'docs *********'
-          find docs/
-          echo '*********'
           pandoc --standalone \
             --css=simple.css \
             src/www/index.md \
             -o docs/index.html
+          echo 'docs *********'
+          find docs/
+          echo '*********'
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
