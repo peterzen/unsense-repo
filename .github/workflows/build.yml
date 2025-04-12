@@ -44,7 +44,7 @@ jobs:
             THEME_DIR=${GITHUB_WORKSPACE}/misc/unsense-theme
             cd ${THEME_DIR}
             make package
-            pkg repo work/pkg
+            env PKG_REPO_COMPRESSION_FORMAT=zstd pkg repo work/pkg
             echo 'work/pkg *********'
             find work/pkg
             echo '*********'
