@@ -41,7 +41,7 @@ jobs:
             cd ${GITHUB_WORKSPACE}/src/unsense-theme
             sh scripts/package.sh
 
-            REPO=${GITHUB_WORKSPACE}/src/unsense-theme/repo/FreeBSD:14:amd64
+            REPO=${GITHUB_WORKSPACE}/src/unsense-theme/repo/FreeBSD_14_amd64
             mkdir -p "$REPO/unpacked"
             for p in "$REPO"/*.txz; do
               case "$p" in
@@ -53,8 +53,9 @@ jobs:
 
       - name: Copy package and index to docs
         run: |
-          mkdir -p docs/FreeBSD:14:amd64
-          cp -v src/unsense-theme/repo/FreeBSD:14:amd64/* docs/FreeBSD:14:amd64/
+          mkdir -p docs/FreeBSD_14_amd64
+          cp -v src/unsense-theme/repo/FreeBSD_14_amd64/* docs/FreeBSD_14_amd64/
+          mv docs/FreeBSD_14_amd64/ docs/FreeBSD:14:amd64/
 
       - name: Generate index.html from index.md
         run: |
