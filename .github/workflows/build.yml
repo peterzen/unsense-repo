@@ -49,9 +49,6 @@ jobs:
         run: |
           mkdir -p docs/FreeBSD:14:amd64
           # mkdir -p ${GITHUB_WORKSPACE}/misc/unsense-theme/work/pkg
-          echo '*********'
-          find ${GITHUB_WORKSPACE}
-          echo '*********'
           # REPO_DIR=${GITHUB_WORKSPACE}/misc/unsense-theme/work/pkg
           # cp -v $REPO_DIR/* docs/FreeBSD:14:amd64/
 
@@ -59,6 +56,9 @@ jobs:
         run: |
           sudo apt-get install -y pandoc
           cp -rv src/www/assets/* docs/
+          echo 'docs *********'
+          find docs/
+          echo '*********'
           pandoc --standalone \
             --css=simple.css \
             src/www/index.md \
