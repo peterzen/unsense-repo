@@ -48,12 +48,12 @@ jobs:
       - name: Copy package and index to docs
         run: |
           mkdir -p docs/FreeBSD:14:amd64
-          mkdir -p ${GITHUB_WORKSPACE}/misc/unsense-theme/work/pkg
+          # mkdir -p ${GITHUB_WORKSPACE}/misc/unsense-theme/work/pkg
           echo '*********'
           find ${GITHUB_WORKSPACE}
           echo '*********'
-          REPO_DIR=${GITHUB_WORKSPACE}/misc/unsense-theme/work/pkg
-          cp -v $REPO_DIR/* docs/FreeBSD:14:amd64/
+          # REPO_DIR=${GITHUB_WORKSPACE}/misc/unsense-theme/work/pkg
+          # cp -v $REPO_DIR/* docs/FreeBSD:14:amd64/
 
       - name: Generate index.html from index.md
         run: |
