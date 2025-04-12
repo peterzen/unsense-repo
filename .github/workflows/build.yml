@@ -44,7 +44,7 @@ jobs:
             cd ${THEME_DIR}
             make build_collect
             make package
-            pkg repo work/pkg
+            env PKG_COMPRESSION_FORMAT=txz pkg repo work/pkg
 
       - name: Copy package and index to docs
         run: |

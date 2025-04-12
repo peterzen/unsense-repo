@@ -1,3 +1,5 @@
 src/files
 repo/
 build/
+**/*.swp
+yarn.lock
