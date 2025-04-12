@@ -45,6 +45,9 @@ jobs:
             make build_collect
             make package
             env PKG_COMPRESSION_FORMAT=txz pkg repo work/pkg
+            echo 'work/pkg *********'
+            find work/pkg
+            echo '*********'
 
       - name: Copy package and index to docs
         run: |
