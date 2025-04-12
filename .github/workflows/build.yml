@@ -38,7 +38,7 @@ jobs:
             pkg install -y bash gtar pkg
           run: |
             set -e
-            cd ~/unsense-theme
+            cd ${GITHUB_WORKSPACE}/unsense-theme
             sh scripts/package.sh
 
             REPO=repo/FreeBSD:14:amd64
