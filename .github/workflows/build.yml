@@ -46,7 +46,7 @@ jobs:
             cd ${THEME_DIR}
             sh scripts/package.sh
 
-            REPO=${THEME_DIR}/repo
+            REPO=${THEME_DIR}/repo/FreeBSD_14_amd64
             mkdir -p "$REPO/unpacked"
             for p in "$REPO"/*.txz; do
               case "$p" in
