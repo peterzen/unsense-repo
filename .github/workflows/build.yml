@@ -23,10 +23,11 @@ jobs:
           corepack prepare yarn@1.22.22 --activate
 
       - name: Build theme
-        working-directory: misc/unsense-theme
+        working-directory: src/unsense-theme
         run: |
           yarn install --mode=update-lockfile
           yarn build
+          cp -rv build/* ../misc/unsense-theme
           rm -rf node_modules
           
       - name: Package and index in FreeBSD
@@ -42,7 +43,6 @@ jobs:
             set -ex
             THEME_DIR=${GITHUB_WORKSPACE}/misc/unsense-theme
             cd ${THEME_DIR}
-            # make build_collect
             make package
             pkg repo work/pkg
             echo 'work/pkg *********'
