@@ -52,19 +52,19 @@ jobs:
             pkg repo "$REPO"
             true
 
-      - name: Copy package and index to docs
-        run: |
-          mkdir -p docs/FreeBSD_14_amd64
-          cp -v src/unsense-theme/repo/FreeBSD_14_amd64/* docs/FreeBSD_14_amd64/
-          # mv docs/FreeBSD_14_amd64/ docs/FreeBSD:14:amd64/
-
-      # - name: Generate index.html from index.md
+      # - name: Copy package and index to docs
       #   run: |
-      #     cp -rv src/www/assets/* docs/
-      #     pandoc --standalone \
-      #       --css=simple.css \
-      #       src/www/index.md \
-      #       -o docs/index.html
+      #     mkdir -p docs/FreeBSD_14_amd64
+      #     cp -v src/unsense-theme/repo/FreeBSD_14_amd64/* docs/FreeBSD_14_amd64/
+      #     # mv docs/FreeBSD_14_amd64/ docs/FreeBSD:14:amd64/
+
+      - name: Generate index.html from index.md
+        run: |
+          cp -rv src/www/assets/* docs/
+          pandoc --standalone \
+            --css=simple.css \
+            src/www/index.md \
+            -o docs/index.html
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
