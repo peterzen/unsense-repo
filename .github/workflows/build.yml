@@ -44,7 +44,7 @@ jobs:
             cd ${THEME_DIR}
             make build_collect
             make package
-            env PKG_COMPRESSION_FORMAT=txz pkg repo work/pkg
+            pkg repo work/pkg
             echo 'work/pkg *********'
             find work/pkg
             echo '*********'
