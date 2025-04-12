@@ -30,12 +30,12 @@ jobs:
       - name: Package plugin in FreeBSD
         uses: vmactions/freebsd-vm@v1
         with:
-          upload: ./
-          mountdir: repo
+          upload: ./src/unsense-theme
+          mountdir: unsense-theme
           usesh: true
           copyback: true
           prepare: |
-            pkg install -y bash gtar
+            pkg install -y bash gtar 
           run: |
             set -e
             env
@@ -43,25 +43,7 @@ jobs:
             cd ${GITHUB_WORKSPACE}/src/unsense-theme
             sh scripts/package.sh
 
-      - name: Copy package to docs
-        run: |
-          mkdir -p docs/FreeBSD:14:amd64
-          echo "___REPO_______"
-          find repo
-          cp -v repo/FreeBSD:14:amd64/*.txz docs/FreeBSD:14:amd64/
-
-      - name: Build FreeBSD repo metadata
-        uses: vmactions/freebsd-vm@v1
-        with:
-          upload: docs/FreeBSD:14:amd64
-          mountdir: repo
-          usesh: true
-          copyback: true
-          prepare: |
-            pkg install -y pkg
-          run: |
-            set -e
-            REPO=${GITHUB_WORKSPACE}/repo
+            REPO=${GITHUB_WORKSPACE}/docs
             echo '======================================'
             find $REPO
             mkdir -p "$REPO/unpacked"
