@@ -42,10 +42,11 @@ jobs:
             pkg install -y bash gtar pkg
           run: |
             set -ex
-            cd ${GITHUB_WORKSPACE}/src/unsense-theme
+            THEME_DIR=${GITHUB_WORKSPACE}/src/unsense-theme
+            cd ${THEME_DIR}
             sh scripts/package.sh
 
-            REPO=${GITHUB_WORKSPACE}/src/unsense-theme/repo/FreeBSD_14_amd64
+            REPO=${THEME_DIR}/repo
             mkdir -p "$REPO/unpacked"
             for p in "$REPO"/*.txz; do
               case "$p" in
