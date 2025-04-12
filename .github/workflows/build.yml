@@ -51,11 +51,12 @@ jobs:
             for p in "$REPO"/*.txz; do
               case "$p" in
                 *repo.txz) continue ;;
-                *) tar -xf "$p" -C "$REPO/unpacked" ;;
+                *) tar -xvf "$p" -C "$REPO/unpacked" ;;
               esac
             done
+            find $REPO/
             pkg repo "$REPO"
-            true
+            false
 
       - name: Copy package and index to docs
         run: |
