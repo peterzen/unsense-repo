@@ -23,11 +23,11 @@ jobs:
       - name: Build theme
         working-directory: src/unsense-theme
         run: |
-          yarn install  --mode=update-lockfile
+          yarn install --mode=update-lockfile
           yarn build
           rm -rf node_modules
 
-      - name: Package plugin in FreeBSD
+      - name: Package and index in FreeBSD
         uses: vmactions/freebsd-vm@v1
         with:
           upload: ./src/unsense-theme
@@ -35,18 +35,13 @@ jobs:
           usesh: true
           copyback: true
           prepare: |
-            pkg install -y bash gtar 
+            pkg install -y bash gtar pkg
           run: |
             set -e
-            env
-            find ${GITHUB_WORKSPACE}
-            cd ${GITHUB_WORKSPACE}/src/unsense-theme
+            cd ~/unsense-theme
             sh scripts/package.sh
 
-            REPO=${GITHUB_WORKSPACE}/docs
-            mkdir -p $REPO
-            echo '======================================'
-            find $REPO
+            REPO=repo/FreeBSD:14:amd64
             mkdir -p "$REPO/unpacked"
             for p in "$REPO"/*.txz; do
               case "$p" in
@@ -55,6 +50,11 @@ jobs:
               esac
             done
             pkg repo "$REPO"
+
+      - name: Copy package and index to docs
+        run: |
+          mkdir -p docs/FreeBSD:14:amd64
+          cp -v src/unsense-theme/repo/FreeBSD:14:amd64/* docs/FreeBSD:14:amd64/
 
       - name: Generate index.html from index.md
         run: |
@@ -68,4 +68,3 @@ jobs:
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: docs
