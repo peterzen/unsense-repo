@@ -6,9 +6,11 @@
     "copy:fonts": "cpx 'src/fonts/**/*' build/fonts",
     "copy:images": "cpx 'src/images/**/*' build/images",
     "copy:assets": "yarn copy:fonts && yarn copy:images",
+    "export:artefacts": "cp -rv build/* ../../misc/unsense-theme/src",
     "build:css": "SASS_WARN_DEPRECATED=false  sass src/stylesheets/main.scss build/css/main.css --no-source-map",
     "build": "yarn copy:assets && yarn build:css",
     "clean": "rm -rf build/{css,fonts,images}",
+    "clean:modules": "rm -rf node_modules",
     "watch": "SASS_WARN_DEPRECATED=false sass --watch src/stylesheets/main.scss:build/css/main.css",
     "dev": "browser-sync start --proxy 'https://10.100.0.1' --files 'build/css/main.css'"
   },

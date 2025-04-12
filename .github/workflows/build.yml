@@ -27,8 +27,8 @@ jobs:
         run: |
           yarn install --mode=update-lockfile
           yarn build
-          cp -rv build/* ../../misc/unsense-theme
-          rm -rf node_modules
+          yarn export:artefacts
+          yarn clean:modules
           
       - name: Package and index in FreeBSD
         uses: vmactions/freebsd-vm@v1
