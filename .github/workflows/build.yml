@@ -59,7 +59,7 @@ jobs:
             -o docs/index.html
           echo
           echo 'docs *********'
-          find docs/
+          find ${GITHUB_WORKSPACE}/docs/
           echo '*********'
           echo
 
@@ -67,4 +67,4 @@ jobs:
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: docs/
+          publish_dir: ./docs/
