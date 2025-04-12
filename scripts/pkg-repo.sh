@@ -1,4 +1,4 @@
 #!/bin/sh
 set -e
 
-env PKG_REPO_COMPRESSION_FORMAT=zstd pkg repo $1
+env PKG_REPO_COMPRESSION_FORMAT=txz pkg repo $1
