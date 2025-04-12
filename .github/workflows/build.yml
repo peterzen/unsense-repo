@@ -37,7 +37,7 @@ jobs:
           upload: ./
           mountdir: work/unsense-repo/unsense-repo
           usesh: true
-          copyback: true
+          copyback: false
           prepare: |
             pkg install -y bash gtar pkg
           run: |
@@ -56,11 +56,11 @@ jobs:
             pkg repo "$REPO"
             true
 
-      # - name: Copy package and index to docs
-      #   run: |
-      #     mkdir -p docs/FreeBSD_14_amd64
-      #     cp -v src/unsense-theme/repo/FreeBSD_14_amd64/* docs/FreeBSD_14_amd64/
-      #     # mv docs/FreeBSD_14_amd64/ docs/FreeBSD:14:amd64/
+      - name: Copy package and index to docs
+        run: |
+          mkdir -p docs/FreeBSD_14_amd64
+          cp -v src/unsense-theme/repo/FreeBSD_14_amd64/* docs/FreeBSD_14_amd64/
+          # mv docs/FreeBSD_14_amd64/ docs/FreeBSD:14:amd64/
 
       - name: Generate index.html from index.md
         run: |
