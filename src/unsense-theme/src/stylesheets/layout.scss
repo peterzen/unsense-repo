@@ -135,7 +135,9 @@ aside.page-side {
   }
 }
 
-
+.modal-dialog {
+  z-index: 1200;
+}
 
 // html .bootgrid-table {
 //   table-layout: auto !important;

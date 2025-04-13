@@ -59,3 +59,8 @@ div:has(#change_message_base_form ){
   margin-top: 5em;
 }
 
+
+
+.widget-sort-handle {
+  touch-action: none;
+}

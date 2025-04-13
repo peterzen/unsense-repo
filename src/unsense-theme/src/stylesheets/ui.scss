@@ -608,3 +608,17 @@ html table#grid-overview {
 #plugin_search {
   @extend .form-control;
 }
+
+
+
+
+@media (min-width: $screen-lg-desktop) {
+  table#grid-leases tr td:nth-child(3) {
+    width: 15% !important;
+  }
+}
+
+#grid-log th[data-column-id="__timestamp__"],
+#filter-log-entries th[data-column-id="__timestamp__"] {
+  min-width: 3.5em;
+}
