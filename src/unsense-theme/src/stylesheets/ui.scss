@@ -622,3 +622,10 @@ html table#grid-overview {
 #filter-log-entries th[data-column-id="__timestamp__"] {
   min-width: 3.5em;
 }
+
+
+html .pagination {
+  > li > a:hover {
+    border-color: transparent;
+  }
+}
