@@ -122,8 +122,10 @@ form>table.table,
   >tbody > tr > td {
     border-top: none;
 
+    .control-label ,
     &:has([class*="fa-info-circle"]) {
-      white-space: nowrap;
+      white-space: normal;
+      font-weight: bold;
     }
   }
 
@@ -326,7 +328,7 @@ html .bootgrid-table {
   }
 }
 #maintabs {
-  width: 100%;
+  // width: 100%;
 }
 .nav {
   &.nav-tabs {

@@ -365,11 +365,11 @@ main.page-content.col-lg-12 {
     }
 
     a.list-group-item {
-      font-size: 14px;
+      // font-size: 14px;
       position: relative;
-      padding: 12px 16px;
+      padding: 0.75em 1em;
       text-decoration: none;
-      color: #a6adb3;
+      color: $text-color-muted;
       // background: $navbar-default-bg;
 
       &:hover {
@@ -942,9 +942,6 @@ select {
   }
 }
 
-.control-label {
-  white-space: nowrap;
-}
 
 .table td {
   word-break: break-word;
