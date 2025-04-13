@@ -6,4 +6,4 @@ PKGDIR=work/pkg
 make package
 ../../Scripts/pkg-repo.sh ${PKGDIR}
 
-cp -rv ${PKGDIR} /srv/www/unsense-repo/${ABI}
+cp -rv ${PKGDIR}/* /srv/www/unsense-repo/${ABI}
