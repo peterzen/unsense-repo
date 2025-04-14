@@ -2,11 +2,30 @@
 $bootstrap-sass-asset-helper: false;
 @use "sass:math";
 @use "sass:color";
+
+
+$brand-primary: map-get($brand-colors, primary);
+$brand-success: map-get($brand-colors, success);
+$brand-info:    map-get($brand-colors, info);
+$brand-warning: map-get($brand-colors, warning);
+$brand-danger:  map-get($brand-colors, danger);
+
+
+// ===== Aliases =====
+$gray-base:    map-get($gray-scale, base);
+$gray-darker:  map-get($gray-scale, darker);
+$gray-dark:    map-get($gray-scale, dark);
+$gray:         map-get($gray-scale, mid);
+$gray-light:   map-get($gray-scale, light);
+$gray-lighter: map-get($gray-scale, lighter);
+
 //
 // Variables
 // --------------------------------------------------
+$body-bg:        $theme-bg-default;
 $text-color: $theme-text-color;
 $text-muted: $theme-text-color-muted;
+$link-color:     $brand-primary;
 
 //== Buttons
 //

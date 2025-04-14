@@ -1,0 +1,26 @@
+// Theme colors (unchanged, generally same across themes)
+$brand-colors: (
+  primary: #3794ff,
+  success: #00d084,
+  info:    #5bc0de,
+  warning: #f0ad4e,
+  danger:  #ff4d4f
+);
+
+// Gray Scale adjusted for light mode
+$gray-scale: (
+  base:    #000000,    // black as base in dark mode
+  lighter: #343a40,
+  light:   #6c757d,
+  mid:     #adb5bd,
+  dark:    #dee2e6,
+  darker:  #f8f9fa
+);
+
+// Light variant theme variables
+$theme-text-color:         #343a40; // dark gray for main text
+$theme-text-color-accent:  #000000; // pure black accent text
+$theme-text-color-muted:   map-get($gray-scale, dark); // medium gray for muted text
+$theme-bg-default:         #ffffff; // white background
+$theme-bg-accent:          darken(map-get($gray-scale, lighter), 2%); // subtle gray accent background
+$theme-bg-muted:           darken(map-get($gray-scale, lighter), 5%); // slightly darker muted background
