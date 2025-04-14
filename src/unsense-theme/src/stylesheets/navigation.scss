@@ -13,10 +13,10 @@
       position: relative;
       padding: 0.75em 1em;
       text-decoration: none;
-      color: $text-color-muted;
+      @extend .text-muted;
 
       &:hover {
-        color: #e1e4e6;
+        color: $theme-text-color-accent;
         background: rgba(#fff, 0.03);
 
         &::before {
@@ -25,8 +25,9 @@
       }
 
       &.active {
-        color: $text-color-accent;
-        background-color: $background-secondary;
+        color: $theme-text-color-accent;
+        background-color: rgba($theme-bg-accent,0.5);
+        border-color: transparent;
       }
 
     }
@@ -200,8 +201,8 @@
             width: 168px;
             margin-top: -70px;
             border: 1px solid lighten($navbar-default-bg, 5%);
-            -moz-box-shadow: 2px 2px 1px 0px $background-primary;
-            -webkit-box-shadow: 2px 2px 1px 0px $background-primary;
+            -moz-box-shadow: 2px 2px 1px 0px $theme-bg-default;
+            -webkit-box-shadow: 2px 2px 1px 0px $theme-bg-default;
             box-shadow: 2px 2px 1px 0px $gray;
 
             >div.collapse.in {
@@ -225,5 +226,58 @@
         }
       }
     }
+  }
+}
+
+
+#mainmenu .glyphicon {
+  vertical-align: -2px;
+}
+
+// .list-group-item {
+//   overflow: hidden;
+//   text-overflow: ellipsis;
+
+//   +div.collapse {
+//     margin-bottom: -1px;
+//   }
+
+//   +div>a {
+//     padding-left: 44px;
+//   }
+
+// }
+
+.list-group-submenu a {
+  // padding-left: 56px;
+}
+
+.active-menu-title,
+.active-menu a {
+  position: relative;
+  text-decoration: none;
+  // background-color: $gray-dark;
+
+  &:before {
+    width: 3px;
+  }
+
+  &.active {
+    // background-color: red;//$gray-darker;
+  }
+}
+
+html #mainmenu {
+  .active-menu-title {
+
+    &,
+    &+.active-menu {
+      background-color: rgba(0, 0, 0, 0.2);
+      color: $theme-text-color-accent !important;
+    }
+  }
+
+  .list-group-item {
+    // background-color: transparent;
   }
 }

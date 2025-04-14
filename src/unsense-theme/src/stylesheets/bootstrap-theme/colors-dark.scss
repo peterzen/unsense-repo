@@ -1,0 +1,57 @@
+$brand-colors: (
+  primary: #3794ff,
+  success: #00d084,
+  info:    #5bc0de,
+  warning: #f0ad4e,
+  danger:  #ff4d4f
+);
+$brand-primary: map-get($brand-colors, primary);
+$brand-success: map-get($brand-colors, success);
+$brand-info:    map-get($brand-colors, info);
+$brand-warning: map-get($brand-colors, warning);
+$brand-danger:  map-get($brand-colors, danger);
+
+
+//== Colors
+//
+//## Gray and brand colors for use across Bootstrap.
+// ===== Color Maps =====
+$gray-scale: (
+  base:    #000000,
+  darker:  #1e1f23,
+  dark:    #2a2b30,
+  mid:     #3a3b41,
+  light:   #5c6370,
+  lighter: #888888
+);
+
+
+// ===== Aliases =====
+$gray-base:    map-get($gray-scale, base);
+$gray-darker:  map-get($gray-scale, darker);
+$gray-dark:    map-get($gray-scale, dark);
+$gray:         map-get($gray-scale, mid);
+$gray-light:   map-get($gray-scale, light);
+$gray-lighter: map-get($gray-scale, lighter);
+
+// Theme colors
+
+// ===== Dark variant =====
+$theme-text-color: #d4d4d4;
+$theme-text-color-accent: #ffffff;
+$theme-text-color-muted: $gray-lighter;
+$theme-bg-default: rgb(19, 20, 22);
+$theme-bg-accent: lighten($gray-base, 2%);
+$theme-bg-muted: darken($gray-base, 2%);
+
+
+
+//  theme colors
+// ===== Dark variant =====
+$body-bg:        #131416;
+$text-color:     #d4d4d4;
+$link-color:     $brand-primary;
+$link-hover-color: #61aaff;
+
+// $text-color-accent: #ffffff;
+// $text-color-muted: $gray-lighter;

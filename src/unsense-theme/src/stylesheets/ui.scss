@@ -177,7 +177,7 @@ form>table.table,
   table,
   .table {
     background-color: transparent !important;
-    color: $table-color;
+    color: var(--table-color);
   }
 }
 
@@ -212,7 +212,7 @@ html .table th>a.sortable {
 
 #update_status_container {
   textarea {
-    background-color: $background-secondary;
+    background-color: var(--gray-darker);
     padding: 0.5em 1em;
   }
 }
@@ -287,13 +287,17 @@ html .bootgrid-table {
 
   th:hover,
   th:active {
-    background: $table-bg;
+    background: $table-bg-hover;
   }
 
   th>.column-header-anchor {
-    color: $text-color-muted;
+    @extend .text-muted;
     cursor: not-allowed;
     text-decoration: none;
+  }
+
+  .overlay {
+    background-color: rgba($theme-bg-default, 0.5) !important;
   }
 }
 
@@ -324,19 +328,7 @@ html .bootgrid-table {
 
 }
 
-#mainmenu {
-  .active-menu-title {
-    background-color: $background-secondary !important;
 
-    &+.active-menu {
-      background-color: lighten($background-secondary, 10%) !important;
-    }
-  }
-
-  .list-group-item {
-    background-color: transparent;
-  }
-}
 
 #maintabs {
   // width: 100%;
@@ -344,7 +336,7 @@ html .bootgrid-table {
 
 .nav {
   &.nav-tabs {
-    background-color: $background-tertiary;
+    // background-color: $background-tertiary;
     // width: auto;
     display: inline-block;
     @include border-radius(5px);
@@ -353,14 +345,14 @@ html .bootgrid-table {
 
     >li {
       >a {
-        border-bottom: none;
+        border: none;
         @include border-radius(5px);
-        color: $text-color;
+        color: $theme-text-color;
 
         &:hover {
-          border-bottom: none;
+          border: none !important;
           color: $brand-primary;
-          background-color: inherit;
+          background-color: $gray-dark;
           // background-color: red;
         }
       }
@@ -413,24 +405,24 @@ table#tunable.bootgrid-table {
 
       &:nth-child(3) {
         width: 10%;
-        color: $text-color-muted;
+        @extend .text-muted;
       }
 
       &:nth-child(4) {
         width: 10%;
-        color: $brand-primary
+        color: var(--brand-primary);
       }
 
       &:nth-child(5) {
         width: 10%;
-        color: $text-color-muted;
+        @extend .text-muted;
       }
 
       // description
       &:nth-child(6) {
         width: 50%;
         white-space: normal;
-        color: $text-color-muted;
+        @extend .text-muted;
       }
 
       &:nth-child(7) {
@@ -456,7 +448,13 @@ table#tunable.bootgrid-table {
   width: 12em;
 }
 
-/*
+#fw-alert-box {
+  label {
+    font-weight: normal;
+  }
+}
+
+
 // move Apply button and message to the bottom to make it 
 // consistent with the other forms
 
@@ -472,7 +470,6 @@ table#tunable.bootgrid-table {
     order: 0;
   }
 }
-*/
 
 // "advanced mode" and "full help" toggles
 .table>thead>tr>td>small {
@@ -537,9 +534,9 @@ table.table.opnsense-rules {
 }
 
 // gateways table
-table#grid-gateways>tbody>tr {
+html table#grid-gateways>tbody>tr {
   &.text-muted td {
-    color: $text-color-muted !important;
+    @extend .text-muted;
   }
 
   >td:nth-child(2) {}
@@ -585,23 +582,13 @@ html table#grid-overview {
   }
 }
 
-// html #interface-selection-wrapper {
-.bootstrap-select[style] {
-  width: 100% !important;
-  max-width: 100% !important;
-  box-sizing: border-box;
-  display: block;
-}
 
-.bootstrap-select .dropdown-toggle {
-  width: 100% !important;
-}
 
 // }
 // #grid-overview > tbody:nth-child(2) > tr:nth-child(5) > td:nth-child(2)
 
 .infos {
-  color: $text-color-muted;
+  @extend .text-muted;
 }
 
 #plugins {
@@ -613,13 +600,13 @@ html table#grid-overview {
     }
 
     td:nth-child(1) {
-      color: $text-color-accent;
+      color: var(--text-color-accent);
     }
 
     td:nth-child(3),
     td:nth-child(4),
     td:nth-child(5) {
-      color: $text-color-muted;
+      @extend .text-muted;
     }
   }
 }
@@ -656,7 +643,7 @@ html #expand-internal-rules {
   &,
   ~.internal-rule {
     td {
-      background-color: $background-primary;
+      background-color: var(--gray-light);
     }
   }
 }
@@ -665,7 +652,34 @@ html #expand-group-rules {
   &,
   ~.group-rule {
     td {
-      background-color:  $background-tertiary;
+      background-color: var(--gray-lighter);
     }
   }
+}
+
+
+// Actual modal
+.modal-content {
+  @include box-shadow(0 6px 12px rgba(0, 0, 0, .5));
+}
+
+
+#entries_bar {
+  position: relative;
+} 
+
+
+.top-list {
+  .list-group {
+
+  }
+}
+
+.navbar-default .navbar-toggle {
+  border-color: transparent;
+}
+
+
+#notification-banner {
+  
 }

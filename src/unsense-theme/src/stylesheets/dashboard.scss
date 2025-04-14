@@ -46,8 +46,8 @@ html .grid-stack-item-content {
     text-align: center;
     border: none !important;
     border-radius: 0.5em 0.5em 0.5em 0.5em;
-    background-color: $background-tertiary;
-    box-shadow: 0 2px 4px $background-secondary, 0 0 1px $background-secondary;
+    background-color: $theme-bg-default;
+    box-shadow: 0 2px 4px $theme-bg-default, 0 0 1px $theme-bg-accent
 }
 
 .widget-error {
@@ -159,7 +159,7 @@ td {
     padding-right: 15px;
     padding-left: 15px;
     pointer-events: none;
-    color: white;
+    color: $theme-text-color-accent;
     border-radius: 0.5em 0.5em 0.5em 0.5em;
     background: rgba(50, 50, 50, 0.9);
 }

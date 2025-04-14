@@ -1,6 +1,6 @@
 
 .page-login {
-  background: linear-gradient($background-primary, $background-secondary);
+  background: linear-gradient($theme-bg-default, $theme-bg-accent);
 
   .container {
     display: flex;
@@ -16,7 +16,7 @@
 }
 
 .login-modal-container {
-  background-color: $background-secondary;
+  background-color: $theme-bg-accent;
   padding: 2em 1em;
 }
 
@@ -52,7 +52,7 @@
   &-foot {
     height: 60px;
     padding: 20px 20px 0 20px;
-    border-top: 1px solid $background-tertiary ;
+    border-top: 1px solid $gray;
 
     button {
       float: none;

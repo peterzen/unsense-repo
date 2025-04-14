@@ -3,7 +3,7 @@ html #maintabs>li>a {
 }
 
 html .stats-element {
-    background-color: $background-tertiary;
+    background-color: transparent;
 }
 
 html #maintabs+.tab-content {
@@ -15,24 +15,23 @@ html #query-details {
     #grid-queries {
         tr {
             background: none;
-
         }
 
         .query-info {
-            color: $text-color-muted;
+            @extend .text-muted;
         }
 
         .query-success {
-            color: $brand-success;
-            // font-weight: bold;
+            @extend .text-success;
         }
 
         .query-warning {
-            color: $brand-warning;
+            @extend .text-warning;
+            // color: $brand-warning;
         }
 
         .query-danger {
-            color: $brand-danger;
+            @extend .text-danger;
         }
     }
 }
@@ -66,7 +65,7 @@ html .list-group-item {
     .counter {
         position: relative;
         top: -3px;
-        color: $text-color-muted;
+        @extend .text-muted;
         font-size: $font-size-small;
         line-height: 1.4;
         flex: 1;

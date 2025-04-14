@@ -1,10 +1,11 @@
 @import "open-sans/open-sans";
 
+
 html,
 body {
   font-family: "Open Sans";
   font-weight: normal;
-  font-size: $font-size-base;
+  // font-size: $font-size-base;
 }
 
 .page-content-head {
@@ -23,8 +24,8 @@ body {
 
   th,
   td {
-    font-family: "Open Sans", sans-serif !important;
-    background-color: red;
+    // font-family: $font-family-base !important;
+    // background-color: red;
   }
 }
 
@@ -32,6 +33,20 @@ body {
 
   th,
   td {
-    font-family: "Open Sans", sans-serif !important;
+    font-family: $font-family-base !important;
   }
 }
+
+
+@at-root {
+  // Import the fonts
+  @font-face {
+    font-family: "Glyphicons Halflings";
+    src: url(if($bootstrap-sass-asset-helper, twbs-font-path("#{$icon-font-path}#{$icon-font-name}.eot"), "#{$icon-font-path}#{$icon-font-name}.eot"));
+    src: url(if($bootstrap-sass-asset-helper, twbs-font-path("#{$icon-font-path}#{$icon-font-name}.eot?#iefix"), "#{$icon-font-path}#{$icon-font-name}.eot?#iefix")) format("embedded-opentype"),
+         url(if($bootstrap-sass-asset-helper, twbs-font-path("#{$icon-font-path}#{$icon-font-name}.woff"), "#{$icon-font-path}#{$icon-font-name}.woff")) format("woff"),
+         url(if($bootstrap-sass-asset-helper, twbs-font-path("#{$icon-font-path}#{$icon-font-name}.ttf"), "#{$icon-font-path}#{$icon-font-name}.ttf")) format("truetype"),
+         url(if($bootstrap-sass-asset-helper, twbs-font-path("#{$icon-font-path}#{$icon-font-name}.svg##{$icon-font-svg-id}"), "#{$icon-font-path}#{$icon-font-name}.svg##{$icon-font-svg-id}")) format("svg");
+  }
+}
+

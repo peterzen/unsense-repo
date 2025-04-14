@@ -130,6 +130,7 @@ select.selectpicker {
 
 // The selectpicker components
 .bootstrap-select {
+  // background-color: red!important;
   &.form-control {
     margin-bottom: 0;
     padding: 0;
@@ -361,7 +362,7 @@ select.selectpicker {
 
   .no-results {
     padding: 3px;
-    background: #f5f5f5;
+    background: transparent;
     margin: 0 5px;
     white-space: nowrap;
   }

@@ -169,26 +169,26 @@ $modal-header-color:       $text-color;
 $modal-footer-color:       $text-color;
 
 
-$colors: (
-  default: $gray-light,            // #5c6370
-  primary: $brand-primary,         // #3794ff
-  success: $brand-success,         // #00d084
-  info:    $brand-info,            // #5bc0de
-  warning: $brand-warning,         // #f0ad4e
-  danger:  $brand-danger,          // #ff4d4f
-  light:   $gray-dark,             // #2a2b30
-  dark:    $gray-darker   ,         // #1e1f23
-);
+// $colors: (
+//   default: $gray-light,            // #5c6370
+//   primary: $brand-primary,         // #3794ff
+//   success: $brand-success,         // #00d084
+//   info:    $brand-info,            // #5bc0de
+//   warning: $brand-warning,         // #f0ad4e
+//   danger:  $brand-danger,          // #ff4d4f
+//   light:   $gray-dark,             // #2a2b30
+//   dark:    $gray-darker   ,         // #1e1f23
+// );
 
 
-$font-family-sans-serif: "Open Sans", Helvetica, Arial, sans-serif;
-$font-family-base:       $font-family-sans-serif;
-$headings-font-family: $font-family-base;
-$font-size-base: 14px;
+// $font-family-sans-serif: "Open Sans", Helvetica, Arial, sans-serif;
+// $font-family-base:       $font-family-sans-serif;
+// $headings-font-family: $font-family-base;
+// $font-size-base: 14px;
 
 // $input-border: #e4eaec;
 $list-group-bg:                 transparent;
-$list-group-border:             $gray-dark;
+$list-group-border:             $gray-darker;
 $list-group-hover-bg:           $gray-light;
 $list-group-active-color:       $text-color-accent;
 $list-group-active-border:    $brand-primary;
