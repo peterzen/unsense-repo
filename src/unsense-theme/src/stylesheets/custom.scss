@@ -128,8 +128,12 @@ div.content-box.wizard {
   padding-top: calc($grid-gutter-width / 2);
 }
 
-.brand-logo {
+// override default BS style
+.navbar-brand > img {
   display: none;
+}
+
+html .brand-logo {
   margin: 5px 0;
 
   @media (min-width: $screen-sm-min) {
@@ -137,13 +141,12 @@ div.content-box.wizard {
   }
 }
 
-.brand-icon {
-  display: inline-block;
+html .brand-icon {
   width: 30px;
   margin: 5px 0;
 
-  @media (min-width: $screen-sm-min) {
-    display: none;
+  @media (max-width: $screen-xs-max) {
+    display: inline-block;
   }
 }
 
@@ -592,4 +595,28 @@ html .bootgrid-table td.no-results {
   font-size: 16px;
   padding-top: 5px;
   vertical-align: middle;
+}
+
+
+
+
+// apply the BS form input styles over inputs that don't have
+// .form-control 
+select,
+textarea,
+input[type="text"],
+input[type="password"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="date"],
+input[type="month"],
+input[type="time"],
+input[type="week"],
+input[type="number"],
+input[type="email"],
+input[type="url"],
+input[type="search"],
+input[type="tel"],
+input[type="color"] {
+  @extend .form-control;
 }

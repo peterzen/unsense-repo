@@ -70,7 +70,7 @@ button#flushAct {
 
 
 // table-striped default overrides
-table.table.table-striped {
+html table.table.table-striped {
   background-color: transparent !important;
 
   >tbody {
@@ -114,15 +114,15 @@ form>table.table,
   >thead {
     th {
       font-weight: bold;
-      @extend .h2;
+      // @extend .h2;
     }
   }
 
   // heuristic to find form labels in tables
-  >tbody > tr > td {
+  >tbody>tr>td {
     border-top: none;
 
-    .control-label ,
+    .control-label,
     &:has([class*="fa-info-circle"]) {
       white-space: normal;
       font-weight: bold;
@@ -135,18 +135,28 @@ form>table.table,
   }
 
   &.table-striped {
+    background-color: $table-bg;
+
     >tbody>tr:not(:last-child):not(:first-child) {
       border-bottom: 1px solid $gray-dark;
     }
 
     >tbody>tr:nth-of-type(odd) {
+
+      &,
       td {
+        border: none !important;
         background-color: inherit;
       }
     }
 
     >tbody>tr:nth-of-type(even) {
-      background-color: inherit;
+
+      &,
+      td {
+        border: none !important;
+        background-color: inherit;
+      }
     }
 
     table.table.table-striped {
@@ -154,12 +164,12 @@ form>table.table,
 
       >tr:nth-of-type(odd) {
         td {
-          background-color: inherit;
+          // background-color: inherit;
         }
       }
 
       >tr:nth-of-type(even) {
-        background-color: inherit;
+        // background-color: inherit;
       }
     }
   }
@@ -184,9 +194,9 @@ form>table.table,
 html .table th>a.sortable {
   color: $text-color;
   text-decoration: none;
-  @extend .h3;
 
   &:hover {
+    text-decoration: none;
     color: $link-hover-color;
   }
 
@@ -327,9 +337,11 @@ html .bootgrid-table {
     background-color: transparent;
   }
 }
+
 #maintabs {
   // width: 100%;
 }
+
 .nav {
   &.nav-tabs {
     background-color: $background-tertiary;
@@ -463,9 +475,10 @@ table#tunable.bootgrid-table {
 */
 
 // "advanced mode" and "full help" toggles
-.table > thead > tr > td > small {
+.table>thead>tr>td>small {
   font-weight: normal;
 }
+
 a:has(i[id*="show_"]),
 td:has(i[id*="show_"]) {
   i {
@@ -561,10 +574,10 @@ html table#grid-overview {
     }
   }
 
-  > tbody {
+  >tbody {
 
-    > tr {
-      &:has([data-original-title="Unassigned Interface"]){
+    >tr {
+      &:has([data-original-title="Unassigned Interface"]) {
         opacity: 0.6;
         // background-color: red;
       }
@@ -573,16 +586,17 @@ html table#grid-overview {
 }
 
 // html #interface-selection-wrapper {
-  .bootstrap-select[style] {
-    width: 100% !important;
-    max-width: 100% !important;
-    box-sizing: border-box;
-    display: block;
-  }
-  .bootstrap-select .dropdown-toggle  {
-    width: 100% !important;
-  }
-  
+.bootstrap-select[style] {
+  width: 100% !important;
+  max-width: 100% !important;
+  box-sizing: border-box;
+  display: block;
+}
+
+.bootstrap-select .dropdown-toggle {
+  width: 100% !important;
+}
+
 // }
 // #grid-overview > tbody:nth-child(2) > tr:nth-child(5) > td:nth-child(2)
 
@@ -592,19 +606,24 @@ html table#grid-overview {
 
 #plugins {
   .plugin_entry {
-    strong, b {
+
+    strong,
+    b {
       font-weight: normal;
     }
-    td:nth-child(1){
+
+    td:nth-child(1) {
       color: $text-color-accent;
     }
+
     td:nth-child(3),
     td:nth-child(4),
-    td:nth-child(5){
+    td:nth-child(5) {
       color: $text-color-muted;
     }
   }
 }
+
 #plugin_search {
   @extend .form-control;
 }
@@ -625,7 +644,28 @@ html table#grid-overview {
 
 
 html .pagination {
-  > li > a:hover {
+  >li>a:hover {
     border-color: transparent;
+  }
+}
+
+
+
+html #expand-internal-rules {
+
+  &,
+  ~.internal-rule {
+    td {
+      background-color: $background-primary;
+    }
+  }
+}
+
+html #expand-group-rules {
+  &,
+  ~.group-rule {
+    td {
+      background-color:  $background-tertiary;
+    }
   }
 }

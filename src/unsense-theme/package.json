@@ -8,15 +8,17 @@
     "copy:js": "cpx 'src/javascripts/**/*' build/js",
     "copy:assets": "yarn copy:fonts && yarn copy:images && yarn copy:js",
     "export:artefacts": "rm -rf ../../misc/unsense-theme/src/opnsense && mkdir -p ../../misc/unsense-theme/src/opnsense/www/themes/unsense && cp -rv build ../../misc/unsense-theme/src/opnsense/www/themes/unsense",
-    "build:css": "SASS_WARN_DEPRECATED=false  sass src/stylesheets/main.scss build/css/main.css --no-source-map",
+    "build:css": "SASS_WARN_DEPRECATED=false  sass  -I node_modules/bootstrap-sass/assets/stylesheets src/stylesheets/main.scss build/css/main.css --no-source-map",
     "build": "yarn copy:assets && yarn build:css",
-    "build:dev": "yarn copy:js && SASS_WARN_DEPRECATED=false  sass src/stylesheets/main.scss build/css/main.css",
+    "build:dev": "yarn copy:js && SASS_WARN_DEPRECATED=false  sass -I node_modules/bootstrap-sass/assets/stylesheets src/stylesheets/main.scss build/css/main.css",
     "clean": "rm -rf build/{css,fonts,images}",
     "clean:modules": "rm -rf node_modules",
     "watch": "chokidar  'src/**/*' -c 'yarn build:dev' --initial --verbose",
-    "dev": "browser-sync start --no-open --proxy 'https://10.100.0.1' --files 'build/css/main.css' build/js//theme.js"
+    "watch:sass": "SASS_WARN_DEPRECATED=false  sass --watch -I node_modules/bootstrap-sass/assets/stylesheets src/stylesheets/main.scss build/css/main.css",
+    "dev": "browser-sync start --no-open --proxy 'https://10.100.0.1' --files 'build/css/main.css' build/js/theme.js"
   },
   "devDependencies": {
+    "bootstrap-sass": "^3.4.3",
     "browser-sync": "^3.0.4",
     "chokidar-cli": "^3.0.0",
     "cpx": "^1.5.0",
