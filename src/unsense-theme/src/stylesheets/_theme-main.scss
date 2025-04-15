@@ -1,18 +1,5 @@
-$theme-path: "/ui/themes/unsense";
 
-
-// @import "unsense";
-// @import "bs-vars";
-
-
-// Core variables and mixins
-@import "bootstrap/variables";
 @import "bootstrap/mixins";
-
-@import "bootstrap-theme/theme";
-// @import "unsense";
-
-@import "fonts";
 
 
 // Reset and dependencies
@@ -23,6 +10,9 @@ $theme-path: "/ui/themes/unsense";
 // Core CSS
 @import "bootstrap/scaffolding";
 @import "bootstrap/type";
+@import "fonts";
+
+
 @import "bootstrap/code";
 @import "bootstrap/grid";
 @import "bootstrap/tables";
@@ -61,9 +51,8 @@ $theme-path: "/ui/themes/unsense";
 // Utility classes
 @import "bootstrap/utilities";
 @import "bootstrap/responsive-utilities";
-// @import "bootstrap/theme";
 
-@import "bootstrap-select/bootstrap-select.scss";
+@import "bootstrap-select/bootstrap-select";
 
 @import "layout";
 @import "behaviors";
@@ -73,6 +62,3 @@ $theme-path: "/ui/themes/unsense";
 @import "dashboard";
 @import "dns-overview";
 @import "login";
-
-
-

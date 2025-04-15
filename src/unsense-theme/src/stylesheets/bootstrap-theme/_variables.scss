@@ -32,27 +32,27 @@ $link-color:     $brand-primary;
 //## For each of Bootstrap's buttons, define text, background and border color.
 
 
-$btn-default-color:              $text-color;
+$btn-default-color:              $theme-text-color;
 $btn-default-bg:                 $gray-dark;
 $btn-default-border:             $gray;
 
-$btn-primary-color:              $theme-text-color-accent;
+$btn-primary-color:              #fff;
 $btn-primary-bg:                 $brand-primary;
 $btn-primary-border:             darken($btn-primary-bg, 5%);
 
-$btn-success-color:              $theme-text-color-accent;
+$btn-success-color:              #fff;
 $btn-success-bg:                 $brand-success;
 $btn-success-border:             darken($btn-success-bg, 5%);
 
-$btn-info-color:                 $theme-text-color-accent;
+$btn-info-color:                 #fff;
 $btn-info-bg:                    $brand-info;
 $btn-info-border:                darken($btn-info-bg, 5%);
 
-$btn-warning-color:              $theme-text-color-accent;
+$btn-warning-color:              #fff;
 $btn-warning-bg:                 $brand-warning;
 $btn-warning-border:             darken($btn-warning-bg, 5%);
 
-$btn-danger-color:               $theme-text-color-accent;
+$btn-danger-color:               #fff;
 $btn-danger-bg:                  $brand-danger;
 $btn-danger-border:              darken($btn-danger-bg, 5%);
 

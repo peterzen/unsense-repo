@@ -2,15 +2,13 @@
   -webkit-font-smoothing: antialiased;
 }
 
-html,
 body {
-  // background-color: $body-bg;
+  background-color: $body-bg;
 }
 
 body {
   touch-action: manipulation;
 }
-
 
 .page-head {
   // background: $background-secondary;
@@ -126,6 +124,10 @@ div.content-box.wizard {
 // override default BS style
 .navbar-brand > img {
   display: none;
+}
+
+html .login-modal-container .navbar-brand > img {
+  display: block;
 }
 
 html .brand-logo {
@@ -588,3 +590,13 @@ input[type="color"] {
 
 
 
+
+
+// @supports (-moz-appearance: none) {
+
+//   html :not(ul),
+//   body :not(ul) {
+//     scrollbar-width: thin;
+//     scrollbar-color: rgba(60, 60, 60, 0.15) transparent;
+//   }
+// }

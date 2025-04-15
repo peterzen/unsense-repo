@@ -3,8 +3,12 @@
 
 html,
 body {
-  font-family: "Open Sans";
+  font-family: $font-family-base;
   font-weight: normal;
+  font-synthesis: none;
+  font-feature-settings: "kern";
+  font-variant-ligatures: no-common-ligatures;
+  
   // font-size: $font-size-base;
 }
 
