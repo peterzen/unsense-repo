@@ -7,7 +7,8 @@ Welcome to the plugin repository of the **Unsense** OPNsense theme.
 ### Install this repo
 
 ```sh
-fetch -o /usr/local/etc/pkg/repos/unsense.conf https://pkg.froggle.org/unsense.conf
+fetch -o /usr/local/etc/pkg/repos/unsense.conf https://pkg.froggle.org/unsense-repo/unsense.conf
+
 pkg update
 ```
 

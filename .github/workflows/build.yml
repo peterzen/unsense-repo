@@ -8,6 +8,8 @@ on:
 env:
   ACTIONS_STEP_DEBUG: true
   ACTIONS_RUNNER_DEBUG: true
+  PKG_REPO_COMPRESSION_FORMAT: txz 
+  PKG_COMPRESSION_FORMAT: txz 
   
 jobs:
   build-and-deploy:
@@ -42,20 +44,21 @@ jobs:
           run: |
             set -ex
             THEME_DIR=${GITHUB_WORKSPACE}/misc/unsense-theme
-            cd ${THEME_DIR}
+            REPO_DIR=${THEME_DIR}/work/pkg
             make package
-            env PKG_REPO_COMPRESSION_FORMAT=txz PKG_COMPRESSION_FORMAT=txz pkg repo work/pkg
-            echo 'work/pkg *********'
-            find work/pkg
+            pkg repo ${REPO_DIR}
+            echo ${REPO_DIR} 'work/pkg *********'
+            find ${REPO_DIR}
             echo '*********'
 
       - name: Copy package and index to docs
         run: |
           sudo apt-get install -y pandoc
-          mkdir -p docs/FreeBSD:14:amd64
-          mkdir -p ${GITHUB_WORKSPACE}/misc/unsense-theme/work/pkg
+          DEST_DIR=docs/FreeBSD:14:amd64
           REPO_DIR=${GITHUB_WORKSPACE}/misc/unsense-theme/work/pkg
-          cp -v $REPO_DIR/* docs/FreeBSD:14:amd64/
+          mkdir -p ${DEST_DIR}
+          mkdir -p ${REPO_DIR}
+          cp -v $REPO_DIR/* ${DEST_DIR}/
           cp -rv src/www/assets/* docs/
           pandoc --standalone \
             --css=simple.css \

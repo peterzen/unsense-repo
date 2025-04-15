@@ -43,7 +43,7 @@ list:
 .endfor
 
 # shared targets that are sane to run from the root directory
-TARGETS=	clean lint style style-fix style-python sweep test
+TARGETS=	clean lint style style-fix style-python sweep test package
 
 .for TARGET in ${TARGETS}
 ${TARGET}:
@@ -82,18 +82,3 @@ license:
 	@${.CURDIR}/Scripts/license . > ${.CURDIR}/LICENSE
 
 .PHONY: license
-
-
-PLUGIN_MAINTAINER=	peter@froggle.org
-PLUGIN_VERSION=		0.3
-PLUGIN_REVISION=    2
-
-
-repo:
-.for PLUGIN_DIR in ${PLUGIN_DIRS}
-	${MAKE} -C ${PLUGIN_DIR} \
-		PLUGIN_MAINTAINER="${PLUGIN_MAINTAINER}" \
-		PLUGIN_VERSION="${PLUGIN_VERSION}" \
-		PLUGIN_REVISION="${PLUGIN_REVISION}" \
-		package
-.endfor
