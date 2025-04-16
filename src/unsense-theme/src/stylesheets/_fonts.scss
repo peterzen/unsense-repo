@@ -1,15 +1,16 @@
 @import "open-sans/open-sans";
 
+html {
+  -webkit-text-size-adjust: 100%;
+}
 
-html,
 body {
   font-family: $font-family-base;
+  font-size: $font-size-base;
   font-weight: normal;
   font-synthesis: none;
   font-feature-settings: "kern";
   font-variant-ligatures: no-common-ligatures;
-  
-  // font-size: $font-size-base;
 }
 
 .page-content-head {

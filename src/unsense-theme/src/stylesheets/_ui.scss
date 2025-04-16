@@ -9,9 +9,10 @@
 
 
 @mixin btn-cancel {
+  @extend .btn-link;
   margin-right: 1rem;
-  background: transparent;
-  border-color: transparent;
+  // background: transparent;
+  // border-color: transparent;
 }
 
 .opnsense_standard_table_form {
@@ -111,6 +112,7 @@ html .table>thead>tr>th {
 form>.table-responsive>.table,
 form>table.table,
 .modal-body table.table {
+  background-color: $theme-bg-secondary;
   >thead {
     th {
       font-weight: bold;
@@ -184,9 +186,10 @@ form>table.table,
 #allcfg+.content-box {
   .opnsense_standard_table_form {
 
+    background-color: $theme-bg-secondary;
     &,
     & td {
-      background-color: transparent;
+      background-color: inherit;
     }
   }
 }
@@ -297,7 +300,7 @@ html .bootgrid-table {
   }
 
   .overlay {
-    background-color: rgba($theme-bg-default, 0.5) !important;
+    background-color: rgba($theme-bg-primary, 0.5) !important;
   }
 }
 

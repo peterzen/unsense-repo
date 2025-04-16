@@ -1,6 +1,6 @@
 
 .page-login {
-  background: linear-gradient($theme-bg-default, $theme-bg-accent);
+  background: linear-gradient($theme-bg-primary, $theme-bg-secondary);
 
   .container {
     display: flex;
@@ -16,7 +16,7 @@
 }
 
 .login-modal-container {
-  background-color: $theme-bg-default;
+  background-color: $theme-bg-primary;
   padding: 2em 1em;
 }
 

@@ -1,13 +1,4 @@
 
-// Theme colors
-$brand-colors: (
-  primary: #3794ff,
-  success: #00d084,
-  info:    #5bc0de,
-  warning: #f0ad4e,
-  danger:  #ff4d4f
-);
-
 
 //== Colors
 //
@@ -27,7 +18,7 @@ $gray-scale: (
 $theme-text-color: #d4d4d4;
 $theme-text-color-accent: #ffffff;
 $theme-text-color-muted: $gray-lighter;
-$theme-bg-default: #131416;
-$theme-bg-accent: lighten($gray-base, 2%);
-$theme-bg-muted: darken($gray-base, 2%);
+$theme-bg-primary: #131416;
+$theme-bg-secondary: lighten($gray-base, 2%);
+$theme-bg-tertiary: darken($gray-base, 2%);
 

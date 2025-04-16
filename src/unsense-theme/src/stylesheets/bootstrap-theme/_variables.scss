@@ -22,7 +22,7 @@ $gray-lighter: map-get($gray-scale, lighter);
 //
 // Variables
 // --------------------------------------------------
-$body-bg:        $theme-bg-default;
+$body-bg:        $theme-bg-primary;
 $text-color: $theme-text-color;
 $text-muted: $theme-text-color-muted;
 $link-color:     $brand-primary;
@@ -432,7 +432,7 @@ $list-group-link-heading-color: #333;
 //== Panels
 //
 //##
-$panel-bg:                       $theme-bg-default;
+$panel-bg:                       $theme-bg-primary;
 $panel-default-text:             $text-color;
 $panel-default-border:           $gray;
 $panel-default-heading-bg:       lighten($panel-bg, 5%);
@@ -499,7 +499,7 @@ $breadcrumb-active-color:       $gray-light;
 
 $close-font-weight:           bold;
 $close-color:                 $text-color;
-$close-text-shadow:           0 1px 0 $theme-bg-default;
+$close-text-shadow:           0 1px 0 $theme-bg-primary;
 
 
 //== Code

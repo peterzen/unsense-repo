@@ -1,11 +1,3 @@
-// Theme colors (unchanged, generally same across themes)
-$brand-colors: (
-  primary: #3794ff,
-  success: #00d084,
-  info: #5bc0de,
-  warning: #f0ad4e,
-  danger: #ff4d4f
-);
 
 // Gray Scale adjusted for light mode
 $gray-scale: (
@@ -19,13 +11,12 @@ $gray-scale: (
 );
 
 // Light variant theme variables
-$theme-text-color: #343a40; // dark gray for main text
+$theme-text-color: #525461; // dark gray for main text
 $theme-text-color-accent: #000000; // pure black accent text
 $theme-text-color-muted: map-get($gray-scale, dark); // medium gray for muted text
-$theme-bg-default: #ffffff; // white background
-$theme-bg-accent: darken(map-get($gray-scale, lighter), 2%); // subtle gray accent background
-$theme-bg-muted: darken(map-get($gray-scale, lighter), 5%); // slightly darker muted background
-
+$theme-bg-primary: #ffffff; // white background
+$theme-bg-secondary: #f1f2f4; // subtle gray accent background
+$theme-bg-tertiary: #f4f4f5; // slightly darker muted background
 
 
 /*
@@ -49,22 +40,6 @@ $theme-bg-muted: darken(map-get($gray-scale, lighter), 5%); // slightly darker m
   --ubnt-typography-font-family: "Lato", "Helvetica Neue", "Helvetica", "Arial", "sans-serif";
 }
 
-:root {
-  --ubnt-layout-grid-base: 4px;
-  --ubnt-layout-content-horizontal-rhythm-multiplier: 8;
-  --ubnt-layout-secondary-content-horizontal-rhythm-multiplier: 5;
-  --ubnt-layout-global-header-panel-height: 50px;
-  --ubnt-layout-global-side-nav-width: 50px;
-  --ubnt-layout-global-side-panel-width: 400px;
-  --ubnt-layout-z-index-tooltip: 400;
-  --ubnt-layout-z-index-popover: 500;
-  --ubnt-layout-z-index-header-panel: 600;
-  --ubnt-layout-z-index-side-panel: 700;
-  --ubnt-layout-z-index-global-header: 800;
-  --ubnt-layout-z-index-modal: 900;
-  --ubnt-layout-z-index-modal-blackout: 1000;
-  --ubnt-layout-z-index-toasts: 1100;
-}
 
 :root {
   --ubnt-color-DN60: #151725;

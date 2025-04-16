@@ -46,8 +46,8 @@ html .grid-stack-item-content {
     text-align: center;
     border: none !important;
     border-radius: 0.5em 0.5em 0.5em 0.5em;
-    background-color: $theme-bg-default;
-    box-shadow: 0 2px 4px $theme-bg-default, 0 0 1px $theme-bg-accent
+    background-color: $theme-bg-primary;
+    box-shadow: 0 2px 4px $theme-bg-primary, 0 0 1px $theme-bg-secondary
 }
 
 .widget-error {

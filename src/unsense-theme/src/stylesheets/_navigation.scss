@@ -17,7 +17,7 @@
 
       &:hover {
         color: $theme-text-color-accent;
-        background: rgba(#fff, 0.03);
+        background-color: rgba($theme-bg-secondary,0.5);
 
         &::before {
           background-color: $list-group-active-border;
@@ -26,7 +26,7 @@
 
       &.active {
         color: $theme-text-color-accent;
-        background-color: rgba($theme-bg-accent,0.5);
+        background: $theme-bg-secondary;
         border-color: transparent;
       }
 
@@ -200,8 +200,8 @@
             width: 168px;
             margin-top: -70px;
             border: 1px solid lighten($navbar-default-bg, 5%);
-            -moz-box-shadow: 2px 2px 1px 0px $theme-bg-default;
-            -webkit-box-shadow: 2px 2px 1px 0px $theme-bg-default;
+            -moz-box-shadow: 2px 2px 1px 0px $theme-bg-primary;
+            -webkit-box-shadow: 2px 2px 1px 0px $theme-bg-primary;
             box-shadow: 2px 2px 6px 4px rgba($gray,0.6);
 
             >div.collapse.in {
