@@ -17,7 +17,7 @@
       @extend .text-muted;
 
       &:hover {
-        color: $theme-text-color-accent;
+        color: $theme-text-secondary;
         background-color: rgba($theme-bg-secondary,0.5);
 
         &::before {
@@ -26,7 +26,7 @@
       }
 
       &.active {
-        color: $theme-text-color-accent;
+        color: $theme-text-secondary;
         background: $theme-bg-secondary;
         border-color: transparent;
       }
@@ -273,7 +273,7 @@ html #mainmenu {
     // &,
     // &+.active-menu {
     //   background-color: rgba(0, 0, 0, 0.2);
-    //   color: $theme-text-color-accent !important;
+    //   color: $theme-text-secondary !important;
     // }
   }
 

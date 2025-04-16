@@ -1,6 +1,6 @@
 @use "sass:map";
 
-$bootstrap-sass-asset-helper: false;
+// $bootstrap-sass-asset-helper: false;
 @use "sass:math";
 @use "sass:color";
 
@@ -24,8 +24,8 @@ $gray-lighter: map.get($gray-scale, lighter);
 // Variables
 // --------------------------------------------------
 $body-bg:        $theme-bg-primary;
-$text-color: $theme-text-color;
-$text-muted: $theme-text-color-muted;
+$text-color: $theme-text-primary;
+$text-muted: $theme-text-tertiary;
 $link-color:     $brand-primary;
 
 //== Buttons
@@ -33,7 +33,7 @@ $link-color:     $brand-primary;
 //## For each of Bootstrap's buttons, define text, background and border color.
 
 
-$btn-default-color:              $theme-text-color;
+$btn-default-color:              $theme-text-primary;
 $btn-default-bg:                 $gray-dark;
 $btn-default-border:             $gray;
 
@@ -68,10 +68,10 @@ $component-active-bg:       $brand-primary;
 // ==== Tables
 $table-bg:                  transparent;
 $table-bg-accent:           transparent;
-$table-bg-hover:            $gray;
+$table-bg-hover:            $theme-bg-secondary;
 $table-bg-active:           $table-bg-hover;
-$table-border-color:        rgba($gray, 0.15);
-$table-color:               $text-color;
+$table-border-color:        $theme-border-primary;
+$table-color:               $theme-text-primary;
 
 
 
@@ -233,7 +233,7 @@ $pagination-border:             $gray;
 $pagination-hover-bg:           $gray;
 $pagination-hover-color:        $text-color;
 $pagination-active-bg:          $brand-primary;
-$pagination-active-color:       $theme-text-color-accent;
+$pagination-active-color:       $theme-text-secondary;
 $pagination-active-border:      color.adjust($brand-primary, $lightness: -8%);
 $pagination-disabled-bg:        $gray-dark;
 $pagination-disabled-color:     $gray-light;
@@ -281,7 +281,7 @@ $state-danger-border:            color.adjust(color.adjust($state-danger-bg, $hu
 //##
 
 $tooltip-max-width:           200px;
-$tooltip-color:              $theme-text-color-accent;
+$tooltip-color:              $theme-text-secondary;
 $tooltip-bg:                  #000;
 $tooltip-opacity:             .9;
 $tooltip-arrow-color:         $tooltip-bg;
@@ -328,9 +328,9 @@ $tooltip-arrow-color:         $tooltip-bg;
 // $label-danger-bg:             $brand-danger;
 
 //** Default label text color
-$label-color:                 $theme-text-color;
+$label-color:                 $theme-text-primary;
 //** Default text color of a linked label
-$label-link-hover-color:      $theme-text-color-accent;
+$label-link-hover-color:      $theme-text-secondary;
 
 
 //== Modals
@@ -410,7 +410,7 @@ $progress-bar-info-bg:        $brand-info;
 $list-group-bg:                 transparent;
 $list-group-border:             $gray-darker;
 $list-group-hover-bg:           $gray-light;
-$list-group-active-color:       $theme-text-color-accent;
+$list-group-active-color:       $theme-text-secondary;
 $list-group-active-border:      $brand-primary;
 $list-group-active-bg:          $gray-light;
 $list-group-active-text-color:  color.adjust($list-group-active-bg, $lightness: 40%);
@@ -473,7 +473,7 @@ $panel-danger-heading-bg:     $state-danger-bg;
 
 $badge-color:                 $text-color;
 //** Linked badge text color on hover
-$badge-link-hover-color:      $theme-text-color-accent;
+$badge-link-hover-color:      $theme-text-secondary;
 $badge-bg:                    $gray-light;
 
 //** Badge text color in active nav link

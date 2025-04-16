@@ -73,7 +73,7 @@ button#flushAct {
 
 // table-striped default overrides
 html table.table.table-striped {
-  background-color: transparent !important;
+  background-color: inherit !important;
 
   >tbody {
     >tr:hover td {
@@ -351,7 +351,7 @@ html .bootgrid-table {
       >a {
         border: none;
         @include border-radius(5px);
-        color: $theme-text-color;
+        color: $theme-text-primary;
 
         &:hover {
           border: none !important;

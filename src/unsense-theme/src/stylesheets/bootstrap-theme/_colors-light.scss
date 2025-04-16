@@ -12,99 +12,17 @@ $gray-scale: (
 );
 
 // Light variant theme variables
-$theme-text-color: #525461; // dark gray for main text
-$theme-text-color-accent: #000000; // pure black accent text
-$theme-text-color-muted: map.get($gray-scale, dark); // medium gray for muted text
-$theme-bg-primary: #ffffff; // white background
-$theme-bg-secondary: #f1f2f4; // subtle gray accent background
-$theme-bg-tertiary: #f4f4f5; // slightly darker muted background
+$theme-text-primary: #525461;
+$theme-text-secondary: #a4a7b5;
+$theme-text-tertiary: #7e8190;
+$theme-text-quaternary: #c2c4ce;
+$theme-bg-primary: #ffffff;
+$theme-bg-secondary: #f1f2f4;
+$theme-bg-tertiary: #f4f4f5; 
 
+$theme-border-primary: #d6d9e2;
+$theme-border-secondary: #c2c4ce;
+$theme-border-tertiary: #e5e7ed;
+$theme-drop-shadow: rgba(21, 23, 37, .2);
+$theme-scrollbar-thumb: #f1f2f4;
 
-/*
-
-:root {
-  --ubnt-color-text-primary: #525461;
-  --ubnt-color-text-secondary: #a4a7b5;
-  --ubnt-color-text-tertiary: #7e8190;
-  --ubnt-color-text-quaternary: #c2c4ce;
-  --ubnt-color-background-primary: #fff;
-  --ubnt-color-background-secondary: #f1f2f4;
-  --ubnt-color-background-tertiary: #f4f4f5;
-  --ubnt-color-border-primary: #d6d9e2;
-  --ubnt-color-border-secondary: #c2c4ce;
-  --ubnt-color-border-tertiary: #e5e7ed;
-  --ubnt-color-drop-shadow: rgba(21, 23, 37, .2);
-  --ubnt-color-scrollbar-thumb: #f1f2f4;
-}
-
-:root {
-  --ubnt-typography-font-family: "Lato", "Helvetica Neue", "Helvetica", "Arial", "sans-serif";
-}
-
-
-:root {
-  --ubnt-color-DN60: #151725;
-  --ubnt-color-DN55: #1c1e2d;
-  --ubnt-color-DN50: #242635;
-  --ubnt-color-DN40: #333543;
-  --ubnt-color-DN30: #525461;
-  --ubnt-color-DN20: #7e8190;
-  --ubnt-color-DN10: #a4a7b5;
-  --ubnt-color-DN0: #c2c4ce;
-  --ubnt-color-N0: #fff;
-  --ubnt-color-N10: #fbfbfc;
-  --ubnt-color-N20: #f8f8f9;
-  --ubnt-color-N30: #f4f4f5;
-  --ubnt-color-N40: #f1f2f4;
-  --ubnt-color-N50: #e5e7ed;
-  --ubnt-color-N60: #d6d9e2;
-  --ubnt-color-N70: #c2c4ce;
-  --ubnt-color-BN0: #010a19;
-  --ubnt-color-BN10: #0b1527;
-  --ubnt-color-BN20: #101a2b;
-  --ubnt-color-BN30: #151f30;
-  --ubnt-color-BN40: #1a2535;
-  --ubnt-color-BN50: #1f2b3b;
-  --ubnt-color-P0: #003c9e;
-  --ubnt-color-P10: #0056c7;
-  --ubnt-color-P20: #006fff;
-  --ubnt-color-P25: #57a0ff;
-  --ubnt-color-P30: #46c7fd;
-  --ubnt-color-P40: #39cc64;
-  --ubnt-color-P50: #bfe041;
-  --ubnt-color-P55: #ffdb1a;
-  --ubnt-color-P60: #f5a623;
-  --ubnt-color-P70: #f03a3e;
-  --ubnt-color-P80: #a252e3;
-  --ubnt-color-P90: #6b34e0;
-  --ubnt-color-P100: #7e8190;
-  --ubnt-color-primary-D0: #0266e9;
-  --ubnt-color-primary-L0: #1a7dff;
-  --ubnt-color-primary-L10: #57a0ff;
-  --ubnt-color-primary-L20: #bfdbff;
-  --ubnt-color-primary-L30: #d9eaff;
-  --ubnt-color-primary-L40: #e5f0ff;
-  --ubnt-color-primary-L50: #f2f8ff;
-  --ubnt-color-primary-T5: rgba(0, 111, 255, .05);
-  --ubnt-color-primary-T20: rgba(0, 111, 255, .2);
-  --ubnt-color-primary-T40: rgba(0, 111, 255, .4);
-  --ubnt-color-primary-T50: rgba(0, 111, 255, .5);
-  --ubnt-color-success-T40: rgba(57, 204, 100, .4);
-  --ubnt-color-danger: #f03a3e;
-  --ubnt-color-warning: #f5a623;
-  --ubnt-color-success: #39cc64;
-  --ubnt-color-primary: #006fff;
-  --ubnt-color-text-link: #006fff;
-  --ubnt-color-text-link-hover: #57a0ff;
-}
-
-html {
-  line-height: 1.15;
-  -webkit-text-size-adjust: 100%;
-}
-
---ubnt-color-background-primary: #fff;
---ubnt-color-background-secondary: #f1f2f4;
---ubnt-color-background-tertiary: #f4f4f5
-
-*/
