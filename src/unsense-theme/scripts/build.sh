@@ -4,8 +4,8 @@ set -e
 SRC=src
 DEST=build
 INCLUDE_PATH=node_modules/bootstrap-sass/assets/stylesheets
-# TODO
-# refactor deprecated calls in SCSS
+
+#  silence warnings in bootstrap 3.4.1
 SASS_WARN_DEPRECATED=false 
 
 echo "Building CSS..."
@@ -13,6 +13,7 @@ echo "Building CSS..."
 # dark color variant
 sass \
   -I $INCLUDE_PATH \
+  --quiet-deps \
   "$SRC/stylesheets/main-dark.scss" \
   "$DEST/css/dark.css" \
   ${1:+"--source-map"}
@@ -20,6 +21,7 @@ sass \
 # light color variant
 sass \
   -I $INCLUDE_PATH \
+  --quiet-deps \
   "$SRC/stylesheets/main-light.scss" \
   "$DEST/css/light.css" \
   ${1:+"--source-map"}

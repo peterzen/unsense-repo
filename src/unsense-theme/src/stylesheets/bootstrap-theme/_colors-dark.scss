@@ -1,3 +1,4 @@
+@use "sass:color";
 
 
 //== Colors
@@ -19,6 +20,6 @@ $theme-text-color: #d4d4d4;
 $theme-text-color-accent: #ffffff;
 $theme-text-color-muted: $gray-lighter;
 $theme-bg-primary: #131416;
-$theme-bg-secondary: lighten($gray-base, 2%);
-$theme-bg-tertiary: darken($gray-base, 2%);
+$theme-bg-secondary: color.adjust($gray-base, $lightness: 2%);
+$theme-bg-tertiary: color.adjust($gray-base, $lightness: -2%);
 

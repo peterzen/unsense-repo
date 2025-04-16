@@ -1,3 +1,4 @@
+@use "sass:color";
 html #maintabs>li>a {
     border: none;
 }
@@ -51,7 +52,7 @@ html .list-group-item-border:first-child {
 html .list-group-item-border {
     color: $table-color;
     // border: none !important;
-    border: 1px solid lighten($table-border-color,25%) !important;
+    border: 1px solid color.adjust($table-border-color,$lightness: 25%) !important;
     //   border-bottom-width: 1px;
     //   border-bottom-style: solid;
     //   border-bottom-color: rgb(221, 221, 221);

@@ -1,3 +1,4 @@
+@use "sass:map";
 
 // Gray Scale adjusted for light mode
 $gray-scale: (
@@ -13,7 +14,7 @@ $gray-scale: (
 // Light variant theme variables
 $theme-text-color: #525461; // dark gray for main text
 $theme-text-color-accent: #000000; // pure black accent text
-$theme-text-color-muted: map-get($gray-scale, dark); // medium gray for muted text
+$theme-text-color-muted: map.get($gray-scale, dark); // medium gray for muted text
 $theme-bg-primary: #ffffff; // white background
 $theme-bg-secondary: #f1f2f4; // subtle gray accent background
 $theme-bg-tertiary: #f4f4f5; // slightly darker muted background

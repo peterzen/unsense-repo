@@ -1,23 +1,24 @@
+@use "sass:map";
 
 $bootstrap-sass-asset-helper: false;
 @use "sass:math";
 @use "sass:color";
 
 
-$brand-primary: map-get($brand-colors, primary);
-$brand-success: map-get($brand-colors, success);
-$brand-info:    map-get($brand-colors, info);
-$brand-warning: map-get($brand-colors, warning);
-$brand-danger:  map-get($brand-colors, danger);
+$brand-primary: map.get($brand-colors, primary);
+$brand-success: map.get($brand-colors, success);
+$brand-info:    map.get($brand-colors, info);
+$brand-warning: map.get($brand-colors, warning);
+$brand-danger:  map.get($brand-colors, danger);
 
 
 // ===== Aliases =====
-$gray-base:    map-get($gray-scale, base);
-$gray-darker:  map-get($gray-scale, darker);
-$gray-dark:    map-get($gray-scale, dark);
-$gray:         map-get($gray-scale, mid);
-$gray-light:   map-get($gray-scale, light);
-$gray-lighter: map-get($gray-scale, lighter);
+$gray-base:    map.get($gray-scale, base);
+$gray-darker:  map.get($gray-scale, darker);
+$gray-dark:    map.get($gray-scale, dark);
+$gray:         map.get($gray-scale, mid);
+$gray-light:   map.get($gray-scale, light);
+$gray-lighter: map.get($gray-scale, lighter);
 
 //
 // Variables
@@ -38,23 +39,23 @@ $btn-default-border:             $gray;
 
 $btn-primary-color:              #fff;
 $btn-primary-bg:                 $brand-primary;
-$btn-primary-border:             darken($btn-primary-bg, 5%);
+$btn-primary-border:             color.adjust($btn-primary-bg, $lightness: -5%);
 
 $btn-success-color:              #fff;
 $btn-success-bg:                 $brand-success;
-$btn-success-border:             darken($btn-success-bg, 5%);
+$btn-success-border:             color.adjust($btn-success-bg, $lightness: -5%);
 
 $btn-info-color:                 #fff;
 $btn-info-bg:                    $brand-info;
-$btn-info-border:                darken($btn-info-bg, 5%);
+$btn-info-border:                color.adjust($btn-info-bg, $lightness: -5%);
 
 $btn-warning-color:              #fff;
 $btn-warning-bg:                 $brand-warning;
-$btn-warning-border:             darken($btn-warning-bg, 5%);
+$btn-warning-border:             color.adjust($btn-warning-bg, $lightness: -5%);
 
 $btn-danger-color:               #fff;
 $btn-danger-bg:                  $brand-danger;
-$btn-danger-border:              darken($btn-danger-bg, 5%);
+$btn-danger-border:              color.adjust($btn-danger-bg, $lightness: -5%);
 
 $btn-link-disabled-color:        $gray-light;
 
@@ -233,7 +234,7 @@ $pagination-hover-bg:           $gray;
 $pagination-hover-color:        $text-color;
 $pagination-active-bg:          $brand-primary;
 $pagination-active-color:       $theme-text-color-accent;
-$pagination-active-border:      darken($brand-primary, 8%);
+$pagination-active-border:      color.adjust($brand-primary, $lightness: -8%);
 $pagination-disabled-bg:        $gray-dark;
 $pagination-disabled-color:     $gray-light;
 $pagination-disabled-border:    $gray;
@@ -260,19 +261,19 @@ $pagination-disabled-border:    $gray;
 
 $state-success-text:             $brand-success;
 $state-success-bg:               rgba($brand-success, 0.2);
-$state-success-border:           darken(adjust-hue($state-success-bg, -10), 5%);
+$state-success-border:           color.adjust(color.adjust($state-success-bg, $hue: -10), $lightness: -5%);
 
 $state-info-text:                $brand-info;
 $state-info-bg:                  rgba($brand-info, 0.2);
-$state-info-border:              darken(adjust-hue($state-info-bg, -10), 7%);
+$state-info-border:              color.adjust(color.adjust($state-info-bg, $hue: -10), $lightness: -7%);
 
 $state-warning-text:             $brand-warning;
 $state-warning-bg:               rgba($brand-warning, 0.2);
-$state-warning-border:           darken(adjust-hue($state-warning-bg, -10), 5%);
+$state-warning-border:           color.adjust(color.adjust($state-warning-bg, $hue: -10), $lightness: -5%);
 
 $state-danger-text:              $brand-danger;
 $state-danger-bg:                rgba($brand-danger, 0.2);
-$state-danger-border:            darken(adjust-hue($state-danger-bg, -10), 5%);
+$state-danger-border:            color.adjust(color.adjust($state-danger-bg, $hue: -10), $lightness: -5%);
 
 
 //== Tooltips
@@ -335,7 +336,7 @@ $label-link-hover-color:      $theme-text-color-accent;
 //== Modals
 //
 //##
-$modal-content-bg:         darken($gray-dark, 3%);
+$modal-content-bg:         color.adjust($gray-dark, $lightness: -3%);
 $modal-content-border:     $gray;
 $modal-content-border-color:                   rgba(0, 0, 0, .2);
 $modal-content-fallback-border-color:          $gray;
@@ -412,7 +413,7 @@ $list-group-hover-bg:           $gray-light;
 $list-group-active-color:       $theme-text-color-accent;
 $list-group-active-border:      $brand-primary;
 $list-group-active-bg:          $gray-light;
-$list-group-active-text-color:  lighten($list-group-active-bg, 40%);
+$list-group-active-text-color:  color.adjust($list-group-active-bg, $lightness: 40%);
 
 
 //** Text color of disabled list items
@@ -435,7 +436,7 @@ $list-group-link-heading-color: #333;
 $panel-bg:                       $theme-bg-primary;
 $panel-default-text:             $text-color;
 $panel-default-border:           $gray;
-$panel-default-heading-bg:       lighten($panel-bg, 5%);
+$panel-default-heading-bg:       color.adjust($panel-bg, $lightness: 5%);
 
 
 

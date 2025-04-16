@@ -1,25 +1,45 @@
 {
   "name": "unsense-theme",
-  "version": "1.0.0",
-  "packageManager": "yarn@1.22.22",
+  "version": "0.4.0",
+  "description": "A Bootstrap 3-based theme with light and dark mode support.",
+  "main": "theme.js",
   "scripts": {
     "copy:assets": "./scripts/copy-assets.sh",
     "build:css": "./scripts/build.sh --output-style compressed",
     "build": "yarn build:css && yarn copy:assets",
     "build:dev": "./scripts/build.sh --dev",
-    "export:artefacts": "./scripts/export.sh",    
+    "export:artefacts": "./scripts/export.sh",
     "clean": "./scripts/clean.sh",
     "clean:modules": "rm -rf node_modules",
     "watch": "./scripts/watch.sh",
-    "watch:sass": "SASS_WARN_DEPRECATED=false  sass --source-map --watch -I node_modules/bootstrap-sass/assets/stylesheets src/stylesheets/main.scss build/css/main.css  ",
+    "watch:sass": "SASS_WARN_DEPRECATED=false sass --source-map --watch -I node_modules/bootstrap-sass/assets/stylesheets src/stylesheets/main.scss build/css/main.css",
     "dev": "browser-sync start --no-open --proxy 'https://10.100.0.1' --files build/css/light.css build/css/dark.css"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/peterzen/unsense-repo"
+  },
+  "keywords": [
+    "bootstrap",
+    "theme",
+    "scss",
+    "dark-mode",
+    "light-mode",
+    "custom-theme"
+  ],
+  "author": "Peter Banik <peter@froggle.org>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/peterzen/unsense-repo/issues"
+  },
+  "homepage": "https://github.com/peterzen/unsense-repo#readme",
+  "packageManager": "yarn@1.22.22",
   "devDependencies": {
     "bootstrap-sass": "^3.4.3",
     "browser-sync": "^3.0.4",
     "chokidar-cli": "^3.0.0",
     "cpx": "^1.5.0",
-    "sass": "^1.75.0",
+    "sass": "1.39.2",
     "sass-formatter": "^0.7.9"
   }
 }

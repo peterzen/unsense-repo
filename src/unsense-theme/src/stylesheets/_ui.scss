@@ -1,3 +1,4 @@
+@use "sass:color";
 @mixin border-radius($radius) {
   -webkit-border-radius: $radius;
   -moz-border-radius: $radius;
@@ -233,7 +234,7 @@ html .tokenize {
     border-color: $input-border;
 
     >.token {
-      background-color: darken($brand-primary, 5%);
+      background-color: color.adjust($brand-primary, $lightness: -5%);
       border: none;
     }
 
@@ -437,7 +438,7 @@ table#tunable.bootgrid-table {
 
 .panel-default {
   .panel-footer {
-    background-color: lighten($panel-bg, 5%);
+    background-color: color.adjust($panel-bg, $lightness: 5%);
     border-top: none;
   }
 }

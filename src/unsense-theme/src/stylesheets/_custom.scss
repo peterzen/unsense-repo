@@ -1,3 +1,4 @@
+@use "sass:color";
 * {
   -webkit-font-smoothing: antialiased;
 }
@@ -46,7 +47,7 @@ body {
 
 
 .page-side {
-  border-right: 1px solid darken($navbar-default-border, 5%);
+  border-right: 1px solid color.adjust($navbar-default-border, $lightness: -5%);
 }
 
 .page-side-nav {
@@ -74,7 +75,7 @@ body {
   padding: 1rem 0;
 
   a {
-    color: darken($text-color, 25%);
+    color: color.adjust($text-color, $lightness: -25%);
   }
 }
 
