@@ -13,7 +13,7 @@
     "clean:modules": "rm -rf node_modules",
     "watch": "./scripts/watch.sh",
     "watch:sass": "SASS_WARN_DEPRECATED=false sass --source-map --watch -I node_modules/bootstrap-sass/assets/stylesheets src/stylesheets/main.scss build/css/main.css",
-    "dev": "browser-sync start --no-open --proxy 'https://10.100.0.1' --files build/css/light.css build/css/dark.css"
+    "dev": "browser-sync start --no-open  --verbose --proxy 'https://10.100.0.1' --files build/css/main.css"
   },
   "repository": {
     "type": "git",
