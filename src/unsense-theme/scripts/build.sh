@@ -10,6 +10,8 @@ SASS_WARN_DEPRECATED=false
 
 echo "\$version: \"$(date +%s)\";"  > "/tmp/version.scss"
 
+cp $SRC/javascripts/* $DEST/js/
+
 # dark color variant
 echo "Building dark CSS..."
 sass \
