@@ -78,3 +78,9 @@ tr:has(.select-cell){
   }
 }
 
+label.control-label.legacy-label {
+  font-weight: normal !important;
+  &:hover {
+    cursor: pointer;
+  }
+}

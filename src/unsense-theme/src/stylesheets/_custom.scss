@@ -123,11 +123,11 @@ div.content-box.wizard {
 }
 
 // override default BS style
-.navbar-brand > img {
+.navbar-brand>img {
   display: none;
 }
 
-html .login-modal-container .navbar-brand > img {
+html .login-modal-container .navbar-brand>img {
   display: block;
 }
 
@@ -171,14 +171,43 @@ html .brand-icon {
   @media (min-width: $screen-sm-min) {
     float: right;
   }
-  .label-success {
-    @extend .btn-success;
-    @extend .btn-sm;
+
+  .label-success, .label-danger {
     margin-right: 0;
   }
+
   .btn {
     margin-left: 1em;
   }
+}
+
+.label-opnsense {
+  @extend .btn;
+  vertical-align: middle;
+  line-height: inherit;
+
+  &.label-opnsense-sm {
+    @extend .btn-sm;
+  }
+  
+  &.label-opnsense-xs {
+    @extend .btn-xs;
+  }
+  
+  &.label-success {
+    @extend .btn-success;
+    @extend .btn-sm;
+  }
+  
+  &.label-danger {
+    @extend .btn-danger;
+    @extend .btn-sm;
+  }
+}
+
+label.dropdown-item {
+  font-weight: normal;
+  user-select: none
 }
 
 .btn.btn-fixed {
@@ -216,7 +245,7 @@ button.toggle-sidebar {
   font-size: 14px;
   float: left;
   margin-top: 20px;
-  color: $gray-lighter;
+  color: $theme-text-secondary;
   border: none;
   outline: none;
   background-color: transparent;
@@ -358,25 +387,7 @@ $spacing_unit: 1em;
   padding: 10px 20px;
 }
 
-.label-opnsense {
-  font-size: small;
-  line-height: 1.5;
-  display: inline-block;
-  vertical-align: middle;
-  border: 1px solid transparent;
-  border-radius: 3px;
-}
 
-.label-opnsense-sm {
-  /* emulates btn-sm */
-  padding: 5px 10px;
-}
-
-.label-opnsense-xs,
-.btn-xs {
-  /* emulates btn-xs */
-  padding: 1px 3px;
-}
 
 ::-webkit-scrollbar {
   width: 8px;
@@ -400,7 +411,7 @@ $spacing_unit: 1em;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: $gray-lighter;
+  background: $theme-bg-secondary;
 }
 
 .widgetdiv {
@@ -431,8 +442,8 @@ select {
 }
 
 .page-content-main form input[type="checkbox"] {
-  margin-bottom: 0.25em;
-  margin-right: 0.25em;
+  margin-bottom: 10px;
+  margin-right: 10px;
 }
 
 label>input[type="checkbox"],
@@ -446,7 +457,7 @@ input[type="text"],
 input[type="password"],
 textarea {
   border-radius: 4px;
-  width: auto;
+  // width: auto;
   box-shadow: none;
 
   &:hover {
@@ -611,3 +622,11 @@ input[type="color"] {
 //     scrollbar-color: rgba(60, 60, 60, 0.15) transparent;
 //   }
 // }
+
+
+#dnsallowoverride_exclude {
+  hr {
+    display: none;
+  }
+  padding-left: 2em;
+}

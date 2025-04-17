@@ -58,7 +58,7 @@ $btn-danger-color:               #fff;
 $btn-danger-bg:                  $brand-danger;
 $btn-danger-border:              color.adjust($btn-danger-bg, $lightness: -5%);
 
-$btn-link-disabled-color:        $gray-light;
+$btn-link-disabled-color:        $theme-text-tertiary;
 
 // Global color for active items (e.g., navs or dropdowns).
 $component-active-color:    #fff;
@@ -316,16 +316,13 @@ $label-link-hover-color:      $theme-text-secondary;
 //##
 $modal-content-bg:         $theme-bg-secondary;
 $modal-content-border:     $theme-border-primary;
-$modal-content-border-color:                   $theme-border-primary;
+$modal-content-border-color:                   $theme-border-tertiary;
 $modal-content-fallback-border-color:          $gray;
-$modal-header-border-color: $gray;
-$modal-footer-border-color: $gray;
+$modal-header-border-color: $theme-border-tertiary;
+$modal-footer-border-color: $theme-border-tertiary;
 
-$modal-title-color:        $text-color;
-$modal-body-color:         $text-color;
-
-$modal-backdrop-bg:        $gray-darker;
-$modal-backdrop-opacity:   0.75;
+$modal-title-color:        $theme-text-secondary;
+$modal-body-color:         $theme-text-primary;
 
 $modal-header-color:       $text-color;
 $modal-footer-color:       $text-color;

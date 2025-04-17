@@ -59,11 +59,15 @@ button#flushAct {
   @include btn-cancel;
 }
 
+// modals
 .bootstrap-dialog-footer-buttons button:not(.btn-default) {
   float: right;
   margin-left: 1rem;
 }
 
+.bootstrap-dialog-title {
+  @extend .h4;
+}
 .modal-footer {
   button[data-dismiss="modal"] {
     background: transparent;
@@ -302,15 +306,17 @@ input#mss {
 .command-toggle {
 
   &.fa-check-square-o {
-    color: $gray-lighter;
+    color: $theme-text-secondary;
   }
 
   &.fa-square-o {
-    color: $gray;
+    color: $theme-text-tertiary;
   }
 }
 
 html .bootgrid-table {
+
+  table-layout: auto;
 
   .bootgrid-table td {
     text-align: left;
@@ -518,7 +524,7 @@ td:has(i[id*="show_"]) {
     }
 
     &.fa-toggle-off {
-      color: $gray-lighter;
+      color: $theme-text-secondary;
     }
   }
 
@@ -712,3 +718,4 @@ html #expand-group-rules {
 
 
 #notification-banner {}
+
