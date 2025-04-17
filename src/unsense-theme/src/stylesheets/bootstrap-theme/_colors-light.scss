@@ -1,20 +1,10 @@
-@use "sass:map";
-
-// Gray Scale adjusted for light mode
-$gray-scale: (
-  base: #000000,
-  lighter: #b0c6dd,
-  light: #6c757d,
-  mid: #adb5bd,
-  dark: #dee2e6,
-  darker: #f8f9fa
-);
 
 // Light variant theme variables
 $theme-text-primary: #525461;
 $theme-text-secondary: #a4a7b5;
 $theme-text-tertiary: #7e8190;
-$theme-text-quaternary: #c2c4ce;
+$theme-text-quaternary: #b1b3bd;
+
 $theme-bg-primary: #f9f9f9;
 $theme-bg-secondary: #f1f2f4;
 $theme-bg-tertiary: #f4f4f5; 

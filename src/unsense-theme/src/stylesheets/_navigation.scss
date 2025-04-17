@@ -14,11 +14,12 @@
       position: relative;
       padding: 0.75em 1em;
       text-decoration: none;
-      @extend .text-muted;
+      background-color: inherit;
+      color: $theme-text-secondary;
 
       &:hover {
-        color: $theme-text-secondary;
-        background-color: rgba($theme-bg-secondary,0.5);
+        color: $theme-text-primary;
+        background-color: $theme-bg-secondary;
 
         &::before {
           background-color: $list-group-active-border;
@@ -59,6 +60,7 @@
         width: 0;
         content: "";
         opacity: .8;
+        background-color: purple;
       }
 
       &::after {
@@ -69,6 +71,7 @@
         display: block;
         width: 12px;
         content: "";
+        background-color: palegreen;
       }
 
       &:hover,
@@ -88,9 +91,7 @@
   overflow: hidden;
   width: 70px;
   height: 100%;
-  border-top: none;
-  border-left: none;
-  border-bottom: none;
+  border: none;
   background-color: transparent;
   position: absolute;
 
@@ -101,7 +102,7 @@
       >nav.page-side-nav {
         width: 70px;
         height: 100% !important;
-        background: $navbar-default-bg;
+        background: $theme-bg-primary;
       }
     }
 
@@ -200,10 +201,10 @@
             left: 70px;
             width: 168px;
             margin-top: -70px;
-            border: 1px solid color.adjust($navbar-default-bg, $lightness: 5%);
-            -moz-box-shadow: 2px 2px 1px 0px $theme-bg-primary;
-            -webkit-box-shadow: 2px 2px 1px 0px $theme-bg-primary;
-            box-shadow: 2px 2px 6px 4px rgba($gray,0.6);
+            border: 1px solid color.adjust($theme-border-primary, $lightness: 5%);
+            -moz-box-shadow: 2px 2px 1px 0px $theme-border-primary;
+            -webkit-box-shadow: 2px 2px 1px 0px $theme-border-primary;
+            box-shadow: 2px 2px 6px 4px rgba($theme-border-primary,0.6);
 
             >div.collapse.in {
               font-size: 14px;
@@ -227,6 +228,10 @@
       }
     }
   }
+}
+
+.active-menu-title {
+  
 }
 
 
@@ -256,14 +261,14 @@
 .active-menu a {
   // position: relative;
   // text-decoration: none;
-  // background-color: $gray-dark;
+  background-color: $theme-bg-secondary;
 
   &:before {
-    // width: 3px;
+    width: 3px;
   }
 
   &.active {
-    // background-color: red;//$gray-darker;
+    background-color: green;//$gray-darker;
   }
 }
 

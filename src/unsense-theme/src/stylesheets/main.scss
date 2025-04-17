@@ -1,7 +1,15 @@
 // version.scss is generated in build.sh
 @import "/tmp/version.scss";
-// use it for cache busting
+// used for cache busting
 @import url("light.css?v=#{$version}");
 @import url("dark.css?v=#{$version}") (prefers-color-scheme: dark);
-
 // TODO optimize/deduplicate CSS
+
+
+.toggle-sidebar {
+    // XXX h4ck
+    // Without this placeholder
+    // style .toggle-sidebar won't render.
+    // https://github.com/opnsense/core/blob/5636079c16f56bf9b90a51867eaa56ecf8f72b24/src/opnsense/www/js/opnsense_theme.js#L99
+    display: block;
+}

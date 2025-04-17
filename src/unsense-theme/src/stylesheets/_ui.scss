@@ -81,7 +81,7 @@ html table.table.table-striped {
   background-color: inherit !important;
 
   >tbody>tr:not(:last-child):not(:first-child) {
-    border-bottom: 1px solid $theme-border-secondary;
+    border-bottom: 1px solid $theme-border-tertiary;
   }
 
   >tbody {
@@ -101,17 +101,7 @@ html table.table.table-striped {
   }
 }
 
-// .page-content-main .content-box form> .table {
-//   &.table-striped {
-//     &>tbody>tr:nth-of-type(odd) td {
-//       // background-color: $gray-dark !important;//$gray-lighter; //#00ff00;// rgba(0,111,255,.4);
-//     }
 
-//     &>tbody>tr:nth-of-type(even) td {
-//       // background-color: yellowgreen;//; // #ff0000;// rgba(0,111,255,.4);
-//     }
-//   }
-// }
 html .table th>a.sortable,
 html .table>thead>tr>td,
 html .table>thead>tr>th {
@@ -144,17 +134,12 @@ form>table.table,
   }
 
   >tbody>tr>td>strong {
-    // @extend .h2;
     font-weight: bold;
   }
 
   // different table-striped styles on forms
   &.table-striped {
     background-color: $table-bg;
-
-    // >tbody>tr:not(:last-child):not(:first-child) {
-    //   border-bottom: 1px solid $gray-dark;
-    // }
 
     >tbody>tr:nth-of-type(odd) {
 
@@ -187,7 +172,6 @@ form>table.table,
         // background-color: inherit;
       }
     }
-
   }
 }
 
@@ -247,20 +231,20 @@ html .table th>a.sortable {
 
 #update_status_container {
   textarea {
-    background-color: var(--gray-darker);
+    background-color: inherit;
     padding: 0.5em 1em;
   }
 }
 
 .dropdown-menu .divider {
-  background-color: $gray;
+  background-color: $theme-border-tertiary;
 }
 
 // tokenized input
 html .tokenize {
   >.tokens-container {
     // margin-top: 0px;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.5em;
     background-color: $input-bg;
     border-color: $input-border;
 
@@ -288,7 +272,7 @@ html .tokenize {
 }
 
 hr {
-  opacity: 0.25;
+  opacity: 0.025;
 }
 
 input#mtu,
@@ -357,19 +341,12 @@ html .bootgrid-table {
     overflow: visible;
     max-width: 40rem;
   }
-
 }
 
 #menu_search_box {
   transition: width 0.3s ease;
-
 }
 
-
-
-#maintabs {
-  // width: 100%;
-}
 
 .nav {
   &.nav-tabs {
@@ -447,7 +424,7 @@ table#tunable.bootgrid-table {
 
       &:nth-child(4) {
         width: 10%;
-        color: var(--brand-primary);
+        color: $brand-primary;
       }
 
       &:nth-child(5) {
@@ -471,7 +448,7 @@ table#tunable.bootgrid-table {
 
 .panel-default {
   .panel-footer {
-    background-color: color.adjust($panel-bg, $lightness: 5%);
+    // background-color: color.adjust($panel-bg, $lightness: 5%);
     border-top: none;
   }
 }
@@ -562,9 +539,7 @@ td:has(i[id*="show_"]) {
 // firewall rules
 table.table.opnsense-rules {
   >tbody {
-
     >tr {
-
       td:nth-child(4),
       // src
       td:nth-child(6) {
@@ -642,7 +617,7 @@ html table#grid-overview {
     }
 
     td:nth-child(1) {
-      color: var(--text-color-accent);
+      color: $theme-text-secondary;
     }
 
     td:nth-child(3),
@@ -681,7 +656,7 @@ html #expand-internal-rules {
   &,
   ~.internal-rule {
     td {
-      background-color: var(--gray-light);
+      background-color: $theme-bg-tertiary;
     }
   }
 }
@@ -691,7 +666,7 @@ html #expand-group-rules {
   &,
   ~.group-rule {
     td {
-      background-color: var(--gray-lighter);
+      background-color: $theme-bg-secondary;
     }
   }
 }
@@ -719,3 +694,15 @@ html #expand-group-rules {
 
 #notification-banner {}
 
+html .bootstrap-dialog-message {
+  border: none;
+  box-shadow: none;
+  background-color: inherit;
+}
+
+// wrap white in Peers column
+table#dialogEditWireguardServer {
+  > tbody > tr > td:nth-last-child(2) {
+    white-space: normal;
+  }
+}

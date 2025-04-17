@@ -11,29 +11,18 @@ $brand-info:    map.get($brand-colors, info);
 $brand-warning: map.get($brand-colors, warning);
 $brand-danger:  map.get($brand-colors, danger);
 
-
-// ===== Aliases =====
-$gray-base:    map.get($gray-scale, base);
-$gray-darker:  map.get($gray-scale, darker);
-$gray-dark:    map.get($gray-scale, dark);
-$gray:         map.get($gray-scale, mid);
-$gray-light:   map.get($gray-scale, light);
-$gray-lighter: map.get($gray-scale, lighter);
-
 //
 // Variables
 // --------------------------------------------------
 $body-bg:        $theme-bg-primary;
 $text-color: $theme-text-primary;
-$text-muted: $theme-text-tertiary;
+$text-muted: $theme-text-quaternary;
 $link-color:     $brand-primary;
 $link-hover-color: #57a0ff;
 
 //== Buttons
 //
 //## For each of Bootstrap's buttons, define text, background and border color.
-
-
 $btn-default-color:              $theme-text-primary;
 $btn-default-bg:                 $theme-bg-primary;
 $btn-default-border:             $theme-border-primary;
@@ -62,9 +51,7 @@ $btn-link-disabled-color:        $theme-text-tertiary;
 
 // Global color for active items (e.g., navs or dropdowns).
 $component-active-color:    #fff;
-//** Global background color for active items (e.g., navs or dropdowns).
 $component-active-bg:       $brand-primary;
-
 
 // ==== Tables
 $table-bg:                  transparent;
@@ -73,7 +60,6 @@ $table-bg-hover:            $theme-bg-secondary;
 $table-bg-active:           $table-bg-hover;
 $table-border-color:        $theme-border-tertiary;
 $table-color:               $theme-text-primary;
-
 
 //== Forms
 //
@@ -90,7 +76,6 @@ $legend-border-color:            transparent;
 $input-group-addon-bg:          $theme-bg-secondary;
 $input-group-addon-border-color: $input-border;
 
-
 //== Dropdowns
 //
 $dropdown-bg:                    $input-bg;
@@ -100,14 +85,10 @@ $dropdown-link-color:           $text-color;
 $dropdown-link-hover-bg:        $theme-bg-tertiary;
 $dropdown-link-hover-color:     $brand-primary;
 $dropdown-divider-bg:            $theme-border-primary;
-
-
 $dropdown-link-active-color:     $component-active-color;
 $dropdown-link-active-bg:        $component-active-bg;
 $dropdown-link-disabled-color:   $theme-text-secondary;
-
-// Text color for headers within dropdown menus
-$dropdown-header-color:          $gray-light;
+$dropdown-header-color:          $theme-border-primary;
 
 
 //== Navbar
@@ -120,6 +101,9 @@ $navbar-default-link-hover-bg:    transparent;
 $navbar-default-brand-color:      $text-color;
 $navbar-default-toggle-icon-bar-bg: $theme-bg-secondary;
 
+$navbar-default-toggle-hover-bg:           $theme-bg-secondary;
+$navbar-default-toggle-icon-bar-bg:        $theme-text-tertiary;
+$navbar-default-toggle-border-color:       yellow;
 // // Basics of a navbar
 // $navbar-default-color:             #777;
 // $navbar-default-bg:                #f8f8f8;
@@ -140,9 +124,7 @@ $navbar-default-toggle-icon-bar-bg: $theme-bg-secondary;
 // $navbar-default-brand-hover-bg:            transparent;
 
 // // Navbar toggle
-// $navbar-default-toggle-hover-bg:           #ddd;
-// $navbar-default-toggle-icon-bar-bg:        #888;
-// $navbar-default-toggle-border-color:       #ddd;
+
 
 
 //=== Inverted navbar
@@ -176,31 +158,23 @@ $navbar-default-toggle-icon-bar-bg: $theme-bg-secondary;
 //##
 
 //=== Shared nav styles
-$nav-link-hover-bg:                         $gray-lighter;
+$nav-link-hover-bg:                         $theme-text-secondary;
 
-$nav-disabled-link-color:                   $gray-light;
-$nav-disabled-link-hover-color:             $gray-light;
+$nav-disabled-link-color:                   $theme-text-tertiary;
+$nav-disabled-link-hover-color:             $theme-text-tertiary;
 
 //== Tabs
-$nav-tabs-border-color:          $gray-light;
+$nav-tabs-border-color:          $theme-border-secondary;
 $nav-tabs-link-hover-border-color: transparent;
-$nav-tabs-active-link-hover-bg:  $gray;
+$nav-tabs-active-link-hover-bg:  $theme-text-secondary;
 $nav-tabs-active-link-hover-color: $brand-primary;
 $nav-tabs-active-link-hover-border-color: transparent;
 $nav-tabs-justified-link-border-color: transparent;
 $nav-tabs-justified-active-link-border-color: transparent;
 
-
-$nav-link-padding:                          10px 15px;
-$nav-link-hover-bg:                         $gray-light;
-
-$nav-disabled-link-color:                   $gray-light !default;
-$nav-disabled-link-hover-color:             $gray-light !default;
-
 //== Pills
 $nav-pills-active-link-hover-bg:            $component-active-bg;
 $nav-pills-active-link-hover-color:         $component-active-color;
-
 
 //== Pagination
 //
@@ -216,21 +190,6 @@ $pagination-active-border:      $theme-text-secondary;
 $pagination-disabled-bg:        $pagination-bg;
 $pagination-disabled-color:     $theme-border-tertiary;
 $pagination-disabled-border:    $theme-border-tertiary;
-
-
-//== Pager
-//
-//##
-
-// $pager-bg:                             $pagination-bg;
-// $pager-border:                         $pagination-border;
-// $pager-hover-bg:                       $pagination-hover-bg;
-
-// $pager-active-bg:                      $pagination-active-bg;
-// $pager-active-color:                   $pagination-active-color;
-
-// $pager-disabled-color:                 $pagination-disabled-color;
-
 
 
 //== Form states and alerts
@@ -259,8 +218,8 @@ $state-danger-border:            color.adjust(color.adjust($state-danger-bg, $hu
 //##
 
 $tooltip-max-width:           200px;
-$tooltip-color:               $theme-text-secondary;
-$tooltip-bg:                  #000;
+$tooltip-color:               $theme-bg-primary;
+$tooltip-bg:                  $theme-text-primary;
 $tooltip-opacity:             .9;
 $tooltip-arrow-color:         $tooltip-bg;
 
@@ -293,7 +252,6 @@ $tooltip-arrow-color:         $tooltip-bg;
 //##
 
 // //** Default label background color
-// $label-default-bg:            $gray-light;
 // //** Primary label background color
 // $label-primary-bg:            $brand-primary;
 // //** Success label background color
@@ -305,7 +263,7 @@ $tooltip-arrow-color:         $tooltip-bg;
 // //** Danger label background color
 // $label-danger-bg:             $brand-danger;
 
-//** Default label text color
+$label-default-bg:            $theme-bg-tertiary;
 $label-color:                 $theme-text-primary;
 //** Default text color of a linked label
 $label-link-hover-color:      $theme-text-secondary;
@@ -328,7 +286,7 @@ $modal-header-color:       $text-color;
 $modal-footer-color:       $text-color;
 
 $modal-backdrop-bg:           $theme-bg-primary;
-$modal-backdrop-opacity:      .6;
+$modal-backdrop-opacity:      0.6;
 
 $modal-lg:                    900px;
 $modal-md:                    600px;
@@ -338,21 +296,19 @@ $modal-sm:                    300px;
 //== Alerts
 //
 //## Define alert colors, border radius, and padding.
-
-
 $alert-success-bg:               rgba($brand-success, 0.1);
 $alert-success-text:             $brand-success;
 $alert-success-border:           rgba($brand-success, 0.25);
 
-$alert-info-bg:                  rgba($brand-info, 0.1);
+$alert-info-bg:                  rgba($brand-info, 0.05);
 $alert-info-text:                $brand-info;
 $alert-info-border:              rgba($brand-info, 0.25);
 
-$alert-warning-bg:               rgba($brand-warning, 0.1);
+$alert-warning-bg:               rgba($brand-warning, 0.05);
 $alert-warning-text:             $brand-warning;
 $alert-warning-border:           rgba($brand-warning, 0.25);
 
-$alert-danger-bg:                rgba($brand-danger, 0.1);
+$alert-danger-bg:                rgba($brand-danger, 0.05);
 $alert-danger-text:              $brand-danger;
 $alert-danger-border:            rgba($brand-danger, 0.25);
 
@@ -360,11 +316,10 @@ $alert-danger-border:            rgba($brand-danger, 0.25);
 //== Progress bars
 //
 //##
-
 //** Background color of the whole progress component
-$progress-bg:                 $gray;
+$progress-bg:                 $theme-bg-secondary;
 //** Progress bar text color
-$progress-bar-color:          $gray-light;
+$progress-bar-color:          $theme-text-tertiary;
 //** Variable for setting rounded corners on progress bar.
 
 //** Default progress bar color
@@ -383,18 +338,18 @@ $progress-bar-info-bg:        $brand-info;
 //
 //##
 $list-group-bg:                 transparent;
-$list-group-border:             $gray-darker;
-$list-group-hover-bg:           $gray-light;
+$list-group-border:             $theme-border-primary;
+$list-group-hover-bg:           $theme-bg-secondary;
 $list-group-active-color:       $theme-text-secondary;
 $list-group-active-border:      $brand-primary;
-$list-group-active-bg:          $gray-light;
+$list-group-active-bg:          $theme-bg-tertiary;
 $list-group-active-text-color:  color.adjust($list-group-active-bg, $lightness: 40%);
 
 
 //** Text color of disabled list items
-$list-group-disabled-color:      $gray-light;
+$list-group-disabled-color:      $theme-text-secondary;
 //** Background color of disabled list items
-$list-group-disabled-bg:         $gray-lighter;
+$list-group-disabled-bg:         $theme-bg-tertiary;
 //** Text color for content within disabled list items
 $list-group-disabled-text-color: $list-group-disabled-color;
 
@@ -408,19 +363,15 @@ $list-group-link-heading-color: #333;
 //== Panels
 //
 //##
-$panel-bg:                       $theme-bg-primary;
+$panel-bg:                       $theme-bg-secondary;
 $panel-default-text:             $text-color;
-$panel-default-border:           $gray;
-$panel-default-heading-bg:       color.adjust($panel-bg, $lightness: 5%);
+$panel-default-border:           $theme-border-secondary;
+$panel-default-heading-bg:       $theme-bg-tertiary;
+$panel-footer-bg:                $panel-default-heading-bg;
 
+$panel-inner-border:          transparent;
 
-
-
-//** Border color for elements within panels
-$panel-inner-border:          $gray-darker;
-$panel-footer-bg:             transparent;
-
-$panel-primary-text:          $text-color;
+$panel-primary-text:          #fff;
 $panel-primary-border:        $brand-primary;
 $panel-primary-heading-bg:    $brand-primary;
 
@@ -497,20 +448,20 @@ $pre-border-color:            #ccc;
 //
 //##
 
-//** Text muted color
-$text-muted:                  $gray-light;
-//** Abbreviations and acronyms border color
-$abbr-border-color:           $gray-light;
-//** Headings small color
-$headings-small-color:        $gray-light;
-//** Blockquote small color
-$blockquote-small-color:      $gray-light;
-$blockquote-border-color:     $gray-lighter !default;
+// //** Text muted color
+// $text-muted:                  $gray-light;
+// //** Abbreviations and acronyms border color
+// $abbr-border-color:           $gray-light;
+// //** Headings small color
+// $headings-small-color:        $gray-light;
+// //** Blockquote small color
+// $blockquote-small-color:      $gray-light;
+// $blockquote-border-color:     $gray-lighter !default;
 
-//** Page header border color
-$page-header-border-color:    $gray-lighter;
-//** Horizontal line color.
-$hr-border:                   $gray-lighter;
+// //** Page header border color
+// $page-header-border-color:    $gray-lighter;
+// //** Horizontal line color.
+// $hr-border:                   $gray-lighter;
 
 
 
@@ -519,6 +470,5 @@ $hr-border:                   $gray-lighter;
 $color-red-error: $brand-danger;
 $color-green-success: $brand-success;
 $color-grey-arrow: $gray;
-//** Placeholder text color
-// $input-color-placeholder: $input;
-$input-alt-color-placeholder: $gray-lighter;
+$input-color-placeholder: $theme-text-tertiary;
+$input-alt-color-placeholder: $theme-text-tertiary;

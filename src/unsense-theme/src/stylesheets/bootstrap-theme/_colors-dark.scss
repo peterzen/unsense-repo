@@ -1,31 +1,17 @@
 @use "sass:color";
 
-
-//== Colors
-//
-//## Gray and brand colors for use across Bootstrap.
-// ===== Color Maps =====
-$gray-scale: (
-  base:    #000000,
-  darker:  #1e1f23,
-  dark:    #2a2b30,
-  mid:     #3a3b41,
-  light:   #5c6370,
-  lighter: #888888
-);
-
-
-// ===== Dark variant =====
-$theme-text-primary: #d4d4d4;
+// ===== Dark variant color scheme =====
+$theme-text-primary: #e0e0e0;
 $theme-text-secondary: #ffffff;
 $theme-text-tertiary: #7e8190;
-$theme-text-quaternary: #c2c4ce;
-$theme-bg-primary: #131416;
-$theme-bg-secondary: color.adjust($theme-bg-primary, $lightness: 2%);
-$theme-bg-tertiary: color.adjust($theme-bg-primary, $lightness: 4%);
+$theme-text-quaternary: #5f6067;
 
-$theme-border-primary: #2a2b30;
-$theme-border-secondary: #c2c4ce;
-$theme-border-tertiary: #e5e7ed;
+$theme-bg-primary: #131416;
+$theme-bg-secondary: #0d0e0f;
+$theme-bg-tertiary: #131416;
+
+$theme-border-primary: #333333;
+$theme-border-secondary: color.adjust($theme-border-primary, $lightness: -5%);
+$theme-border-tertiary: color.adjust($theme-border-primary, $lightness: -2%);
 $theme-drop-shadow: rgba(21, 23, 37, .2);
 $theme-scrollbar-thumb: #f1f2f4;

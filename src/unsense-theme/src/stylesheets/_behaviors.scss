@@ -87,4 +87,18 @@ label.control-label.legacy-label {
     cursor: pointer;
     user-select: none;
   }
+  strong {
+    font-weight: normal;
+    padding-left: 0.5em;
+  }
+}
+
+label.help-toggle {
+  font-weight: normal;
+  small {
+    font-size: inherit;
+  }
+  &:hover {
+    cursor: pointer;
+  }
 }

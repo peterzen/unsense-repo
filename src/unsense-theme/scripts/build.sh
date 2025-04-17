@@ -30,7 +30,7 @@ sass \
   "$DEST/css/light.css" \
   ${1:+"--source-map"}
 
-
+echo "Building main CSS..."
 sass \
   -I $INCLUDE_PATH \
   "$SRC/stylesheets/main.scss" \

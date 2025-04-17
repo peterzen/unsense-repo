@@ -111,7 +111,8 @@ html .grid-stack-item-content {
     display: flex;
     align-items: center;
     justify-content: center;
-    font-weight: bolder;
+    // font-weight: bold;
+    // @include h3;
 }
 
 html .panel-divider {
