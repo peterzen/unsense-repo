@@ -71,10 +71,13 @@ html .pagination {
   }
 }
 
-// bootgrid table with selectable rows
-tr:has(.select-cell){
+// bootgrid table with selectable rows, and 
+// firewall rules table with selectable rows
+tr:has(.select-cell),
+tr.selectable-row {
   &:hover {
     cursor: pointer;
+    user-select: none;
   }
 }
 
@@ -82,5 +85,6 @@ label.control-label.legacy-label {
   font-weight: normal !important;
   &:hover {
     cursor: pointer;
+    user-select: none;
   }
 }
