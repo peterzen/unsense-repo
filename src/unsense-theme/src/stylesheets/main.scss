@@ -3,3 +3,5 @@
 // use it for cache busting
 @import url("light.css?v=#{$version}");
 @import url("dark.css?v=#{$version}") (prefers-color-scheme: dark);
+
+// TODO optimize/deduplicate CSS

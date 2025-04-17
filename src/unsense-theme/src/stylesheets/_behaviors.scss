@@ -64,3 +64,17 @@ div:has(#change_message_base_form ){
 .widget-sort-handle {
   touch-action: none;
 }
+
+html .pagination {
+  >li>a:hover {
+    cursor: pointer;
+  }
+}
+
+// bootgrid table with selectable rows
+tr:has(.select-cell){
+  &:hover {
+    cursor: pointer;
+  }
+}
+

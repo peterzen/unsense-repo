@@ -171,6 +171,14 @@ html .brand-icon {
   @media (min-width: $screen-sm-min) {
     float: right;
   }
+  .label-success {
+    @extend .btn-success;
+    @extend .btn-sm;
+    margin-right: 0;
+  }
+  .btn {
+    margin-left: 1em;
+  }
 }
 
 .btn.btn-fixed {
@@ -307,7 +315,7 @@ b {
 }
 
 .table th {
-  color: var(--text-color-accent);
+  color: $theme-text-primary;
 }
 
 $spacing_unit: 1em;
@@ -438,16 +446,18 @@ input[type="text"],
 input[type="password"],
 textarea {
   border-radius: 4px;
+  width: auto;
+  box-shadow: none;
 
-  // &:hover {
-  //   border-color: $input-border;
-  //   background-color: lighten($input-bg, 5%);
-  // }
+  &:hover {
+    border-color: $input-border;
+    background-color: $input-bg;
+  }
 
-  // &:focus {
-  //   border-color: $input-border-focus;
-  //   background-color: lighten($input-bg, 5%);
-  // }
+  &:focus {
+    border-color: $input-border-focus;
+    background-color: $input-bg-focus;
+  }
 }
 
 input[type="checkbox"],
@@ -463,7 +473,7 @@ input[type="radio"] {
   cursor: pointer;
   transition: border-color 150ms ease, background-color 150ms ease;
   transform: translateY(1px);
-  border: 1px solid $brand-primary;
+  border: 1px solid $input-border;
 
   border-radius: 0.15em;
   -webkit-appearance: none;

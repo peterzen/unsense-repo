@@ -1,4 +1,5 @@
 @use "sass:color";
+
 @mixin border-radius($radius) {
   -webkit-border-radius: $radius;
   -moz-border-radius: $radius;
@@ -75,6 +76,10 @@ button#flushAct {
 html table.table.table-striped {
   background-color: inherit !important;
 
+  >tbody>tr:not(:last-child):not(:first-child) {
+    border-bottom: 1px solid $theme-border-secondary;
+  }
+
   >tbody {
     >tr:hover td {
       // background-color: lighten($table-bg, 35%);
@@ -114,11 +119,13 @@ form>.table-responsive>.table,
 form>table.table,
 .modal-body table.table {
   background-color: $theme-bg-secondary;
+
   >thead {
     th {
       font-weight: bold;
       // @extend .h2;
     }
+
   }
 
   // heuristic to find form labels in tables
@@ -137,12 +144,13 @@ form>table.table,
     font-weight: bold;
   }
 
+  // different table-striped styles on forms
   &.table-striped {
     background-color: $table-bg;
 
-    >tbody>tr:not(:last-child):not(:first-child) {
-      border-bottom: 1px solid $gray-dark;
-    }
+    // >tbody>tr:not(:last-child):not(:first-child) {
+    //   border-bottom: 1px solid $gray-dark;
+    // }
 
     >tbody>tr:nth-of-type(odd) {
 
@@ -175,19 +183,38 @@ form>table.table,
         // background-color: inherit;
       }
     }
-  }
 
-  table,
-  .table {
-    background-color: transparent !important;
-    color: var(--table-color);
   }
 }
+
+.table:not(.bootgrid-table) {
+
+  th,
+  td {
+    border: none;
+  }
+}
+
+// remove border on nested tables
+table.table,
+#frm_generalsettings {
+
+  // no <th> border on nested tables 
+  table.table>thead>tr {
+
+    // sometimes these are mixed up in the markup
+    th,
+    td {
+      border: none;
+    }
+  }
+}
+
 
 #allcfg+.content-box {
   .opnsense_standard_table_form {
 
-    background-color: $theme-bg-secondary;
+    // background-color: $theme-bg-secondary;
     &,
     & td {
       background-color: inherit;
@@ -340,33 +367,33 @@ html .bootgrid-table {
 
 .nav {
   &.nav-tabs {
-    // background-color: $background-tertiary;
-    // width: auto;
+    background-color: $theme-bg-tertiary;
     display: inline-block;
-    @include border-radius(5px);
+    @include border-radius(10px);
     border: none;
-    padding: 0.5rem;
+    padding: 4px;
 
     >li {
       >a {
         border: none;
-        @include border-radius(5px);
+        padding: 10px 15px;
+        @include border-radius(8px);
         color: $theme-text-primary;
+        background-color: transparent;
 
         &:hover {
           border: none !important;
           color: $brand-primary;
-          background-color: $gray-dark;
-          // background-color: red;
+          background-color: transparent;
         }
       }
 
       &.active a {
+        background-color: $theme-bg-primary;
         color: $brand-primary;
 
         &:hover {
-          background-color: $nav-tabs-active-link-hover-bg;
-          border-bottom: 1px solid transparent;
+          // border-bottom: 1px solid transparent;
         }
       }
     }
@@ -517,8 +544,13 @@ td:has(i[id*="show_"]) {
 
 
 // fix position of 'select all' checkbox in bootgrid tables
-.bootgrid-table .select-cell .select-box {
-  margin-bottom: 0.75em;
+.bootgrid-table {
+  .select-cell {
+    // border-color: transparent;
+    .select-box {
+      margin-bottom: 0.75em;
+    }
+  }
 }
 
 // firewall rules
@@ -634,11 +666,7 @@ html table#grid-overview {
 }
 
 
-html .pagination {
-  >li>a:hover {
-    border-color: transparent;
-  }
-}
+
 
 
 
@@ -653,6 +681,7 @@ html #expand-internal-rules {
 }
 
 html #expand-group-rules {
+
   &,
   ~.group-rule {
     td {
@@ -670,13 +699,11 @@ html #expand-group-rules {
 
 #entries_bar {
   position: relative;
-} 
+}
 
 
 .top-list {
-  .list-group {
-
-  }
+  .list-group {}
 }
 
 .navbar-default .navbar-toggle {
@@ -684,6 +711,4 @@ html #expand-group-rules {
 }
 
 
-#notification-banner {
-  
-}
+#notification-banner {}

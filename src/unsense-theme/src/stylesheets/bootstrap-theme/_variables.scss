@@ -27,6 +27,7 @@ $body-bg:        $theme-bg-primary;
 $text-color: $theme-text-primary;
 $text-muted: $theme-text-tertiary;
 $link-color:     $brand-primary;
+$link-hover-color: #57a0ff;
 
 //== Buttons
 //
@@ -34,8 +35,8 @@ $link-color:     $brand-primary;
 
 
 $btn-default-color:              $theme-text-primary;
-$btn-default-bg:                 $gray-dark;
-$btn-default-border:             $gray;
+$btn-default-bg:                 $theme-bg-primary;
+$btn-default-border:             $theme-border-primary;
 
 $btn-primary-color:              #fff;
 $btn-primary-bg:                 $brand-primary;
@@ -70,77 +71,54 @@ $table-bg:                  transparent;
 $table-bg-accent:           transparent;
 $table-bg-hover:            $theme-bg-secondary;
 $table-bg-active:           $table-bg-hover;
-$table-border-color:        $theme-border-primary;
+$table-border-color:        $theme-border-tertiary;
 $table-color:               $theme-text-primary;
-
-
 
 
 //== Forms
 //
-//##
-
-//** `<input>` background color
-$input-bg:                       $gray-darker;
-//** `<input disabled>` background color
-$input-bg-disabled:              $gray-lighter;
-
-//** Text color for `<input>`s
+$input-bg:                       $theme-bg-secondary;
+$input-bg-disabled:              $theme-bg-tertiary;
 $input-color:                    $text-color;
-//** `<input>` border color
-$input-border:                   $gray-darker;
-//** Border color for inputs on focus
-$input-border-focus:             $brand-primary;
-
-//** Placeholder text color
-$input-color-placeholder:        $gray-light;
+$input-border:                   $theme-border-secondary;
+$input-border-focus:             rgba($brand-primary, 0.5);
+$input-bg-focus:                 $theme-bg-primary;
+$input-color-placeholder:        $theme-text-tertiary;
  
-$legend-color:                   $text-color;
-$input-group-addon-bg:          $gray;
-$input-group-addon-border-color:$gray;
-$legend-color:                   $gray-dark;
+$legend-color:                   $theme-text-secondary;
 $legend-border-color:            transparent;
-
-//** Background color for textual input addons
-$input-group-addon-bg:           $gray-lighter;
-//** Border color for textual input addons
+$input-group-addon-bg:          $theme-bg-secondary;
 $input-group-addon-border-color: $input-border;
-
-
 
 
 //== Dropdowns
 //
-//## Dropdown menu container and contents.
-// ===== Dropdowns =====
-$dropdown-bg:                    $gray-dark;
-$dropdown-border:                $gray;
-$dropdown-fallback-border:       $gray;
+$dropdown-bg:                    $input-bg;
+$dropdown-border:                $theme-border-primary;
+$dropdown-fallback-border:       $theme-border-primary;;
 $dropdown-link-color:           $text-color;
-$dropdown-link-hover-bg:        $gray;
+$dropdown-link-hover-bg:        $theme-bg-tertiary;
 $dropdown-link-hover-color:     $brand-primary;
-$dropdown-divider-bg:            $gray-lighter;
+$dropdown-divider-bg:            $theme-border-primary;
 
 
 $dropdown-link-active-color:     $component-active-color;
 $dropdown-link-active-bg:        $component-active-bg;
-$dropdown-link-disabled-color:   $gray-light;
+$dropdown-link-disabled-color:   $theme-text-secondary;
 
-//** Text color for headers within dropdown menus.
+// Text color for headers within dropdown menus
 $dropdown-header-color:          $gray-light;
 
 
 //== Navbar
 //
-//##
-
-$navbar-default-bg:               $body-bg;
-$navbar-default-border:           $gray-darker;
+$navbar-default-bg:               $theme-bg-secondary;
+$navbar-default-border:           $theme-border-primary;
 $navbar-default-link-color:       $text-color;
 $navbar-default-link-hover-color: $brand-primary;
 $navbar-default-link-hover-bg:    transparent;
 $navbar-default-brand-color:      $text-color;
-$navbar-default-toggle-icon-bar-bg: $gray-light;
+$navbar-default-toggle-icon-bar-bg: $theme-bg-secondary;
 
 // // Basics of a navbar
 // $navbar-default-color:             #777;
@@ -227,17 +205,17 @@ $nav-pills-active-link-hover-color:         $component-active-color;
 //== Pagination
 //
 //##
-$pagination-color:              $text-color;
-$pagination-bg:                 $gray-dark;
-$pagination-border:             $gray;
-$pagination-hover-bg:           $gray;
-$pagination-hover-color:        $text-color;
-$pagination-active-bg:          $brand-primary;
-$pagination-active-color:       $theme-text-secondary;
-$pagination-active-border:      color.adjust($brand-primary, $lightness: -8%);
-$pagination-disabled-bg:        $gray-dark;
-$pagination-disabled-color:     $gray-light;
-$pagination-disabled-border:    $gray;
+$pagination-color:              $theme-text-secondary;
+$pagination-bg:                 $theme-bg-tertiary;
+$pagination-border:             $theme-border-tertiary;
+$pagination-hover-bg:           $theme-bg-tertiary;
+$pagination-hover-color:        $theme-text-tertiary;
+$pagination-active-bg:          $theme-text-primary;
+$pagination-active-color:       $theme-bg-tertiary;
+$pagination-active-border:      $theme-text-secondary;
+$pagination-disabled-bg:        $pagination-bg;
+$pagination-disabled-color:     $theme-border-tertiary;
+$pagination-disabled-border:    $theme-border-tertiary;
 
 
 //== Pager
@@ -281,7 +259,7 @@ $state-danger-border:            color.adjust(color.adjust($state-danger-bg, $hu
 //##
 
 $tooltip-max-width:           200px;
-$tooltip-color:              $theme-text-secondary;
+$tooltip-color:               $theme-text-secondary;
 $tooltip-bg:                  #000;
 $tooltip-opacity:             .9;
 $tooltip-arrow-color:         $tooltip-bg;
@@ -336,9 +314,9 @@ $label-link-hover-color:      $theme-text-secondary;
 //== Modals
 //
 //##
-$modal-content-bg:         color.adjust($gray-dark, $lightness: -3%);
-$modal-content-border:     $gray;
-$modal-content-border-color:                   rgba(0, 0, 0, .2);
+$modal-content-bg:         $theme-bg-secondary;
+$modal-content-border:     $theme-border-primary;
+$modal-content-border-color:                   $theme-border-primary;
 $modal-content-fallback-border-color:          $gray;
 $modal-header-border-color: $gray;
 $modal-footer-border-color: $gray;
@@ -352,8 +330,8 @@ $modal-backdrop-opacity:   0.75;
 $modal-header-color:       $text-color;
 $modal-footer-color:       $text-color;
 
-$modal-backdrop-bg:           #000;
-$modal-backdrop-opacity:      .5;
+$modal-backdrop-bg:           $theme-bg-primary;
+$modal-backdrop-opacity:      .6;
 
 $modal-lg:                    900px;
 $modal-md:                    600px;
