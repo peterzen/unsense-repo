@@ -8,7 +8,7 @@
     "build:css": "./scripts/build.sh --output-style compressed",
     "build": "yarn build:css && yarn copy:assets",
     "build:dev": "./scripts/build.sh --dev",
-    "export:artefacts": "./scripts/export.sh",
+    "build:export": "./scripts/export.sh",
     "clean": "./scripts/clean.sh",
     "clean:modules": "rm -rf node_modules",
     "watch": "./scripts/watch.sh",
