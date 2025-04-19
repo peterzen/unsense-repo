@@ -23,29 +23,29 @@ html #query-details {
         }
 
         .query-success {
-            @extend .text-success;
+            @extend .text-info;
         }
 
         .query-warning {
             @extend .text-warning;
-            // color: $brand-warning;
         }
 
-        .query-danger {
+        .query-danger, .query-error {
             @extend .text-danger;
+        }
+
+        .btn-secondary {
+            @extend .btn;
+            @extend .btn-xs;
+            @extend .btn-default;
         }
     }
 }
 
-.btn-secondary.block-domain {
-    @extend .btn-secondary;
-}
 
 
 html .list-group-item-border:first-child {
     border-radius: 0 !important;
-    // border-top-left-radius: 4px;
-    // border-top-right-radius: 4px;
     // border-bottom: 2px solid black;
 }
 
