@@ -1,4 +1,7 @@
+@import url("light.css?v=1745058490");
+@import url("dark.css?v=1745058490") (prefers-color-scheme: dark);
+.toggle-sidebar {
+  display: block;
+}
 
-@import url('light.css');
-
-@import url('dark.css') (prefers-color-scheme: dark);
+/*# sourceMappingURL=main.css.map */
