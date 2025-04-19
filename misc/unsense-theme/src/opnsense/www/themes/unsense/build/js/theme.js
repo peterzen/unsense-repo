@@ -1,42 +1,106 @@
-// document.addEventListener('readystatechange', (event) => {
-// 	document.styleSheets[4].disabled = true;
-// 	document.documentElement.setAttribute('data-theme', getTheme());
-// });
 
-// $(document).ready(function() {
+$(document).ready(function () {
 
-// 	$('.fa-building-o').addClass('fa-microchip').removeClass('fa-building-o');
-// 	$('.fa-map-signs').addClass('fa-network-wired').removeClass('fa-map-signs');
-// 	$('.fa-map').addClass('fa-chart-network').removeClass('fa-map');
-// 	$('.fa-expand').addClass('fa-network-wired').removeClass('fa-expand');
-// 	$('.fa-lock').addClass('fa-shield-check').removeClass('fa-lock');
-// 	$('.fa-clock-o').addClass('fa-clock').removeClass('fa-clocl-o');
-// 	$('.fa-refresh').addClass('fa-redo').removeClass('fa-refresh');
-// 	$('.glyphicon.glyphicon-fire').addClass('fa fa-route-highway').removeClass('glyphicon glyphicon-fire');
-// 	$('.fa-support').addClass('fa fa-question-circle').removeClass('fa-support');
-// 	$('.fa').addClass('fal fa-lg').removeClass('fa');
+  // wrap checkboxes with labels to enlarge clickable area
+  $('[type="checkbox"]').each(function () {
+    const $cb = $(this);
+    const parent = this.parentNode;
 
-// 	$('ul.nav.navbar-nav.navbar-right').append("<li><span class=\"navbar-theme\" id=\"theme_toggle\"><label class=\"theme-switch\" for=\"checkbox\"><input type=\"checkbox\" id=\"checkbox\" /><div class=\"slider round\"></div></label></span>")
-// 	const toggleSwitch = document.querySelector('.theme-switch input[type="checkbox"]');
-// 	toggleSwitch.addEventListener('input', switchTheme);
-// 	if (getTheme() === 'dark') {toggleSwitch.checked = true;}
-// });
+    
+    const textNode = Array.from(parent.childNodes).find(n =>
+          // Text node with non-empty content
+        (n.nodeType === Node.TEXT_NODE && n.textContent.trim().length > 0) ||
+        // <strong> element
+        (n.nodeType === Node.ELEMENT_NODE && n.tagName === 'STRONG')
+    );
 
-// function getTheme() {
-// 	if (localStorage.getItem('theme')) {theme = localStorage.getItem('theme');}
-// 	else theme = (window.matchMedia('(prefers-color-scheme: dark)').matches) ? 'dark' : 'light';
-// 	return theme;
-// }
+    if (textNode) {
+      $cb.add(textNode).wrapAll('<label class="control-label legacy-label"></label>');
+    }
+  });
 
-// function switchTheme(e) {
-// 	if (e.target.checked) {
-// 		document.documentElement.setAttribute('data-theme', 'dark');
-// 		localStorage.setItem('theme', 'dark');
-// 	}
-// 	else {
-// 		document.documentElement.setAttribute('data-theme', 'light');
-// 		localStorage.setItem('theme', 'light');
-// 	}
-//   };
+  // $('.bootgrid-table').bootgrid()
+  // .on("load.rs.jquery.bootgrid", function (e){
+
+  //    console.log("load.rs.jquery.bootgrid");
+  //   //  $('.bootgrid-table > tbody > tr').each(function () {
+  //   //   const $cb = $(this).find('td.select-cell input[type="checkbox"]');
+  
+  //   //   $(this).on('click', function (e) {
+  //   //     if (e.target !== $cb[0]) {
+  //   //       $cb.prop('checked', !$cb.prop('checked')).trigger('change');
+  //   //     }
+  //   //     e.stopPropagation();
+  //   //   });
+  //   // });
+
+
+  // });
+
+
+      // toggle selectable rows on row click in bootgrid tables
+  $('.bootgrid-table > tbody > tr').each(function () {
+    const $cb = $(this).find('td.select-cell input[type="checkbox"]');
+
+    $(this).on('click', function (e) {
+      if (e.target !== $cb[0]) {
+        $cb.prop('checked', !$cb.prop('checked')).trigger('change');
+      }
+    });
+  });
+
+  // toggle selectable rows on row click in 
+  // firewall rules tables
+  $('table.opnsense-rules > tbody > tr').each(function () {
+    const $cb = $(this).find('.rule_select');
+
+    $(this).on('click', function (e) {
+      if (e.target !== $cb[0]) {
+        $cb.prop('checked', !$cb.prop('checked')).trigger('change');
+      }
+    });
+    $(this).addClass('selectable-row');
+  });
 
   
+  $('i[id*="show_"]').each(function () {
+    const $icon = $(this);
+    const $closestParent = $icon.closest('td'); // Find the closest <a> or <td> parent
+
+    if ($closestParent.length) {
+        // Get the parent's content
+        const $contents = $closestParent.contents();
+    
+        // Wrap the contents in a label and get the wrapper
+        const $label = $contents.wrapAll('<label class="help-toggle"></label>').parent();
+
+    // Forward label click to the icon
+        $label.on('click', function (e) {
+            // Avoid duplicate click if original click was on the icon
+            if (e.target !== $icon[0]) {
+                $icon.trigger('click');
+            }
+        });
+    }
+  });
+
+  $(document).on('dblclick', '.tokens-container .token', function () {
+    const value = $(this).data('value');
+  
+    if (navigator.clipboard && value) {
+      navigator.clipboard.writeText(value)
+        .then(() => {
+          console.log(`Copied to clipboard: ${value}`);
+        })
+        .catch(err => {
+          console.warn('Clipboard write failed:', err);
+        });
+    } else {
+      console.warn('Clipboard API not available or value missing.');
+    }
+  });
+
+  
+});
+
+
