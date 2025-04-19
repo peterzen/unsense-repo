@@ -1,10 +1,4 @@
 
-:root {
-    // --chart-js-background-color: #f7e2d6;
-    --chart-js-border-color: $navbar-default-border;
-    --chart-js-font-color: $text-color;
-}
-
 .btn-pressed, .btn-pressed:hover {
     // color: white;
     // background-color: #0086d9;
@@ -108,6 +102,7 @@ html .grid-stack-item-content {
 }
 
 .widget-title {
+    @extend .h4;
     display: flex;
     align-items: center;
     justify-content: center;

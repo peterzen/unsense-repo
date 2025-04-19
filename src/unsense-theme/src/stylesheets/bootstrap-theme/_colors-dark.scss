@@ -13,3 +13,10 @@ $theme-border-secondary: rgba(#2e3944,0.5);
 $theme-border-tertiary: rgba(#4a5b6c,0.5);
 $theme-drop-shadow: rgba(1, 28, 68, 0.06);
 $theme-scrollbar-thumb: #4c5d6d;
+
+// chartjs variables
+:root {
+    // --chart-js-background-color: red; 
+    --chart-js-border-color: #444444;
+    --chart-js-font-color: #666666;
+}
