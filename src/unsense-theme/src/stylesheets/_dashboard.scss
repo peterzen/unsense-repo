@@ -36,38 +36,83 @@
 }
 
 
-html .grid-stack-item-content {
-    text-align: center;
-    border: none !important;
-    border-radius: 0.5em 0.5em 0.5em 0.5em;
-    background-color: $theme-bg-primary;
-    box-shadow: 0 2px 4px $theme-bg-primary, 0 0 1px $theme-bg-secondary
+#services-table {
+    .flex-cell.first b {
+        font-weight: normal;
+    }
 }
 
-.widget-error {
-    margin: 50px;
-    color: $brand-danger
+html .grid-stack > .grid-stack-item > .grid-stack-item-content {
+    overflow-y: hidden;
+    @include slim-scroll;
+    &:hover {
+        overflow-y: auto;
+    }
 }
 
 .widget-content {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    padding: 1px;
-    cursor: grab;
+    @extend .panel;
+    @extend .panel-default;
 }
 
 .widget-header {
-    // font-size: 14px;
-    @extend .h3;
+    @extend .panel-heading;
     display: flex;
+    flex-direction: row;
     align-items: center;
-    justify-content: space-between;
-    margin: 0.5em 1em;;
+
+    .widget-title {
+        @extend .panel-title;
+        flex: 1 1 auto;
+        text-align: center;
+        b, strong {
+            font-weight: inherit;
+        }
+    }
+    .widget-header-left {
+        flex: 0 0 auto;
+    }
+    .widget-command-container {
+        align-self: flex-end;
+    }
 }
+
+
+
+// widget body
+.widget-header ~ div {
+    @extend .panel-body;
+    padding: 0;
+    // color: $theme-text-tertiary;
+
+    &.widget-error {
+        margin: 50px;
+        color: $brand-danger;
+        text-align: center;
+
+        > i {
+            font-size: 400%;
+            opacity: 0.4;
+        }
+    }
+
+    .canvas-container {
+        margin: 1em 0.5em;
+    }
+}
+ 
+
 
 .widget-spinner {
     margin-top: 20px;
+}
+
+.traffic-charts-container {
+    margin: 0.5em;
+    h3 {
+        text-align: right;
+        font-size: $font-size-small;
+    }
 }
 
 .fa-stack.small {
@@ -97,27 +142,12 @@ html .grid-stack-item-content {
 .widget-command-container {
     display: flex;
     align-items: center;
-    flex: 1;
+    flex: 0 0 auto;
     justify-content: flex-end;
 }
 
-.widget-title {
-    @extend .h4;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    // font-weight: bold;
-    // @include h3;
-}
-
 html .panel-divider {
-    display: none;
-    // width: 100%;
-    // height: 8px;
-    // margin-bottom: 10px;
-    // text-align: center;
-
-    .line {
+    &, .line {
         display: none;
     }
 }
@@ -135,7 +165,10 @@ td {
 }
 
 .canvas-container > canvas {
-    /* ChartJS v4 workaround: https://github.com/chartjs/Chart.js/issues/11005 */
+    /* 
+    ChartJS v4 workaround
+    https://github.com/chartjs/Chart.js/issues/11005 
+    */
     width: 100% !important;
     height: 100% !important;
 }
@@ -240,7 +273,6 @@ td {
     margin-bottom: 10px;
 }
 
-/* ----- */
 
 /* Custom flex table */
 div {
@@ -268,17 +300,15 @@ html .flextable-row {
     flex-flow: row wrap;
     padding: 0.5rem 1rem; // overridden on element
     transition: 0.5s;
-    border-top: solid 1px $table-border-color !important;
+    &:not(:first-child){
+        border-top: solid 1px $table-border-color !important;
+    }
 }
 
 .flextable-header .flex-cell {
-    font-weight: bold;
+    font-weight: normal;
 }
 
-.flextable-row:hover {
-    transition: 500ms;
-    // background: #f5f5f5;
-}
 
 .flex-cell {
     padding: 4px 0;
@@ -354,4 +384,58 @@ html .flextable-row {
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+#gateway-table {
+    > .flextable-row {
+        display: flex;
+        // flex-direction: column;
+        // clear: both;
+        align-items: flex-start;
+        justify-content: space-between; 
+        flex-wrap: wrap;
+        gap: 1em;
+        // IP
+        > .flex-cell:first-child {
+            flex: 1 1 0;
+            min-width: 0; 
+            // flex: 1 0 auto;
+            // align-self: flex-start;
+            // background-color: yellow;
+            // width: 100%;
+            > b {
+                font-weight: inherit;
+                > div {
+                    // status icon
+                    > i {
+// background-color: yellow;
+                    }
+                    // gw name/link
+                    > a {
+// background-color: purple;
+                    }
+                    // IP address
+                    br + div {
+                        font-size: 24px !important;
+                        // background-color: aqua;
+                    }
+                }
+
+            }
+
+
+            // html.no-js body main.page-content.col-lg-12 div.row section.page-content-main div.container-fluid div.row section.col-xs-12 div.grid-stack.gs-12.gs-id-0.grid-stack-animate div.grid-stack-item.size-to-content.ui-draggable-disabled.ui-resizable-disabled.size-to-content-max div.grid-stack-item-content div#w6ldmm.widget.widget-gateways div.widget-content div div#gateway-table.flextable-container
+        }
+        // RTT/packet loss
+        > .flex-cell:last-child {
+            flex: 0 0 auto;
+            color: $theme-text-tertiary;
+            align-self: flex-end;
+            // margin-right: 0;
+            margin-left: auto;
+            width: auto !important;
+        }
+    }
+
+ 
 }
