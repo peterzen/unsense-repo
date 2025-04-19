@@ -91,14 +91,30 @@ label.control-label.legacy-label {
     font-weight: normal;
     padding-left: 0.5em;
   }
+  input[type="checkbox"] {
+    float: left;
+    margin-right: 0.5em;
+  }
 }
 
 label.help-toggle {
   font-weight: normal;
+  margin: 0.5em 0;
+  color: $theme-text-quaternary;
   small {
     font-size: inherit;
   }
   &:hover {
     cursor: pointer;
   }
+}
+
+.tokens-container {
+  .token:hover {
+    cursor: pointer;
+  }
+}
+
+#navigation {
+  transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }

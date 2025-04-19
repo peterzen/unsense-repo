@@ -458,7 +458,7 @@ select.selectpicker {
     &:after {
       bottom: auto;
       top: -4px;
-      border-top: 6px solid white;
+      border-top: 6px solid $theme-bg-primary;
       border-bottom: 0;
     }
   }
@@ -519,4 +519,14 @@ select.selectpicker {
     width: 100%;
     float: none;
   }
+}
+
+
+html {
+.bootstrap-select > .dropdown-toggle.bs-placeholder, 
+.bootstrap-select > .dropdown-toggle.bs-placeholder:hover, 
+.bootstrap-select > .dropdown-toggle.bs-placeholder:focus, 
+.bootstrap-select > .dropdown-toggle.bs-placeholder:active {
+  color: inherit !important;
+}
 }

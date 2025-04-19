@@ -19,7 +19,26 @@ $(document).ready(function () {
     }
   });
 
-  // toggle selectable rows on row click in bootgrid tables
+  // $('.bootgrid-table').bootgrid()
+  // .on("load.rs.jquery.bootgrid", function (e){
+
+  //    console.log("load.rs.jquery.bootgrid");
+  //   //  $('.bootgrid-table > tbody > tr').each(function () {
+  //   //   const $cb = $(this).find('td.select-cell input[type="checkbox"]');
+  
+  //   //   $(this).on('click', function (e) {
+  //   //     if (e.target !== $cb[0]) {
+  //   //       $cb.prop('checked', !$cb.prop('checked')).trigger('change');
+  //   //     }
+  //   //     e.stopPropagation();
+  //   //   });
+  //   // });
+
+
+  // });
+
+
+      // toggle selectable rows on row click in bootgrid tables
   $('.bootgrid-table > tbody > tr').each(function () {
     const $cb = $(this).find('td.select-cell input[type="checkbox"]');
 
@@ -64,5 +83,24 @@ $(document).ready(function () {
         });
     }
   });
+
+  $(document).on('dblclick', '.tokens-container .token', function () {
+    const value = $(this).data('value');
+  
+    if (navigator.clipboard && value) {
+      navigator.clipboard.writeText(value)
+        .then(() => {
+          console.log(`Copied to clipboard: ${value}`);
+        })
+        .catch(err => {
+          console.warn('Clipboard write failed:', err);
+        });
+    } else {
+      console.warn('Clipboard API not available or value missing.');
+    }
+  });
+
+  
 });
+
 

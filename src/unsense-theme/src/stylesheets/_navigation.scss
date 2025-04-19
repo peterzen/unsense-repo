@@ -16,6 +16,7 @@
       text-decoration: none;
       background-color: inherit;
       color: $theme-text-secondary;
+      border-color: $navigation-border-color;
 
       &:hover {
         color: $theme-text-primary;
@@ -26,7 +27,7 @@
         }
       }
 
-      &.active {
+      &.active, &.active-menu-title {
         color: $theme-text-secondary;
         background: $theme-bg-secondary;
         border-color: transparent;
@@ -71,7 +72,6 @@
         display: block;
         width: 12px;
         content: "";
-        background-color: palegreen;
       }
 
       &:hover,
@@ -92,7 +92,7 @@
   width: 70px;
   height: 100%;
   border: none;
-  background-color: transparent;
+  // background-color: transparent;
   position: absolute;
 
   >div {
@@ -115,7 +115,7 @@
         padding-right: 0px;
         padding-left: 0px;
         text-align: center;
-        border-right: 1px solid color.adjust($navbar-default-bg, $lightness: 5%);
+        border-right: 1px solid $navigation-border-color;
 
         >span {
 
@@ -201,10 +201,10 @@
             left: 70px;
             width: 168px;
             margin-top: -70px;
-            border: 1px solid color.adjust($theme-border-primary, $lightness: 5%);
-            -moz-box-shadow: 2px 2px 1px 0px $theme-border-primary;
-            -webkit-box-shadow: 2px 2px 1px 0px $theme-border-primary;
-            box-shadow: 2px 2px 6px 4px rgba($theme-border-primary,0.6);
+            border: 1px solid $navigation-border-color;
+            -moz-box-shadow: 2px 2px 1px 0px $navigation-box-shadow;
+            -webkit-box-shadow: 2px 2px 1px 0px $navigation-box-shadow;
+            box-shadow: 2px 2px 6px 4px $navigation-box-shadow;
 
             >div.collapse.in {
               font-size: 14px;
@@ -213,7 +213,7 @@
               left: 166px;
               width: 168px;
               margin-top: -26px;
-              border: 1px solid color.adjust($navbar-default-bg, $lightness: 5%);
+              border: 1px solid $navigation-border-color;
               -moz-box-shadow: 2px 2px 1px 0px rgba(234, 234, 234, 0.5);
               -webkit-box-shadow: 2px 2px 1px 0px rgba(234, 234, 234, 0.5);
               box-shadow: 2px 2px 1px 0px rgba(234, 234, 234, 0.5);

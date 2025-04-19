@@ -42,6 +42,9 @@ td:has(.btn-primary):has(.btn-default) {
   }
 }
 
+.btn-secondary {
+  @extend .btn-default;
+}
 
 #reconfigureAct {
   float: right;
@@ -251,6 +254,9 @@ html .tokenize {
     >.token {
       background-color: color.adjust($brand-primary, $lightness: -5%);
       border: none;
+      span {
+        color: $theme-accent-contrast;
+      }
     }
 
     >.token-search {
@@ -354,12 +360,12 @@ html .bootgrid-table {
     display: inline-block;
     @include border-radius(10px);
     border: none;
-    padding: 4px;
+    padding: 5px;
 
     >li {
       >a {
         border: none;
-        padding: 10px 15px;
+        padding: 12px 15px;
         @include border-radius(8px);
         color: $theme-text-primary;
         background-color: transparent;
@@ -501,7 +507,7 @@ td:has(i[id*="show_"]) {
     }
 
     &.fa-toggle-off {
-      color: $theme-text-secondary;
+      color: $theme-text-quaternary;
     }
   }
 
