@@ -19,10 +19,9 @@ $brand-danger:  map.get($brand-colors, danger);
 
 $theme-accent: $brand-primary;
 $theme-accent-contrast: #ffffff;
-$theme-box-shadow: 0px 0px 8px $theme-drop-shadow;
+$theme-box-shadow: 0px 0px 8px $theme-box-shadow-color;
 
 $navigation-border-color: rgba($theme-border-primary, 0.1);
-$navigation-box-shadow: rgba($theme-bg-primary,0.6);
 
 // Assign global styles
 $body-bg:        $theme-bg-primary;
@@ -76,11 +75,12 @@ $table-border-color:             $theme-border-secondary;
 $table-color:                    $theme-text-primary;
 
 // Forms
-$input-bg:                       $theme-bg-secondary;
-$input-bg-disabled:              $theme-bg-primary;
+$input-bg:                       $theme-bg-quarternary;
+$input-bg-disabled:              $theme-bg-secondary;
 $input-color:                    $text-color;
 $input-border:                   $theme-border-secondary;
 $input-border-focus:             rgba($brand-primary, 0.5);
+$input-bg-hover:                 $theme-bg-tertiary;
 $input-bg-focus:                 $theme-bg-tertiary;
 $input-color-placeholder:        $theme-text-tertiary;
 
@@ -103,7 +103,7 @@ $dropdown-link-disabled-color:   $theme-text-secondary;
 $dropdown-header-color:          $theme-border-primary;
 
 // Navbar
-$navbar-default-bg:               $theme-bg-secondary;
+$navbar-default-bg:               darken($theme-bg-primary, 2%);
 $navbar-default-border:           $theme-border-primary;
 $navbar-default-link-color:       $text-color;
 $navbar-default-link-hover-color: $brand-primary;
@@ -267,7 +267,7 @@ $list-group-bg:                 transparent;
 $list-group-border:             $theme-border-secondary;
 $list-group-hover-bg:           $theme-bg-secondary;
 $list-group-active-color:       $theme-text-secondary;
-$list-group-active-border:      $brand-primary;
+$list-group-active-border:      $theme-bg-tertiary;
 $list-group-active-bg:          $theme-bg-tertiary;
 $list-group-active-text-color:  color.adjust($list-group-active-bg, $lightness: 40%);
 

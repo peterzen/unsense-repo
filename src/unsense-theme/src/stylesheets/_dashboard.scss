@@ -1,5 +1,5 @@
-
-.btn-pressed, .btn-pressed:hover {
+.btn-pressed,
+.btn-pressed:hover {
     // color: white;
     // background-color: #0086d9;
 }
@@ -17,7 +17,8 @@
     transition: opacity 0.3s ease;
 }
 
-#save-btn-text, #icon-container {
+#save-btn-text,
+#icon-container {
     position: absolute;
 }
 
@@ -27,27 +28,56 @@
     justify-content: center;
 }
 
-#save-spinner, #save-check {
+#save-spinner,
+#save-check {
     transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
-.transition-spinner, transition-check {
+.transition-spinner,
+transition-check {
     transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
 
 #services-table {
-    .flex-cell.first b {
-        font-weight: normal;
+
+    >.flextable-row {
+        display: flex;
+        // flex-direction: column;
+        // clear: both;
+        align-items: flex-start;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 1em;
+
+        // IP
+        >.flex-cell:first-child {
+            flex: 1 1 0;
+            min-width: 0;
+
+            // flex: 1 0 auto;
+            // align-self: flex-start;
+            // background-color: yellow;
+            // width: 100%;
+            >b {
+                font-weight: inherit;
+            }
+        }
+
+        // button group
+        >.flex-cell:last-child {
+            flex: 1 0 0;
+            align-self: flex-end;
+            // margin-left: auto;
+            margin-right: 1em;
+            width: auto !important;
+            white-space: nowrap;
+        }
     }
 }
 
-html .grid-stack > .grid-stack-item > .grid-stack-item-content {
-    overflow-y: hidden;
+html .grid-stack>.grid-stack-item>.grid-stack-item-content {
     @include slim-scroll;
-    &:hover {
-        overflow-y: auto;
-    }
 }
 
 .widget-content {
@@ -65,13 +95,17 @@ html .grid-stack > .grid-stack-item > .grid-stack-item-content {
         @extend .panel-title;
         flex: 1 1 auto;
         text-align: center;
-        b, strong {
+
+        b,
+        strong {
             font-weight: inherit;
         }
     }
+
     .widget-header-left {
         flex: 0 0 auto;
     }
+
     .widget-command-container {
         align-self: flex-end;
     }
@@ -80,19 +114,19 @@ html .grid-stack > .grid-stack-item > .grid-stack-item-content {
 
 
 // widget body
-.widget-header ~ div {
+.widget-header~div {
     @extend .panel-body;
     padding: 0;
-    // color: $theme-text-tertiary;
 
     &.widget-error {
         margin: 50px;
         color: $brand-danger;
         text-align: center;
 
-        > i {
+        >i {
             font-size: 400%;
-            opacity: 0.4;
+            opacity: 0.1;
+            margin-bottom: 0.5em;
         }
     }
 
@@ -100,7 +134,7 @@ html .grid-stack > .grid-stack-item > .grid-stack-item-content {
         margin: 1em 0.5em;
     }
 }
- 
+
 
 
 .widget-spinner {
@@ -109,6 +143,7 @@ html .grid-stack > .grid-stack-item > .grid-stack-item-content {
 
 .traffic-charts-container {
     margin: 0.5em;
+
     h3 {
         text-align: right;
         font-size: $font-size-small;
@@ -127,8 +162,8 @@ html .grid-stack > .grid-stack-item > .grid-stack-item-content {
     vertical-align: middle;
 }
 
-.close-handle > i,
-.edit-handle > i {
+.close-handle>i,
+.edit-handle>i {
     font-size: 1.2rem !important;
 }
 
@@ -147,7 +182,9 @@ html .grid-stack > .grid-stack-item > .grid-stack-item-content {
 }
 
 html .panel-divider {
-    &, .line {
+
+    &,
+    .line {
         display: none;
     }
 }
@@ -164,7 +201,7 @@ td {
     position: relative;
 }
 
-.canvas-container > canvas {
+.canvas-container>canvas {
     /* 
     ChartJS v4 workaround
     https://github.com/chartjs/Chart.js/issues/11005 
@@ -184,7 +221,8 @@ td {
 
 .smoothie-chart-tooltip {
     font-size: 13px;
-    z-index: 1; /* necessary to force to foreground */
+    z-index: 1;
+    /* necessary to force to foreground */
     padding-right: 15px;
     padding-left: 15px;
     pointer-events: none;
@@ -225,7 +263,7 @@ td {
     display: none;
 }
 
-.flex-container > .gateway-graph {
+.flex-container>.gateway-graph {
     font-size: 13px;
 }
 
@@ -255,11 +293,11 @@ td {
     display: flex;
 }
 
-.d-flex > .justify-content-start {
+.d-flex>.justify-content-start {
     justify-content: start;
 }
 
-.d-flex > .justify-content-end {
+.d-flex>.justify-content-end {
     justify-content: end;
 }
 
@@ -269,10 +307,20 @@ td {
 
 /* CPU widget */
 .cpu-type {
-    margin-top: 10px;
-    margin-bottom: 10px;
+    margin: 0.5em;
+    font-size: x-small;
+    color: $theme-text-tertiary;
 }
 
+.cpu-canvas-container {
+    #cpu-total {
+        >b {
+            padding: 0 0.5em;
+            font-size: small;
+            color: $theme-text-secondary;
+        }
+    }
+}
 
 /* Custom flex table */
 div {
@@ -291,7 +339,7 @@ html .flextable-header {
     flex-flow: row wrap;
     padding: 1em 0.5em;
     transition: 0.5s;
-    border-top: solid 1px  $table-border-color!important;
+    border-top: solid 1px $table-border-color !important;
 }
 
 html .flextable-row {
@@ -300,7 +348,8 @@ html .flextable-row {
     flex-flow: row wrap;
     padding: 0.5rem 1rem; // overridden on element
     transition: 0.5s;
-    &:not(:first-child){
+
+    &:not(:first-child) {
         border-top: solid 1px $table-border-color !important;
     }
 }
@@ -387,35 +436,41 @@ html .flextable-row {
 }
 
 #gateway-table {
-    > .flextable-row {
+    >.flextable-row {
         display: flex;
         // flex-direction: column;
         // clear: both;
         align-items: flex-start;
-        justify-content: space-between; 
+        justify-content: space-between;
         flex-wrap: wrap;
         gap: 1em;
+
         // IP
-        > .flex-cell:first-child {
+        >.flex-cell:first-child {
             flex: 1 1 0;
-            min-width: 0; 
+            min-width: 0;
+
             // flex: 1 0 auto;
             // align-self: flex-start;
             // background-color: yellow;
             // width: 100%;
-            > b {
+            >b {
                 font-weight: inherit;
-                > div {
+
+                >div {
+
                     // status icon
-                    > i {
-// background-color: yellow;
+                    >i {
+                        // background-color: yellow;
                     }
+
                     // gw name/link
-                    > a {
-// background-color: purple;
+                    >a {
+                        // background-color: purple;
                     }
+
                     // IP address
-                    br + div {
+                    br+div {
                         font-size: 24px !important;
                         // background-color: aqua;
                     }
@@ -426,8 +481,9 @@ html .flextable-row {
 
             // html.no-js body main.page-content.col-lg-12 div.row section.page-content-main div.container-fluid div.row section.col-xs-12 div.grid-stack.gs-12.gs-id-0.grid-stack-animate div.grid-stack-item.size-to-content.ui-draggable-disabled.ui-resizable-disabled.size-to-content-max div.grid-stack-item-content div#w6ldmm.widget.widget-gateways div.widget-content div div#gateway-table.flextable-container
         }
+
         // RTT/packet loss
-        > .flex-cell:last-child {
+        >.flex-cell:last-child {
             flex: 0 0 auto;
             color: $theme-text-tertiary;
             align-self: flex-end;
@@ -437,5 +493,5 @@ html .flextable-row {
         }
     }
 
- 
+
 }

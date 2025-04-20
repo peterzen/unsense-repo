@@ -51,18 +51,14 @@ html .list-group-item-border:first-child {
 
 html .list-group-item-border {
     color: $table-color;
-    // border: none !important;
     border: 1px solid color.adjust($table-border-color,$lightness: 25%) !important;
-    //   border-bottom-width: 1px;
-    //   border-bottom-style: solid;
-    //   border-bottom-color: rgb(221, 221, 221);
 }
 
 html .list-item-domain {
     height: 2.5em;
 }
 
-html .list-group-item {
+html .top-list .list-group-item {
     .counter {
         position: relative;
         top: -3px;
@@ -73,3 +69,41 @@ html .list-group-item {
         text-align: right;
     }
 }
+
+html h3#bannersub {
+    @extend h4;
+    color: $theme-text-tertiary;
+}
+
+button.block-domain,
+button.whitelist-domain {
+    @extend .btn;
+    @extend .btn-xs;
+    @extend .btn-default;
+}
+
+html .top-list {
+    @extend .panel;
+    @extend .panel-default;
+    
+    .list-group {
+        @extend .list-group;
+        padding: 0;
+        .list-group-item {
+            &:first-child {
+                @extend .panel-heading;
+                @extend h4;
+                @extend .panel-title;
+                b {
+                    font-weight: inherit;
+                }
+            }
+            p {
+                padding: 0;
+                margin: 0;
+                line-height: inherit;
+            }
+        }
+    }
+}
+

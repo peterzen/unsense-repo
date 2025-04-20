@@ -1,5 +1,10 @@
 @mixin slim-scroll() {
 
+    overflow-y: hidden;
+    &:hover {
+        overflow-y: auto;
+    }
+
     /* Slim scrollbar for WebKit browsers (Chrome, Safari, Edge) */
     &::-webkit-scrollbar {
         width: 6px;
@@ -10,7 +15,7 @@
     }
 
     &::-webkit-scrollbar-thumb {
-        background-color: rgba(100, 100, 100, 0.4);
+        background-color: rgba($theme-bg-primary, 0.4);
         border-radius: 3px;
     }
 
@@ -18,6 +23,6 @@
     & {
         scrollbar-width: thin;
         /* "auto" or "thin" */
-        scrollbar-color: rgba(100, 100, 100, 0.4) transparent;
+        scrollbar-color: $theme-border-primary transparent;
     }
 }

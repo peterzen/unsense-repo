@@ -45,23 +45,6 @@ body {
   }
 }
 
-
-.page-side {
-  border-right: 1px solid color.adjust($navbar-default-border, $lightness: -5%);
-}
-
-.page-side-nav {
-
-  &--active {
-    border-left: 3px solid $brand-warning;
-  }
-
-  .panel {
-    background: transparent;
-  }
-
-}
-
 .page-foot {
   position: fixed;
   right: 0;
@@ -188,6 +171,7 @@ html .brand-icon {
   @extend .btn;
   vertical-align: middle;
   line-height: inherit;
+  margin: 0 5px;
 
   &.label-opnsense-sm {
     @extend .btn-sm;
@@ -456,7 +440,7 @@ textarea {
 
   &:hover {
     border-color: $input-border;
-    background-color: $theme-bg-tertiary;
+    background-color: $input-bg-hover;
   }
 
   &:focus {
@@ -571,6 +555,8 @@ div[data-for*="help_for"] {
 html .bootgrid-table td.loading,
 html .bootgrid-table td.no-results {
   background-color: transparent !important;
+  font-size: 1.5em;
+  padding: 2em;
 }
 
 .fa.command-toggle {

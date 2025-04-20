@@ -28,6 +28,7 @@
 // pin the change message boxes next to the apply button
 // to stop the button from moving around as the user is trying to click it
 div:has(.alert[id*=ChangeMessage]),
+#changeMessage,
 // #shaperChangeMessage,
 // #routeChangeMessage,
 div:has(#change_message_base_form ){
@@ -47,7 +48,8 @@ div:has(#change_message_base_form ){
 }
 }
 
-#shaperChangeMessage {
+#shaperChangeMessage,
+#changeMessage {
   position: absolute;
   width: 50%;
   padding-top: 1.25rem;
@@ -58,8 +60,6 @@ div:has(#change_message_base_form ){
   width: 50%;
   margin-top: 5em;
 }
-
-
 
 .widget-sort-handle {
   touch-action: none;

@@ -1,18 +1,20 @@
-// == Light Theme 
+// Light Theme 
 $theme-text-primary: #212529;
 $theme-text-secondary: #495057;
 $theme-text-tertiary: #6c757d;
 $theme-text-quaternary: #adb5bd;
 
-$theme-bg-primary: #f5f8fb; // lighter, less saturated blue-gray
-$theme-bg-secondary: #ffffff;
-$theme-bg-tertiary: #f6f9fc; // very faint blue tint
+$theme-bg-primary: #ffffff;
+$theme-bg-secondary: #f5f8fb;
+$theme-bg-tertiary: #edf2f8;
+$theme-bg-quarternary: #dbe6f0;
 
 $theme-border-primary: #c0cbd5; // soft bluish-gray
 $theme-border-secondary: #dbe5ec;
 $theme-border-tertiary: #e7eff5;
-$theme-drop-shadow: rgba(0, 48, 120, 0.2);
+$theme-box-shadow-color: rgba(0, 48, 120, 0.2);
 $theme-scrollbar-thumb: #c0cbd5;
+$theme-box-shadow-color: rgba(#444444,0.2);
 
 // chartjs variables
 :root {

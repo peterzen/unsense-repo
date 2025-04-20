@@ -88,18 +88,20 @@ html table.table.table-striped {
   }
 
   >tbody {
+    background-color: inherit !important;
     >tr:hover td {
       // background-color: lighten($table-bg, 35%);
     }
 
-    >tr:nth-of-type(odd) {
+    >tr:nth-of-type(2n+1) {
+      background-color: inherit !important;
       td {
-        // background-color: $table-bg;
+        background-color: inherit;
       }
     }
 
-    >tr:nth-of-type(even) {
-      // background-color: $gray-darker;
+    >tr:nth-of-type(2n) {
+      background-color: transparent !important;
     }
   }
 }
@@ -120,19 +122,20 @@ form>table.table,
   >thead {
     th {
       font-weight: bold;
-      // @extend .h2;
     }
-
   }
 
   // heuristic to find form labels in tables
-  >tbody>tr>td {
-    border-top: none;
+  >tbody>tr {
+    min-height: 3em;
+    >td {
+      border-top: none;
 
-    .control-label,
-    &:has([class*="fa-info-circle"]) {
-      white-space: normal;
-      font-weight: bold;
+      .control-label,
+      &:has([class*="fa-info-circle"]) {
+        white-space: normal;
+        @extend .control-label;
+      }
     }
   }
 
@@ -371,8 +374,8 @@ html .bootgrid-table {
         background-color: transparent;
 
         &:hover {
-          border: none !important;
           color: $brand-primary;
+          border-color: transparent;
           background-color: transparent;
         }
       }
@@ -711,4 +714,55 @@ table#dialogEditWireguardServer {
   > tbody > tr > td:nth-last-child(2) {
     white-space: normal;
   }
+}
+
+
+
+
+html .color-menu.dropdown-menu.color-menu--inline {
+  background-color: $theme-bg-tertiary;
+}
+
+// /ui/diagnostics/traffic
+#graph {
+  color: $theme-text-secondary;
+  .chart-container {
+    @extend .panel;
+    @extend .panel-default;
+  }
+}
+
+// reporting - Unbound
+#query-overview {
+  .stats-text {
+    h2 {
+      @extend h5;
+      margin: 0 0 0.25em 0;
+      // font-weight: normal;
+      // font-size: $font-size-large;
+    }
+    .stats-inner-text {
+      @extend .text-muted;
+      @extend h6;
+      margin: 0;
+      text-transform: uppercase;
+      // font-size: $font-size-small;
+    }
+  }
+  #qGraphTitle {
+    font-weight: normal;
+  }
+}
+
+
+.diff_record_default {
+  color: $theme-text-primary !important;
+}
+
+.diff_record_minus {
+  color: $brand-danger !important;
+}
+
+.diff_record_plus {
+  color: $brand-success !important;
 }
