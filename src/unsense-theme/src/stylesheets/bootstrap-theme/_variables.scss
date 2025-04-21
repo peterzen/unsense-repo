@@ -214,8 +214,8 @@ $label-link-hover-color:      $theme-text-secondary;
 
 // Modals
 $modal-content-bg:         $theme-bg-secondary;
-$modal-content-border:     red;//rgba($theme-border-primary,0.5);
-$modal-content-border-color:     rgba($theme-border-tertiary,0.5);
+$modal-content-border:     rgba($theme-border-primary,0.5);
+$modal-content-border-color:  transparent;
 $modal-content-fallback-border-color:          rgba($theme-border-tertiary,0.5);
 $modal-header-border-color: rgba($theme-border-tertiary,0.3);
 $modal-footer-border-color: $modal-header-border-color;
@@ -227,7 +227,7 @@ $modal-header-color:       $text-color;
 $modal-footer-color:       $text-color;
 
 $modal-backdrop-bg:           $theme-bg-primary;
-$modal-backdrop-opacity:      0.8;
+$modal-backdrop-opacity:      0.95;
 
 $modal-lg:                    900px;
 $modal-md:                    600px;
