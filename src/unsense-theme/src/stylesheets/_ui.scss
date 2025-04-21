@@ -766,3 +766,10 @@ html .color-menu.dropdown-menu.color-menu--inline {
 .diff_record_plus {
   color: $brand-success !important;
 }
+
+.commands-td {
+  display: flex;
+  flex-direction: row;
+  white-space: nowrap;
+  margin-right: 0.5em;
+}

@@ -248,12 +248,12 @@ td {
     margin: 5px;
 }
 
-.interface-info {
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-    height: 100%;
-}
+// .interface-info {
+//     display: flex;
+//     align-items: center;
+//     flex-wrap: wrap;
+//     height: 100%;
+// }
 
 .nowrap {
     flex-wrap: nowrap;
@@ -272,17 +272,17 @@ td {
     height: 100%;
 }
 
-.interfaces-info {
-    font-size: .8rem;
-    margin: 5px;
-}
+// .interfaces-info {
+//     font-size: .8rem;
+//     margin: 5px;
+// }
 
-.interface-descr {
-    font-size: 1em;
-    margin-left: .8em;
-    cursor: pointer;
-    text-decoration: underline;
-}
+// .interface-descr {
+//     font-size: 1em;
+//     margin-left: .8em;
+//     cursor: pointer;
+//     text-decoration: underline;
+// }
 
 .interfaces-detail-container {
     display: none;
