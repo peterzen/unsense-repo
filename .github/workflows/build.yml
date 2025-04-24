@@ -47,9 +47,6 @@ jobs:
             REPO_DIR=${THEME_DIR}/work/pkg
             make package
             pkg repo ${REPO_DIR}
-            echo ${REPO_DIR} 'work/pkg *********'
-            find ${REPO_DIR}
-            echo '*********'
 
       - name: Copy package and index to docs
         run: |
@@ -64,11 +61,6 @@ jobs:
             --css=simple.css \
             src/www/index.md \
             -o docs/index.html
-          echo
-          echo 'docs *********'
-          find ${GITHUB_WORKSPACE}/docs/
-          echo '*********'
-          echo
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
