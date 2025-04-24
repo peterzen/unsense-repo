@@ -8,13 +8,9 @@
   border-radius: $radius;
 }
 
-
-
 @mixin btn-cancel {
   @extend .btn-link;
   margin-right: 1rem;
-  // background: transparent;
-  // border-color: transparent;
 }
 
 .opnsense_standard_table_form {
@@ -32,6 +28,7 @@
   }
 }
 
+// align buttons to the right, apply BS formatting to Cancel button
 td:has(.btn-primary):has(.btn-default) {
   button {
     float: right
@@ -148,7 +145,6 @@ form>table.table,
     background-color: $table-bg;
 
     >tbody>tr:nth-of-type(odd) {
-
       &,
       td {
         border: none !important;
@@ -157,7 +153,6 @@ form>table.table,
     }
 
     >tbody>tr:nth-of-type(even) {
-
       &,
       td {
         border: none !important;
@@ -167,16 +162,6 @@ form>table.table,
 
     table.table.table-striped {
       background-color: inherit !important;
-
-      >tr:nth-of-type(odd) {
-        td {
-          // background-color: inherit;
-        }
-      }
-
-      >tr:nth-of-type(even) {
-        // background-color: inherit;
-      }
     }
   }
 }
@@ -204,11 +189,8 @@ table.table,
   }
 }
 
-
 #allcfg+.content-box {
   .opnsense_standard_table_form {
-
-    // background-color: $theme-bg-secondary;
     &,
     & td {
       background-color: inherit;
@@ -249,7 +231,6 @@ html .table th>a.sortable {
 // tokenized input
 html .tokenize {
   >.tokens-container {
-    // margin-top: 0px;
     margin-bottom: 0.5em;
     background-color: $input-bg;
     border-color: $input-border;
@@ -527,11 +508,6 @@ td:has(i[id*="show_"]) {
       font-family: 'Glyphicons Halflings';
     }
   }
-
-  // #show_all_help_page::before {
-  //   content: "\e017"; // glyph: glyphicon-on
-  //   font-family: 'Glyphicons Halflings';
-  // }
 }
 
 
@@ -545,7 +521,7 @@ td:has(i[id*="show_"]) {
   }
 }
 
-// firewall rules
+// TODO firewall rules
 table.table.opnsense-rules {
   >tbody {
     >tr {
@@ -564,14 +540,6 @@ html table#grid-gateways>tbody>tr {
   &.text-muted td {
     @extend .text-muted;
   }
-
-  >td:nth-child(2) {}
-
-  >td:nth-child(6) {
-    // color: $brand-primary;
-  }
-
-  >td:nth-child(8) {}
 }
 
 // interfaces overview
@@ -587,14 +555,6 @@ html table#grid-overview {
       min-width: 6em;
       text-align: left !important;
     }
-
-    &:nth-child(3) {
-      // width: 2em;
-    }
-
-    &:nth-child(4) {
-      // width: 2em;
-    }
   }
 
   >tbody {
@@ -602,16 +562,10 @@ html table#grid-overview {
     >tr {
       &:has([data-original-title="Unassigned Interface"]) {
         opacity: 0.6;
-        // background-color: red;
       }
     }
   }
 }
-
-
-
-// }
-// #grid-overview > tbody:nth-child(2) > tr:nth-child(5) > td:nth-child(2)
 
 .infos {
   @extend .text-muted;
@@ -641,9 +595,6 @@ html table#grid-overview {
   @extend .form-control;
 }
 
-
-
-
 @media (min-width: $screen-lg-desktop) {
   table#grid-leases tr td:nth-child(3) {
     width: 15% !important;
@@ -654,9 +605,6 @@ html table#grid-overview {
 #filter-log-entries th[data-column-id="__timestamp__"] {
   min-width: 3.5em;
 }
-
-
-
 
 
 
@@ -671,7 +619,6 @@ html #expand-internal-rules {
 }
 
 html #expand-group-rules {
-
   &,
   ~.group-rule {
     td {
@@ -686,22 +633,15 @@ html #expand-group-rules {
   @include box-shadow(0 6px 12px rgba(0, 0, 0, .5));
 }
 
-
 #entries_bar {
   position: relative;
 }
 
 
-.top-list {
-  .list-group {}
-}
-
 .navbar-default .navbar-toggle {
   border-color: transparent;
 }
 
-
-#notification-banner {}
 
 html .bootstrap-dialog-message {
   border: none;
@@ -715,8 +655,6 @@ table#dialogEditWireguardServer {
     white-space: normal;
   }
 }
-
-
 
 
 html .color-menu.dropdown-menu.color-menu--inline {
@@ -738,15 +676,12 @@ html .color-menu.dropdown-menu.color-menu--inline {
     h2 {
       @extend h5;
       margin: 0 0 0.25em 0;
-      // font-weight: normal;
-      // font-size: $font-size-large;
     }
     .stats-inner-text {
       @extend .text-muted;
       @extend h6;
       margin: 0;
       text-transform: uppercase;
-      // font-size: $font-size-small;
     }
   }
   #qGraphTitle {

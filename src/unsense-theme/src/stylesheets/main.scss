@@ -1,6 +1,7 @@
 // version.scss is generated in build.sh
 @import "/tmp/version.scss";
-// used for cache busting
+
+// this is used for cache busting:
 @import url("light.css?v=#{$version}");
 @import url("dark.css?v=#{$version}") (prefers-color-scheme: dark);
 // TODO optimize/deduplicate CSS

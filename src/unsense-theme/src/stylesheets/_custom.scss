@@ -12,19 +12,8 @@ body {
 }
 
 .page-head {
-  // background: $background-secondary;
-
   .navbar-default {
     border: 0;
-    // background: $background-secondary;
-  }
-
-  .navbar-text {
-    // color: #494949;
-  }
-
-  .navbar-right {
-    // margin-top: 6px;
   }
 
   .navbar-brand {
@@ -32,15 +21,9 @@ body {
   }
 
   .navbar-toggle {
-    // border: none;
-
     &:hover,
     &:focus {
       color: $theme-text-secondary;
-
-      .icon-bar {
-        // background-color: $background-tertiary;
-      }
     }
   }
 }
@@ -49,7 +32,6 @@ body {
   position: fixed;
   right: 0;
   bottom: 0;
-  // background: $background-tertiary;
 }
 
 .page-foot,
@@ -64,7 +46,6 @@ body {
 
 .content-box {
   border-radius: 3px;
-  // background: $background-tertiary;
 
   @extend .clearfix;
 
@@ -73,7 +54,6 @@ body {
   }
 
   &-main {
-    // background: $background-tertiary;
     padding-top: 15px;
     padding-bottom: 15px;
   }
@@ -213,11 +193,9 @@ label.dropdown-item {
 .list-group-item {
   border-right: none;
   border-left: none;
-  // background-color: transparent;
 
   &.collapsed .caret {
     border-top: 0;
-    // border-bottom: 4px solid green;
   }
 }
 
@@ -244,7 +222,7 @@ ul.nav>li.dropdown>ul.dropdown-menu>li>a {
 }
 
 
-// Modal for notifications
+// Notifications modal
 #opn-status-list .btn {
   color: #565656;
   border: 1px solid $theme-border-primary;
@@ -252,11 +230,9 @@ ul.nav>li.dropdown>ul.dropdown-menu>li>a {
 
   &:hover {
     background-color: transparent;
-    // background: #f9f9f9;
   }
 }
 
-// html #interface-selection-wrapper {
 .bootstrap-select[style] {
   width: auto !important;
   max-width: 100% !important;
@@ -268,7 +244,7 @@ ul.nav>li.dropdown>ul.dropdown-menu>li>a {
   width: 100% !important;
 }
 
-// Tweak bootstrap select
+// bootstrap-select customizations
 
 // prevent bootstrap-select from pushing out form layout
 .table-responsive .bootstrap-select {
@@ -281,7 +257,6 @@ ul.nav>li.dropdown>ul.dropdown-menu>li>a {
 }
 
 .bootstrap-select {
-
   .btn-default {
     border: 1px solid $input-border;
 
@@ -289,7 +264,6 @@ ul.nav>li.dropdown>ul.dropdown-menu>li>a {
       border-color: $input-border-focus;
     }
   }
-
   &.open>.btn-default {
     border-color: $input-border-focus;
   }
@@ -297,7 +271,6 @@ ul.nav>li.dropdown>ul.dropdown-menu>li>a {
   &.open>.btn-default {
     border-color: $input-border;
   }
-
 }
 
 .btn .glyphicon {
@@ -331,7 +304,7 @@ $spacing_unit: 1em;
   padding-right: $spacing_unit;
 }
 
-/* helpers */
+// helpers
 .__nowrap {
   white-space: nowrap;
 }
@@ -364,8 +337,6 @@ $spacing_unit: 1em;
 .navbar-brand {
   padding: 10px 20px;
 }
-
-
 
 ::-webkit-scrollbar {
   width: 8px;
@@ -435,7 +406,6 @@ input[type="text"],
 input[type="password"],
 textarea {
   border-radius: 4px;
-  // width: auto;
   box-shadow: none;
 
   &:hover {
@@ -477,7 +447,6 @@ input[type="radio"] {
     transform: scale(.65);
     opacity: 0;
     background-color: $input-bg;
-    // box-shadow: inset 1em 1em $theme-bg-secondary;
     /* Windows High Contrast Mode */
     clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
   }
@@ -496,7 +465,6 @@ input[type="radio"] {
 
   &:disabled {
     cursor: not-allowed;
-
     // color: var(--form-control-disabled);
     // --form-control-color: var(--form-control-disabled);
   }
@@ -565,9 +533,6 @@ html .bootgrid-table td.no-results {
   vertical-align: middle;
 }
 
-
-
-
 // apply the BS form input styles over inputs that don't have
 // .form-control 
 select,
@@ -588,20 +553,6 @@ input[type="tel"],
 input[type="color"] {
   @extend .form-control;
 }
-
-
-
-
-
-
-// @supports (-moz-appearance: none) {
-
-//   html :not(ul),
-//   body :not(ul) {
-//     scrollbar-width: thin;
-//     scrollbar-color: rgba(60, 60, 60, 0.15) transparent;
-//   }
-// }
 
 
 #dnsallowoverride_exclude {

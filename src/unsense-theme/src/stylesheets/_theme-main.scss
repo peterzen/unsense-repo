@@ -1,7 +1,6 @@
 
 @import "bootstrap/mixins";
 
-
 // Reset and dependencies
 @import "bootstrap/normalize";
 @import "bootstrap/print";
@@ -11,7 +10,6 @@
 @import "bootstrap/scaffolding";
 @import "bootstrap/type";
 @import "fonts";
-
 
 @import "bootstrap/code";
 @import "bootstrap/grid";
@@ -54,6 +52,7 @@
 
 @import "bootstrap-select/bootstrap-select";
 
+// custom styles
 @import "mixins";
 @import "layout";
 @import "behaviors";

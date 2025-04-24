@@ -5,7 +5,7 @@
         overflow-y: auto;
     }
 
-    /* Slim scrollbar for WebKit browsers (Chrome, Safari, Edge) */
+    // webkit
     &::-webkit-scrollbar {
         width: 6px;
     }
@@ -19,10 +19,9 @@
         border-radius: 3px;
     }
 
-    /* Slim scrollbar for Firefox */
+    // Firefox
     & {
         scrollbar-width: thin;
-        /* "auto" or "thin" */
         scrollbar-color: $theme-border-primary transparent;
     }
 }

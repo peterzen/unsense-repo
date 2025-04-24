@@ -14,28 +14,12 @@ body {
 }
 
 .page-content-head {
-
-  .navbar-nav {
-    // width: 100%;
-  }
-
   h1 {
     font-weight: 300;
   }
 }
 
-
-.table>colgroup+thead>tr {
-
-  th,
-  td {
-    // font-family: $font-family-base !important;
-    // background-color: red;
-  }
-}
-
 .table thead tr {
-
   th,
   td {
     font-family: $font-family-base !important;

@@ -1,6 +1,5 @@
-
 // in multi-select dropdown menus move the selected items
-// to the top of the list
+// to the top of the list.
 .bootstrap-select select[multiple="multiple"]~.dropdown-menu,
 .bootstrap-select .bs-searchbox~[aria-multiselectable="true"] {
   .dropdown-menu.inner {
@@ -23,29 +22,24 @@
 }
 
 
-
-
 // pin the change message boxes next to the apply button
-// to stop the button from moving around as the user is trying to click it
+// to stop the button from moving around to avoid the whack-a-mole
+// effect and make it easier to click the button.
 div:has(.alert[id*=ChangeMessage]),
 #changeMessage,
 // #shaperChangeMessage,
 // #routeChangeMessage,
-div:has(#change_message_base_form ){
+div:has(#change_message_base_form) {
   .alert {
-  display: inline-block;
-  position: absolute;
-  top: 1em;
-  margin: 0;
-  border: 0;
-  padding: 0;
-  background: none;
-  color: $brand-primary;
-
-  &+button {
-    // margin: auto;
+    display: inline-block;
+    position: absolute;
+    top: 1em;
+    margin: 0;
+    border: 0;
+    padding: 0;
+    background: none;
+    color: $brand-primary;
   }
-}
 }
 
 #shaperChangeMessage,
@@ -83,14 +77,17 @@ tr.selectable-row {
 
 label.control-label.legacy-label {
   font-weight: normal !important;
+
   &:hover {
     cursor: pointer;
     user-select: none;
   }
+
   strong {
     font-weight: normal;
     padding-left: 0.5em;
   }
+
   input[type="checkbox"] {
     float: left;
     margin-right: 0.5em;
@@ -101,9 +98,11 @@ label.help-toggle {
   font-weight: normal;
   margin: 0.5em 0;
   color: $theme-text-quaternary;
+
   small {
     font-size: inherit;
   }
+
   &:hover {
     cursor: pointer;
   }

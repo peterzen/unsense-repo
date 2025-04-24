@@ -1,7 +1,7 @@
 {
   "name": "unsense-theme",
   "version": "0.4.0",
-  "description": "A Bootstrap 3-based theme with light and dark mode support.",
+  "description": "OPNsense Unsense theme",
   "main": "theme.js",
   "scripts": {
     "copy:assets": "./scripts/copy-assets.sh",

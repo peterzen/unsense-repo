@@ -1,4 +1,7 @@
 @use "sass:color";
+
+// /ui/unbound/overview
+
 html #maintabs>li>a {
     border: none;
 }
@@ -12,7 +15,6 @@ html #maintabs+.tab-content {
 }
 
 html #query-details {
-
     #grid-queries {
         tr {
             background: none;
@@ -42,11 +44,8 @@ html #query-details {
     }
 }
 
-
-
 html .list-group-item-border:first-child {
     border-radius: 0 !important;
-    // border-bottom: 2px solid black;
 }
 
 html .list-group-item-border {
