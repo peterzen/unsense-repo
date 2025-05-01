@@ -1,8 +1,8 @@
 ---
-title: Unsense OPNsense Theme Repo
+title: Unsense Theme Repo
 ---
 
-This is **Unsense** OPNsense theme repository.
+This is **Unsense** theme repository.
 
 ### Screenshots
 
