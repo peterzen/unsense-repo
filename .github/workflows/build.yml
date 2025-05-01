@@ -8,8 +8,6 @@ on:
 env:
   ACTIONS_STEP_DEBUG: true
   ACTIONS_RUNNER_DEBUG: true
-  PKG_REPO_COMPRESSION_FORMAT: txz 
-  PKG_COMPRESSION_FORMAT: txz 
   
 jobs:
   build-and-deploy:
