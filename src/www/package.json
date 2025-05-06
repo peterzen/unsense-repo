@@ -1,0 +1,13 @@
+{
+  "name": "unsense-repo-www",
+  "version": "0.1.0",
+  "description": "Unsense repo web pages",
+  "main": "index.js",
+  "author": "Peter Banik <peter@froggle.org>",
+  "license": "MIT",
+  "scripts": {
+    "build:assets": "mkdir -p build && cp -r assets/* build/",
+    "build:index": "pandoc --standalone --css=simple.css index.md -o build/index.html",
+    "build": "yarn build:assets && yarn build:index"
+  }
+}
