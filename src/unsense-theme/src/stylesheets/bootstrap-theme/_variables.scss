@@ -340,10 +340,10 @@ $close-text-shadow:           0 1px 0 $theme-bg-primary;
 
 //== Code
 $code-color:                  #c7254e;
-$code-bg:                     #f9f2f4;
-$kbd-color:                   #fff;
-$kbd-bg:                      #333;
-$pre-bg:                      #f5f5f5;
-$pre-color:                   $gray-dark;
-$pre-border-color:            #ccc;
+$code-bg:                     $theme-bg-tertiary;
+$kbd-color:                   $theme-text-primary;
+$kbd-bg:                      $theme-bg-tertiary;
+$pre-bg:                      $theme-bg-secondary;
+$pre-color:                   $theme-text-primary;
+$pre-border-color:            $theme-border-secondary;
 

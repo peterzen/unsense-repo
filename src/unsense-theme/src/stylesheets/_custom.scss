@@ -576,6 +576,13 @@ input[type="file"]::file-selector-button {
   }
 }
 
+// migration assistant page — pre block is just prose text
+#messageregion ~ pre {
+  white-space: pre-line;
+  font-family: inherit;
+  padding-left: 2rem;
+}
+
 #dnsallowoverride_exclude {
   hr {
     display: none;
