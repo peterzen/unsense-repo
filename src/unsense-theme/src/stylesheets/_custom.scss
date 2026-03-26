@@ -555,6 +555,20 @@ input[type="color"] {
 }
 
 
+input[type="file"]::file-selector-button {
+  background-color: $btn-default-bg;
+  color: $btn-default-color;
+  border: 1px solid $btn-default-border;
+  border-radius: $border-radius-base;
+  padding: $padding-base-vertical $padding-base-horizontal;
+  cursor: pointer;
+  margin-right: 0.5em;
+
+  &:hover {
+    background-color: $theme-bg-quarternary;
+  }
+}
+
 #dnsallowoverride_exclude {
   hr {
     display: none;
