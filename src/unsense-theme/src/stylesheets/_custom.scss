@@ -277,6 +277,13 @@ ul.nav>li.dropdown>ul.dropdown-menu>li>a {
   vertical-align: -1px;
 }
 
+// bare .btn.btn-xs without a color class gets browser default bg
+.btn.btn-xs:not(.btn-primary):not(.btn-success):not(.btn-info):not(.btn-warning):not(.btn-danger):not(.btn-link) {
+  background-color: $btn-default-bg;
+  border-color: $btn-default-border;
+  color: $btn-default-color;
+}
+
 .btn>b {
   font-weight: normal;
 }
@@ -554,6 +561,27 @@ input[type="color"] {
   @extend .form-control;
 }
 
+
+input[type="file"]::file-selector-button {
+  background-color: $btn-default-bg;
+  color: $btn-default-color;
+  border: 1px solid $btn-default-border;
+  border-radius: $border-radius-base;
+  padding: $padding-base-vertical $padding-base-horizontal;
+  cursor: pointer;
+  margin-right: 0.5em;
+
+  &:hover {
+    background-color: $theme-bg-quarternary;
+  }
+}
+
+// migration assistant page — pre block is just prose text
+#messageregion ~ pre {
+  white-space: pre-line;
+  font-family: inherit;
+  padding-left: 2rem;
+}
 
 #dnsallowoverride_exclude {
   hr {

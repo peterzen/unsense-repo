@@ -66,6 +66,10 @@ $panel-default-border:           $theme-border-secondary;
 $panel-default-heading-bg:       $theme-bg-tertiary;
 $panel-footer-bg:                $theme-bg-tertiary;
 
+// Wells
+$well-bg:                        $theme-bg-secondary;
+$well-border:                    $theme-border-secondary;
+
 // Tables
 $table-bg:                       transparent;
 $table-bg-accent:                $theme-bg-secondary;
@@ -140,9 +144,9 @@ $pagination-bg:                 $theme-bg-tertiary;
 $pagination-border:             $theme-border-tertiary;
 $pagination-hover-bg:           $theme-bg-tertiary;
 $pagination-hover-color:        $theme-text-tertiary;
-$pagination-active-bg:          $theme-text-primary;
-$pagination-active-color:       $theme-bg-tertiary;
-$pagination-active-border:      $theme-text-secondary;
+$pagination-active-bg:          $brand-primary;
+$pagination-active-color:       $theme-accent-contrast;
+$pagination-active-border:      $brand-primary;
 $pagination-disabled-bg:        $pagination-bg;
 $pagination-disabled-color:     $theme-border-tertiary;
 $pagination-disabled-border:    $theme-border-tertiary;
@@ -336,10 +340,10 @@ $close-text-shadow:           0 1px 0 $theme-bg-primary;
 
 //== Code
 $code-color:                  #c7254e;
-$code-bg:                     #f9f2f4;
-$kbd-color:                   #fff;
-$kbd-bg:                      #333;
-$pre-bg:                      #f5f5f5;
-$pre-color:                   $gray-dark;
-$pre-border-color:            #ccc;
+$code-bg:                     $theme-bg-tertiary;
+$kbd-color:                   $theme-text-primary;
+$kbd-bg:                      $theme-bg-tertiary;
+$pre-bg:                      $theme-bg-secondary;
+$pre-color:                   $theme-text-primary;
+$pre-border-color:            $theme-border-secondary;
 
