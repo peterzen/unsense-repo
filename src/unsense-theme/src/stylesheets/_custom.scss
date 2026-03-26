@@ -392,6 +392,29 @@ select {
   }
 }
 
+// .table-responsive sets overflow-x:auto, browser computes overflow-y:auto
+// too — clipping absolutely positioned dropdown menus inside tab panes.
+#status {
+  overflow: visible;
+
+  >table.table {
+    table-layout: fixed;
+    width: 100%;
+
+    > tbody > tr > td:first-child {
+      color: $text-muted;
+    }
+
+    > tbody > tr:first-child > td:last-child {
+      width: 0;
+    }
+  }
+
+}
+
+#update_status_container > textarea + table.table > tbody > tr > td {
+  color: $text-muted !important;
+}
 
 .table td {
   word-break: break-word;
