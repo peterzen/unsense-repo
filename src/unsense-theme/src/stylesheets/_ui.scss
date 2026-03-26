@@ -708,3 +708,129 @@ html .color-menu.dropdown-menu.color-menu--inline {
   white-space: nowrap;
   margin-right: 0.5em;
 }
+
+// Tabulator table overrides
+// OPNsense uses Tabulator.js (misleadingly styled by "opnsense-bootgrid.css")
+// which sets hardcoded colors that don't match the theme.
+html .tabulator {
+  border: 1px solid $theme-border-secondary;
+  background-color: $theme-bg-primary;
+
+  // Header
+  .tabulator-header {
+    background-color: $theme-bg-secondary;
+    border-bottom: 1px solid $theme-border-primary;
+    border-top-color: transparent;
+    color: $theme-text-primary;
+
+    .tabulator-headers {
+      border-bottom-color: $theme-border-primary;
+    }
+
+    .tabulator-col {
+      background-color: transparent;
+      border-right-color: $theme-border-secondary;
+
+      .tabulator-col-content .tabulator-col-title {
+        color: $theme-text-primary;
+      }
+
+      &.tabulator-sortable[aria-sort="none"] .tabulator-col-content .tabulator-arrow {
+        border-bottom-color: $theme-text-quaternary;
+      }
+    }
+
+    // frozen (pinned) columns — upstream uses rgb(170,170,170) / rgb(55,55,54)
+    .tabulator-frozen.tabulator-frozen-left {
+      border-right-color: $theme-border-primary;
+      border-left-color: transparent;
+    }
+
+    .tabulator-frozen.tabulator-frozen-right {
+      border-left-color: $theme-border-primary;
+    }
+  }
+
+  // Rows
+  .tabulator-tableholder .tabulator-table {
+    .tabulator-row {
+      background-color: $theme-bg-primary;
+      border-bottom: 1px solid $theme-border-secondary;
+      color: $theme-text-primary;
+
+      &:hover {
+        background-color: $table-bg-hover;
+      }
+
+      &.tabulator-row-even {
+        background-color: transparent;
+      }
+
+      &.tabulator-row-odd {
+        background-color: $theme-bg-secondary;
+      }
+
+    }
+  }
+
+  // Footer / Pagination
+  .tabulator-footer {
+    background-color: $theme-bg-secondary;
+    border-top: 1px solid $theme-border-primary;
+    color: $theme-text-secondary;
+
+    .tabulator-page-size {
+      background-color: $input-bg;
+      border-color: $input-border;
+      color: $input-color;
+    }
+  }
+}
+
+// Cell borders — opnsense-bootgrid.css sets hardcoded borders on
+// ".tabulator-row .tabulator-cell" which loads after us.
+// Doubled class for specificity.
+.tabulator-row .tabulator-cell.tabulator-cell {
+  border-right-color: transparent;
+  border-bottom-color: transparent;
+
+  &.tabulator-frozen.tabulator-frozen-left {
+    border-color: transparent $theme-border-primary transparent transparent;
+  }
+
+  &.tabulator-frozen.tabulator-frozen-right {
+    border-left-color: $theme-border-primary;
+  }
+
+  // row-header cells get a bright border from tabulator.min.css
+  &.tabulator-row-header {
+    border-bottom-color: transparent;
+    border-right-color: transparent;
+  }
+}
+
+// Pagination buttons need extra specificity to beat opnsense-bootgrid.css
+// which uses ".tabulator .tabulator-footer .tabulator-page" and loads after us.
+// Doubling .tabulator-page bumps specificity without changing what matches.
+html .tabulator .tabulator-footer .tabulator-page.tabulator-page {
+  background-color: $pagination-bg;
+  border: 1px solid $pagination-border;
+  color: $pagination-color;
+
+  &:not(.disabled):not(.active):hover {
+    background-color: $pagination-hover-bg;
+    color: $pagination-hover-color;
+  }
+
+  &.active {
+    background-color: $pagination-active-bg;
+    border-color: $pagination-active-border;
+    color: $pagination-active-color;
+  }
+
+  &.disabled {
+    background-color: $pagination-disabled-bg;
+    border-color: $pagination-disabled-border;
+    color: $pagination-disabled-color;
+  }
+}
