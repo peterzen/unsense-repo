@@ -48,12 +48,13 @@ jobs:
       - name: Copy package and index to docs
         run: |
           sudo apt-get install -y pandoc
-          DEST_DIR=docs/FreeBSD:14:amd64
+          DEST_DIR=docs/unsense-repo/FreeBSD:14:amd64
           REPO_DIR=${GITHUB_WORKSPACE}/misc/unsense-theme/work/pkg
           mkdir -p ${DEST_DIR}
           mkdir -p ${REPO_DIR}
           cp -v $REPO_DIR/* ${DEST_DIR}/
           cp -rv src/www/assets/* docs/
+          cp src/www/assets/unsense.conf docs/unsense-repo/
           pandoc --standalone \
             --css=simple.css \
             src/www/index.md \
