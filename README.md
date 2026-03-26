@@ -1,33 +1,63 @@
-# Unsense OPNsense repo
+# unsense-repo
 
-## Development with SSHFS
+Custom OPNsense theme package repository.
 
-Mount the appliance's theme build directory over the local build output so that
-`yarn build` writes directly to the appliance:
-
-```bash
-sshfs root@rtr:/usr/local/opnsense/www/themes/unsense/build \
-  src/unsense-theme/build
-```
-
-To unmount:
+## Quick Start
 
 ```bash
-fusermount -u src/unsense-theme/build
+cd src/unsense-theme
+yarn install
+yarn build
 ```
 
-### Folder mapping
+## Build & Package
 
-| Local path | Appliance path |
-| --- | --- |
-| `src/unsense-theme/src/` | SCSS/JS/font sources (not deployed) |
-| `src/unsense-theme/build/` | `/usr/local/opnsense/www/themes/unsense/build/` (via sshfs) |
+### 1. Build Theme Assets
 
-### Workflow
+```bash
+cd src/unsense-theme
+yarn build          # copies fonts/images + compiles SCSS → build/
+```
 
-1. Mount the appliance theme directory via sshfs (see above)
-2. Edit SCSS sources in `src/unsense-theme/src/stylesheets/`
-3. Build: `cd src/unsense-theme && yarn build`
-4. Reload the OPNsense web UI to see changes
+Output goes to `src/unsense-theme/build/`:
 
-Use `yarn watch` for automatic rebuilds on file changes.
+```text
+build/
+├── css/main.css
+├── fonts/
+└── images/
+```
+
+### 2. Create FreeBSD Package
+
+```bash
+cd src/unsense-theme
+sh scripts/package.sh
+# → repo/FreeBSD_14_amd64/opnsense-theme-unsense-1.0.txz
+```
+
+The script stages `build/*` into `usr/local/opnsense/www/themes/unsense/`, generates a `+MANIFEST`, and archives into a `.txz`.
+
+### 3. Makefile (OPNsense Plugin Format)
+
+The `Makefile` in `src/unsense-theme/` defines plugin metadata for the OPNsense build system:
+
+```makefile
+PLUGIN_NAME=    theme-unsense-dark
+PLUGIN_VERSION= 0.1
+PLUGIN_REVISION= 1
+```
+
+`build_collect` stages `build/*` into `work/src/usr/local/opnsense/www/themes/unsense/` for the plugin framework (expects `../../Mk/plugins.mk`).
+
+### 4. Install on Appliance
+
+```bash
+sudo pkg add -f work/opnsense-theme-mytheme-1.0.txz
+```
+
+Then select the theme at **System > Settings > General**.
+
+### Install Path
+
+Theme files install to `/usr/local/opnsense/www/themes/unsense/` on the OPNsense appliance.
