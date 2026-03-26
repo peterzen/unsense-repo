@@ -43,7 +43,7 @@ jobs:
             THEME_DIR=${GITHUB_WORKSPACE}/misc/unsense-theme
             REPO_DIR=${THEME_DIR}/work/pkg
             make package
-            pkg repo ${REPO_DIR}
+            ${GITHUB_WORKSPACE}/Scripts/pkg-repo.sh ${REPO_DIR}
 
       - name: Copy package and index to docs
         run: |
