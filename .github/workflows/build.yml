@@ -44,6 +44,7 @@ jobs:
             REPO_DIR=${THEME_DIR}/work/pkg
             make package
             ${GITHUB_WORKSPACE}/Scripts/pkg-repo.sh ${REPO_DIR}
+            echo '=== repo contents ===' && find ${REPO_DIR} -type f
 
       - name: Copy package and index to docs
         run: |
