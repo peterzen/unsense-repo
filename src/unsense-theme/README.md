@@ -24,8 +24,7 @@ A custom dark theme for the OPNsense web GUI, built on Bootstrap 3.4.1 with SCSS
 Mount the appliance's theme directory over the local build output so `yarn build` writes directly to the appliance:
 
 ```bash
-sshfs root@rtr:/usr/local/opnsense/www/themes/unsense/build \
-  build
+sshfs root@opnsense:/usr/local/opnsense/www/themes/unsense/build   build
 ```
 
 To unmount:
