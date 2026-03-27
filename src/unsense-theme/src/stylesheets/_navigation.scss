@@ -17,6 +17,14 @@
   @include slim-scroll;
   border-right: 1px solid $navigation-border-color;
   
+  &:hover {
+      scrollbar-width: none; // Firefox
+  
+      // Chrome/Safari
+      &::-webkit-scrollbar {
+        display: none;
+      }
+    }
   .panel.list-group {
     .fa:not(.__iconspacer) {
       width: auto;
