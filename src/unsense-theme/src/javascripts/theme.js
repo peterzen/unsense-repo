@@ -42,6 +42,23 @@ $(document).ready(function () {
   });
 
 
+  // In standard form tables, wrap the label td content in a <label> that toggles
+  // the checkbox in the adjacent td (they live in separate cells in the markup).
+  $('.opnsense_standard_table_form > tbody > tr').each(function () {
+    const $tds = $(this).children('td');
+    if ($tds.length < 2) return;
+    const $cb = $tds.eq(1).find('input[type="checkbox"]').first();
+    if (!$cb.length) return;
+
+    const $labelTd = $tds.eq(0);
+    const $label = $labelTd.contents().wrapAll('<label class="control-label form-label"></label>').parent();
+    $label.on('click', function (e) {
+      if (e.target !== $cb[0]) {
+        $cb.trigger('click');
+      }
+    });
+  });
+
   // Wrap the "show advanced" and "full help" controls to make the labels clickable
   $('i[id*="show_"]').each(function () {
     const $icon = $(this);
