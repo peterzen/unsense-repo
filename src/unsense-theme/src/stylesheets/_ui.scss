@@ -68,6 +68,7 @@ button#flushAct {
 .bootstrap-dialog-title {
   @extend .h4;
 }
+
 .modal-footer {
   button[data-dismiss="modal"] {
     background: transparent;
@@ -86,12 +87,14 @@ html table.table.table-striped {
 
   >tbody {
     background-color: inherit !important;
+
     >tr:hover td {
       // background-color: lighten($table-bg, 35%);
     }
 
     >tr:nth-of-type(2n+1) {
       background-color: inherit !important;
+
       td {
         background-color: inherit;
       }
@@ -125,6 +128,7 @@ form>table.table,
   // heuristic to find form labels in tables
   >tbody>tr {
     min-height: 3em;
+
     >td {
       border-top: none;
 
@@ -145,6 +149,7 @@ form>table.table,
     background-color: $table-bg;
 
     >tbody>tr:nth-of-type(odd) {
+
       &,
       td {
         border: none !important;
@@ -153,6 +158,7 @@ form>table.table,
     }
 
     >tbody>tr:nth-of-type(even) {
+
       &,
       td {
         border: none !important;
@@ -191,6 +197,7 @@ table.table,
 
 #allcfg+.content-box {
   .opnsense_standard_table_form {
+
     &,
     & td {
       background-color: inherit;
@@ -238,6 +245,7 @@ html .tokenize {
     >.token {
       background-color: color.adjust($brand-primary, $lightness: -5%);
       border: none;
+
       span {
         color: $theme-accent-contrast;
       }
@@ -515,6 +523,7 @@ td:has(i[id*="show_"]) {
 // fix position of 'select all' checkbox in bootgrid tables
 .bootgrid-table {
   .select-cell {
+
     // border-color: transparent;
     .select-box {
       margin-bottom: 0.75em;
@@ -526,6 +535,7 @@ td:has(i[id*="show_"]) {
 table.table.opnsense-rules {
   >tbody {
     >tr {
+
       td:nth-child(4),
       // src
       td:nth-child(6) {
@@ -620,6 +630,7 @@ html #expand-internal-rules {
 }
 
 html #expand-group-rules {
+
   &,
   ~.group-rule {
     td {
@@ -652,7 +663,7 @@ html .bootstrap-dialog-message {
 
 // wrap white in Peers column
 table#dialogEditWireguardServer {
-  > tbody > tr > td:nth-last-child(2) {
+  >tbody>tr>td:nth-last-child(2) {
     white-space: normal;
   }
 }
@@ -665,6 +676,7 @@ html .color-menu.dropdown-menu.color-menu--inline {
 // /ui/diagnostics/traffic
 #graph {
   color: $theme-text-secondary;
+
   .chart-container {
     @extend .panel;
     @extend .panel-default;
@@ -678,6 +690,7 @@ html .color-menu.dropdown-menu.color-menu--inline {
       @extend h5;
       margin: 0 0 0.25em 0;
     }
+
     .stats-inner-text {
       @extend .text-muted;
       @extend h6;
@@ -685,6 +698,7 @@ html .color-menu.dropdown-menu.color-menu--inline {
       text-transform: uppercase;
     }
   }
+
   #qGraphTitle {
     font-weight: normal;
   }
