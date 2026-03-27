@@ -74,7 +74,12 @@ tr.selectable-row {
     user-select: none;
   }
 }
-
+.control-label {
+  &:hover {
+    cursor: pointer;
+    user-select: none;
+  }
+}
 label.control-label.legacy-label {
   font-weight: normal !important;
 

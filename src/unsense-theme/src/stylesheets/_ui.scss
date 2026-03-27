@@ -29,7 +29,7 @@
 }
 
 // align buttons to the right, apply BS formatting to Cancel button
-td:has(.btn-primary):has(.btn-default) {
+td:has(.btn-primary):has(.btn-default):not(.button-th) {
   button {
     float: right
   }
@@ -129,12 +129,17 @@ form>table.table,
   >tbody>tr {
     min-height: 3em;
 
+    >td:first-child {
+      border-top: none;
+      white-space: nowrap;
+    }
+
     >td {
       border-top: none;
 
       .control-label,
       &:has([class*="fa-info-circle"]) {
-        white-space: normal;
+        white-space: nowrap;
         @extend .control-label;
       }
     }
@@ -536,6 +541,23 @@ table.table.opnsense-rules {
   >tbody {
     >tr {
 
+      >td.button-th {
+        display: flex;
+        flex-direction: row;
+        justify-content: end;
+
+        >.btn.btn-default {
+          @extend .btn;
+          @extend .btn-sm;
+          margin-left: 0.25rem;
+        }
+
+        >a {
+          @extend .btn;
+          @extend .btn-sm;
+        }
+      }
+
       td:nth-child(4),
       // src
       td:nth-child(6) {
@@ -734,8 +756,8 @@ html .tabulator {
   // Header
   .tabulator-header {
     background-color: $theme-bg-secondary;
+    border: none;
     border-bottom: 1px solid $theme-border-primary;
-    border-top-color: transparent;
     color: $theme-text-primary;
 
     .tabulator-headers {
@@ -799,6 +821,32 @@ html .tabulator {
       border-color: $input-border;
       color: $input-color;
     }
+
+    .tabulator-footer-contents {
+      .bootgrid-footer-commands {
+        display: flex;
+        justify-content: flex-end;
+        gap: 0.5rem;
+      }
+
+      .btn.command-add {
+        padding-left: 2rem;
+        padding-right: 2rem;
+      }
+    }
+  }
+
+  // empty state
+  .tabulator-placeholder {
+    color: $theme-text-secondary;
+    text-align: center;
+    padding: 0.5rem 0 0 0;
+    display: block;
+  }
+
+  .tabulator-page-counter {
+    color: $theme-text-secondary;
+    font-size: small;
   }
 }
 
@@ -848,4 +896,12 @@ html .tabulator .tabulator-footer .tabulator-page.tabulator-page {
     border-color: $pagination-disabled-border;
     color: $pagination-disabled-color;
   }
+}
+
+.input-group {
+  margin-left: 0.25rem;
+}
+
+.show[data-for^="help"] {
+  white-space: wrap;
 }
